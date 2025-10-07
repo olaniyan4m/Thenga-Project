@@ -1,0 +1,111 @@
+const cacheName = "pezela-business-v1";
+const appShellFiles = [
+  "/",
+  "/index.html",
+  "/manifest.json",
+  "/sw.js",
+  "/assets/index-D7ZXutcm.css",
+  "/assets/index-DQvnvixL.js",
+  "/icon-72.png",
+  "/icon-96.png",
+  "/icon-128.png",
+  "/icon-144.png",
+  "/icon-152.png",
+  "/icon-192.png",
+  "/icon-384.png",
+  "/icon-512.png",
+  "/icon-192-maskable.png",
+  "/icon-512-maskable.png"
+];
+
+const businessImages = [];
+const businessData = [
+  { slug: 'dashboard' },
+  { slug: 'orders' },
+  { slug: 'payments' },
+  { slug: 'products' },
+  { slug: 'analytics' }
+];
+
+for (const item of businessData) {
+  businessImages.push(`/assets/images/${item.slug}.jpg`);
+}
+const contentToCache = appShellFiles.concat(businessImages);
+
+self.addEventListener("install", (e) => {
+  console.log("[Service Worker] Install");
+  e.waitUntil(
+    (async () => {
+      const cache = await caches.open(cacheName);
+      console.log("[Service Worker] Caching all: app shell and content");
+      await cache.addAll(contentToCache);
+    })(),
+  );
+});
+
+self.addEventListener("activate", (e) => {
+  e.waitUntil(
+    caches.keys().then((keyList) =>
+      Promise.all(
+        keyList.map((key) => {
+          if (key === cacheName) {
+            return undefined;
+          }
+          return caches.delete(key);
+        }),
+      ),
+    ),
+  );
+});
+
+self.addEventListener("fetch", (e) => {
+  e.respondWith(
+    (async () => {
+      const r = await caches.match(e.request);
+      console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
+      if (r) {
+        return r;
+      }
+      const response = await fetch(e.request);
+      const cache = await caches.open(cacheName);
+      console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
+      cache.put(e.request, response.clone());
+      return response;
+    })(),
+  );
+});
+
+// Push Notifications
+self.addEventListener('push', (event) => {
+  event.waitUntil(
+    self.registration.showNotification('Pezela Business', {
+      body: 'New business update available',
+      icon: '/icon-192.png',
+    });
+  );
+});
+
+// Notification Click Handler
+self.addEventListener('notificationclick', (event) => {
+    event.notification.close(); 
+    var fullPath = self.location.origin + event.notification.data.path; 
+    clients.openWindow(fullPath); 
+});
+
+// Background Sync
+self.addEventListener('sync', event => {
+  if (event.tag === 'database-sync') {
+    event.waitUntil(
+      pushLocalDataToDatabase();
+    );
+  }
+});
+
+// Periodic Background Sync
+self.addEventListener('periodicsync', event => {
+  if (event.tag === 'fetch-new-content') {
+    event.waitUntil(
+      fetchNewContent();
+    );
+  }
+});

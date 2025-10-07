@@ -1,0 +1,39 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "Medium",
+      "text": "Pezela Business Dashboard",
+      "horizontalAlignment": "Center",
+      "weight": "Bolder"
+    },
+    {
+      "type": "TextBlock",
+      "spacing": "Large",
+      "weight": "Bolder",
+      "horizontalAlignment": "Center",
+      "text": "Today's Revenue: ${revenue}"
+    },
+    {
+      "type": "TextBlock",
+      "spacing": "Medium",
+      "horizontalAlignment": "Center",
+      "text": "Orders: ${orders} | Payments: ${payments}"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "View Dashboard",
+      "verb": "view-dashboard"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Manage Orders",
+      "verb": "manage-orders"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5"
+}

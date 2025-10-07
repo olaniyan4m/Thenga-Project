@@ -1,0 +1,419 @@
+# 🚀 Pezela Production Kubernetes Deployment
+# This configuration deploys Pezela to production AWS EKS cluster
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pezela-production
+  labels:
+    name: pezela-production
+    environment: production
+
+---
+# PostgreSQL Database
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgres-secret
+  namespace: pezela-production
+type: Opaque
+data:
+  # Base64 encoded values - replace with actual values
+  postgres-password: cGV6ZWxhX3Byb2R1Y3Rpb25fcGFzc3dvcmQ=  # pezela_production_password
+  postgres-user: cGV6ZWxhX3VzZXI=  # pezela_user
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  namespace: pezela-production
+data:
+  POSTGRES_DB: pezela_production
+  POSTGRES_USER: pezela_user
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: pezela-production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15-alpine
+        ports:
+        - containerPort: 5432
+        envFrom:
+        - configMapRef:
+            name: postgres-config
+        - secretRef:
+            name: postgres-secret
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+      volumes:
+      - name: postgres-storage
+        persistentVolumeClaim:
+          claimName: postgres-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: pezela-production
+spec:
+  selector:
+    app: postgres
+  ports:
+  - port: 5432
+    targetPort: 5432
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+  namespace: pezela-production
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+
+---
+# Redis Cache
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: pezela-production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:7-alpine
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "200m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+  namespace: pezela-production
+spec:
+  selector:
+    app: redis
+  ports:
+  - port: 6379
+    targetPort: 6379
+  type: ClusterIP
+
+---
+# API Gateway
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-gateway-secret
+  namespace: pezela-production
+type: Opaque
+data:
+  # Base64 encoded values - replace with actual values
+  jwt-secret: eW91ci1zdXBlci1zZWN1cmUtand0LXNlY3JldC1rZXk=  # your-super-secure-jwt-secret-key
+  payfast-merchant-id: eW91ci1wYXlmYXN0LW1lcmNoYW50LWlk  # your-payfast-merchant-id
+  payfast-merchant-key: eW91ci1wYXlmYXN0LW1lcmNoYW50LWtleQ==  # your-payfast-merchant-key
+  whatsapp-access-token: eW91ci13aGF0c2FwcC1hY2Nlc3MtdG9rZW4=  # your-whatsapp-access-token
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+  namespace: pezela-production
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+      - name: api-gateway
+        image: pezela/api-gateway:latest
+        ports:
+        - containerPort: 3001
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: DATABASE_URL
+          value: "postgresql://pezela_user:password@postgres-service:5432/pezela_production"
+        - name: REDIS_URL
+          value: "redis://redis-service:6379"
+        - name: PORT
+          value: "3001"
+        envFrom:
+        - secretRef:
+            name: api-gateway-secret
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3001
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3001
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway-service
+  namespace: pezela-production
+spec:
+  selector:
+    app: api-gateway
+  ports:
+  - port: 80
+    targetPort: 3001
+  type: LoadBalancer
+
+---
+# PWA Frontend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pwa
+  namespace: pezela-production
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pwa
+  template:
+    metadata:
+      labels:
+        app: pwa
+    spec:
+      containers:
+      - name: pwa
+        image: pezela/pwa:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: API_BASE_URL
+          value: "https://api.pezela.co.za"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pwa-service
+  namespace: pezela-production
+spec:
+  selector:
+    app: pwa
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: LoadBalancer
+
+---
+# Ingress for external access
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pezela-ingress
+  namespace: pezela-production
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  tls:
+  - hosts:
+    - api.pezela.co.za
+    - app.pezela.co.za
+    secretName: pezela-tls
+  rules:
+  - host: api.pezela.co.za
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: api-gateway-service
+            port:
+              number: 80
+  - host: app.pezela.co.za
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: pwa-service
+            port:
+              number: 80
+
+---
+# Horizontal Pod Autoscaler
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: api-gateway-hpa
+  namespace: pezela-production
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: api-gateway
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+
+---
+# Monitoring with Prometheus
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+  namespace: pezela-production
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 15s
+    scrape_configs:
+    - job_name: 'api-gateway'
+      static_configs:
+      - targets: ['api-gateway-service:80']
+    - job_name: 'pwa'
+      static_configs:
+      - targets: ['pwa-service:80']
+
+---
+# Grafana Dashboard
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: pezela-production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+      - name: grafana
+        image: grafana/grafana:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "200m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-service
+  namespace: pezela-production
+spec:
+  selector:
+    app: grafana
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: LoadBalancer

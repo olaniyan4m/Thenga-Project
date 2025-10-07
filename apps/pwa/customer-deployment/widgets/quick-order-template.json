@@ -1,0 +1,39 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "Medium",
+      "text": "Thenga Customer",
+      "horizontalAlignment": "Center",
+      "weight": "Bolder"
+    },
+    {
+      "type": "TextBlock",
+      "spacing": "Large",
+      "weight": "Bolder",
+      "horizontalAlignment": "Center",
+      "text": "Cart: ${cartItems} items"
+    },
+    {
+      "type": "TextBlock",
+      "spacing": "Medium",
+      "horizontalAlignment": "Center",
+      "text": "Total: ${cartTotal}"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Order Now",
+      "verb": "order-now"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Track Order",
+      "verb": "track-order"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5"
+}

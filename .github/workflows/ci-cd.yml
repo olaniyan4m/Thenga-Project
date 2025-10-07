@@ -1,0 +1,125 @@
+name: React Native CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: apps/mobile-app/package-lock.json
+    
+    - name: Install dependencies
+      run: |
+        cd apps/mobile-app
+        npm ci
+    
+    - name: Run tests
+      run: |
+        cd apps/mobile-app
+        npm test
+    
+    - name: Run linting
+      run: |
+        cd apps/mobile-app
+        npm run lint
+
+  build-ios:
+    runs-on: macos-latest
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: apps/mobile-app/package-lock.json
+    
+    - name: Install dependencies
+      run: |
+        cd apps/mobile-app
+        npm ci
+    
+    - name: Install iOS dependencies
+      run: |
+        cd apps/mobile-app/ios
+        pod install
+    
+    - name: Bundle React Native
+      run: |
+        cd apps/mobile-app
+        npx react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/main.jsbundle
+    
+    - name: Build iOS
+      run: |
+        cd apps/mobile-app/ios
+        xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination generic/platform=iOS -archivePath Thenga.xcarchive archive
+    
+    - name: Export IPA
+      run: |
+        cd apps/mobile-app/ios
+        xcodebuild -exportArchive -archivePath Thenga.xcarchive -exportPath . -exportOptionsPlist ExportOptions.plist
+    
+    - name: Upload to TestFlight
+      uses: apple-actions/upload-testflight-build@v1
+      with:
+        app-path: 'apps/mobile-app/ios/Thenga.ipa'
+        issuer-id: ${{ secrets.APPLE_ISSUER_ID }}
+        api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
+        api-private-key: ${{ secrets.APPLE_API_PRIVATE_KEY }}
+
+  build-android:
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: apps/mobile-app/package-lock.json
+    
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+    
+    - name: Install dependencies
+      run: |
+        cd apps/mobile-app
+        npm ci
+    
+    - name: Bundle React Native
+      run: |
+        cd apps/mobile-app
+        npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle
+    
+    - name: Build Android
+      run: |
+        cd apps/mobile-app/android
+        ./gradlew assembleRelease
+    
+    - name: Upload to Play Store
+      uses: r0adkll/upload-google-play@v1
+      with:
+        serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT }}
+        packageName: com.thenga.mobileapp
+        releaseFiles: apps/mobile-app/android/app/build/outputs/bundle/release/*.aab
+        track: internal

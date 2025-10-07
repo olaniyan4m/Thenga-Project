@@ -1,0 +1,22 @@
+WhatsApp Automation Templates
+
+1. Catalogue Intro Message
+"Hello 👋 Thanks for contacting [Business Name]! You can browse our products here:
+[Insert catalogue link or product list]. Just reply with the product code or name to order."
+
+2. Auto-Acknowledge Order
+"Thanks for your order 🙏 We’ve received it and will confirm shortly. Please hold on."
+
+3. Payment Request
+"Your total is R[amount]. Please pay using this secure QR/Link:
+[Insert QR code link or payment link]. Once payment is received, we’ll confirm your order."
+
+4. Order Confirmation
+"Payment received ✅ Your order #[orderID] is confirmed. We’ll notify you when it’s ready."
+
+5. Daily Summary Message (Owner Only)
+"Hello [Owner Name], here’s your daily sales summary:
+- Total Orders: [x]
+- Total Sales: R[y]
+- Payment Methods: Cash [a], QR [b]
+Good job! 💡 Tip: Keep phone charged during load-shedding with a UPS/power bank."

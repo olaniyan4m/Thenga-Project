@@ -1,0 +1,26 @@
+{
+  "name": "@pezela/db-migrations",
+  "version": "1.0.0",
+  "description": "Database migrations and schema management for Pezela",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "ts-node prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "db:reset": "prisma migrate reset"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.7.0",
+    "prisma": "^5.7.0",
+    "@pezela/shared-types": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "ts-node": "^10.9.1"
+  }
+}

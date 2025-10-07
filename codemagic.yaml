@@ -14,6 +14,9 @@ workflows:
         XCODE_WORKSPACE: "apps/mobile-app/ios/Thenga.xcworkspace"
         XCODE_SCHEME: "Thenga"
         APP_STORE_APPLE_ID: 1234567890
+        SUPPORT_EMAIL: "support@thenga.mozdev.co.za"
+        SUPPORT_URL: "https://thenga.mozdev.co.za/support"
+        MARKETING_URL: "https://thenga.mozdev.co.za"
     scripts:
       - name: Install npm dependencies
         script: | 

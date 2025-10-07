@@ -1,0 +1,255 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String   @unique
+  email     String   @unique
+  password  String
+  role      UserRole @default(MERCHANT)
+  kycStatus KYCStatus @default(PENDING)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  merchant   Merchant?
+  orders     Order[]
+  payments   Payment[]
+  notifications Notification[]
+
+  @@map("users")
+}
+
+model Merchant {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  businessName String
+  address     String
+  bankDetails Json
+  settings    Json
+  status      Status   @default(ACTIVE)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  user    User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  products Product[]
+  orders  Order[]
+  payments Payment[]
+
+  @@map("merchants")
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  merchantId  String
+  sku         String
+  name        String
+  description String?
+  price       Int      // Stored in cents
+  stock       Int      @default(0)
+  imageUrl    String[]
+  status      Status   @default(ACTIVE)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  merchant Merchant   @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  orderItems OrderItem[]
+
+  @@map("products")
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  merchantId      String
+  customerDetails Json
+  totalAmount     Int         // Stored in cents
+  currency        Currency    @default(ZAR)
+  status          OrderStatus @default(PENDING)
+  paymentStatus   PaymentStatus @default(PENDING)
+  paymentReference String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  // Relations
+  merchant Merchant    @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  items    OrderItem[]
+  payments Payment[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id        String @id @default(cuid())
+  orderId   String
+  productId String
+  quantity  Int
+  unitPrice Int    // Stored in cents
+  totalPrice Int   // Stored in cents
+
+  // Relations
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("order_items")
+}
+
+model Payment {
+  id                    String         @id @default(cuid())
+  orderId               String
+  merchantId             String
+  provider              PaymentProvider
+  providerTransactionId String?
+  status                PaymentStatus  @default(PENDING)
+  amount                Int            // Stored in cents
+  currency              Currency       @default(ZAR)
+  method                PaymentMethod
+  reconciled            Boolean        @default(false)
+  paymentLinkUrl        String?
+  qrCodeUrl             String?
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+
+  // Relations
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+
+  @@map("payments")
+}
+
+model Notification {
+  id         String             @id @default(cuid())
+  targetUserId String
+  merchantId String?
+  channel    NotificationChannel
+  type       NotificationType
+  payload    Json
+  status     Status             @default(ACTIVE)
+  sentAt     DateTime           @default(now())
+  readAt     DateTime?
+
+  // Relations
+  targetUser User @relation(fields: [targetUserId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
+model AuditLog {
+  id         String         @id @default(cuid())
+  entityType AuditEntityType
+  entityId   String
+  action     AuditAction
+  userId     String?
+  timestamp  DateTime       @default(now())
+  details    Json?
+
+  @@map("audit_logs")
+}
+
+// Enums
+enum UserRole {
+  MERCHANT
+  ADMIN
+  CUSTOMER
+}
+
+enum KYCStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  PENDING
+  SUSPENDED
+  DELETED
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  READY
+  COMPLETED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum Currency {
+  ZAR
+  USD
+}
+
+enum PaymentProvider {
+  PAYFAST
+  YOCO
+  SNAPSCAN
+  ZAPPER
+  PEACHPAYMENTS
+  STRIPE
+  CHECKOUT_COM
+  CASH
+  OTHER
+}
+
+enum PaymentMethod {
+  CARD
+  EFT
+  QR
+  CASH
+  OTHER
+}
+
+enum NotificationChannel {
+  WHATSAPP
+  SMS
+  PUSH
+  EMAIL
+}
+
+enum NotificationType {
+  ORDER_CONFIRMATION
+  PAYMENT_RECEIVED
+  DAILY_SUMMARY
+  MARKETING
+  ADMIN_ALERT
+}
+
+enum AuditEntityType {
+  USER
+  MERCHANT
+  PRODUCT
+  ORDER
+  PAYMENT
+  ADMIN
+}
+
+enum AuditAction {
+  CREATE
+  READ
+  UPDATE
+  DELETE
+  LOGIN
+  LOGOUT
+  VERIFY
+  REFUND
+}

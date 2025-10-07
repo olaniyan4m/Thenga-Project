@@ -1,0 +1,264 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Pezela Production Dashboard",
+    "tags": ["pezela", "production", "monitoring"],
+    "style": "dark",
+    "timezone": "Africa/Johannesburg",
+    "panels": [
+      {
+        "id": 1,
+        "title": "API Gateway - Request Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(http_requests_total{job=\"api-gateway\"}[5m])",
+            "legendFormat": "{{method}} {{endpoint}}"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Requests/sec",
+            "min": 0
+          }
+        ],
+        "xAxes": [
+          {
+            "type": "time"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "title": "API Gateway - Response Time",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{job=\"api-gateway\"}[5m]))",
+            "legendFormat": "95th percentile"
+          },
+          {
+            "expr": "histogram_quantile(0.50, rate(http_request_duration_seconds_bucket{job=\"api-gateway\"}[5m]))",
+            "legendFormat": "50th percentile"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Response Time (s)",
+            "min": 0
+          }
+        ],
+        "xAxes": [
+          {
+            "type": "time"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "title": "Error Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(http_requests_total{job=\"api-gateway\",status=~\"5..\"}[5m])",
+            "legendFormat": "5xx Errors"
+          },
+          {
+            "expr": "rate(http_requests_total{job=\"api-gateway\",status=~\"4..\"}[5m])",
+            "legendFormat": "4xx Errors"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Errors/sec",
+            "min": 0
+          }
+        ],
+        "xAxes": [
+          {
+            "type": "time"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        }
+      },
+      {
+        "id": 4,
+        "title": "Database Connections",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "postgresql_stat_activity_count",
+            "legendFormat": "Active Connections"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Connections",
+            "min": 0
+          }
+        ],
+        "xAxes": [
+          {
+            "type": "time"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        }
+      },
+      {
+        "id": 5,
+        "title": "Memory Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "container_memory_usage_bytes{name=~\"api-gateway.*\"}",
+            "legendFormat": "{{name}}"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Memory (bytes)",
+            "min": 0
+          }
+        ],
+        "xAxes": [
+          {
+            "type": "time"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 16
+        }
+      },
+      {
+        "id": 6,
+        "title": "CPU Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(container_cpu_usage_seconds_total{name=~\"api-gateway.*\"}[5m])",
+            "legendFormat": "{{name}}"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "CPU Usage",
+            "min": 0,
+            "max": 1
+          }
+        ],
+        "xAxes": [
+          {
+            "type": "time"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 16
+        }
+      },
+      {
+        "id": 7,
+        "title": "Payment Success Rate",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "rate(payments_successful_total[1h]) / rate(payments_total[1h]) * 100",
+            "legendFormat": "Success Rate %"
+          }
+        ],
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 0,
+          "y": 24
+        }
+      },
+      {
+        "id": 8,
+        "title": "Active Users (24h)",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "count(count by (user_id) (rate(http_requests_total{job=\"api-gateway\"}[24h])))",
+            "legendFormat": "Active Users"
+          }
+        ],
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 6,
+          "y": 24
+        }
+      },
+      {
+        "id": 9,
+        "title": "Orders Today",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "increase(orders_created_total[1d])",
+            "legendFormat": "Orders"
+          }
+        ],
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 24
+        }
+      },
+      {
+        "id": 10,
+        "title": "Revenue Today (ZAR)",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "increase(payments_amount_total[1d])",
+            "legendFormat": "R {{value}}"
+          }
+        ],
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 18,
+          "y": 24
+        }
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "refresh": "30s",
+    "schemaVersion": 16,
+    "version": 1,
+    "links": []
+  }
+}

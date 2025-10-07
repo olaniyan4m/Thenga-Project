@@ -1,0 +1,285 @@
+{
+  "name": "Thenga Customer - Shop & Order Online",
+  "short_name": "Thenga Customer",
+  "description": "Shop and order delicious food online with Thenga. Browse our menu, place orders, and track deliveries in real-time.",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "tabbed", "standalone", "minimal-ui", "browser"],
+  "background_color": "#2E7D32",
+  "theme_color": "#2E7D32",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "id": "/?homescreen=1",
+  "icons": [
+    {
+      "src": "/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["shopping", "food", "ecommerce", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view showing Thenga Customer shopping interface with product catalog and cart"
+    },
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop view showing Thenga Customer full shopping experience with menu and checkout"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Shop Now",
+      "short_name": "Shop",
+      "description": "Browse and order food",
+      "url": "/#customer/shop",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Track Orders",
+      "short_name": "Orders",
+      "description": "View your orders",
+      "url": "/#customer/orders",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "My Cart",
+      "short_name": "Cart",
+      "description": "View and manage your shopping cart",
+      "url": "/#customer/cart",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Favorites",
+      "short_name": "Favorites",
+      "description": "View your favorite food items",
+      "url": "/#customer/favorites",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Account",
+      "short_name": "Account",
+      "description": "Manage your account settings",
+      "url": "/#customer/account",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://thenga.mozdev.co.za",
+      "id": "thenga-business"
+    },
+    {
+      "platform": "windows",
+      "url": "https://customerthenga.mozdev.co.za",
+      "id": "com.thenga.customer"
+    }
+  ],
+  "prefer_related_applications": false,
+  "iarc_rating_id": "e58c174a-81d2-5c3c-32cc-34b8de4a52e9",
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  "handle_links": "preferred",
+  "tab_strip": {
+    "home_tab": {
+      "scope_patterns": [
+        {"pathname": "/"},
+        {"pathname": "/index.html"}
+      ]
+    },
+    "new_tab_button": {
+      "url": "/#customer"
+    }
+  },
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "widgets": [
+    {
+      "name": "Thenga Customer Quick Order",
+      "description": "Quick access to order food and track deliveries",
+      "tag": "thenga-customer-quick-order",
+      "template": "customer-quick-order-template",
+      "ms_ac_template": "widgets/quick-order-template.json",
+      "data": "widgets/quick-order-data.json",
+      "type": "application/json",
+      "screenshots": [
+        {
+          "src": "./screenshot-widget-customer.png",
+          "sizes": "600x400",
+          "label": "Thenga Customer quick order widget"
+        }
+      ],
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ],
+      "auth": false,
+      "update": 86400
+    }
+  ],
+  "note_taking": {
+    "new_note_url": "/#customer/notes"
+  },
+  "file_handlers": [
+    {
+      "action": "/#customer/orders",
+      "accept": {
+        "application/pdf": [".pdf"],
+        "text/plain": [".txt"],
+        "text/csv": [".csv"]
+      },
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ],
+      "launch_type": "single-client"
+    },
+    {
+      "action": "/#customer/shop",
+      "accept": {
+        "image/jpeg": [".jpg", ".jpeg"],
+        "image/png": [".png"],
+        "image/gif": [".gif"],
+        "image/webp": [".webp"]
+      },
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ],
+      "launch_type": "single-client"
+    }
+  ],
+  "scope_extensions": [
+    {"origin": "*.thenga.co.za"},
+    {"origin": "customerthenga.mozdev.co.za"},
+    {"origin": "*.mozdev.co.za"}
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+thenga-customer",
+      "url": "/#customer?action=%s"
+    },
+    {
+      "protocol": "web+thenga-shop",
+      "url": "/#customer/shop?product=%s"
+    },
+    {
+      "protocol": "web+thenga-order",
+      "url": "/#customer/orders?order=%s"
+    },
+    {
+      "protocol": "web+thenga-cart",
+      "url": "/#customer/shop?cart=%s"
+    }
+  ]
+}

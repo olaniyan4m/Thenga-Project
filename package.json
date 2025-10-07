@@ -1,0 +1,54 @@
+{
+  "name": "thenga",
+  "version": "1.0.0",
+  "description": "Thenga - Digital commerce platform for micro and small businesses in South Africa",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "build": "nx run-many --target=build",
+    "test": "nx run-many --target=test",
+    "lint": "nx run-many --target=lint",
+    "dev": "nx run-many --target=serve --parallel",
+    "dev:mobile": "nx serve mobile-app",
+    "dev:pwa": "nx serve pwa",
+    "dev:admin": "nx serve admin",
+    "dev:api": "nx serve api-gateway",
+    "type-check": "nx run-many --target=type-check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@nx/js": "^17.2.0",
+    "@nx/react": "^17.2.0",
+    "@nx/react-native": "^17.2.0",
+    "@nx/nest": "^17.2.0",
+    "@nx/eslint": "^17.2.0",
+    "@nx/eslint-plugin": "^17.2.0",
+    "@nx/prettier": "^17.2.0",
+    "@nx/workspace": "^17.2.0",
+    "nx": "^17.2.0",
+    "typescript": "^5.3.0",
+    "prettier": "^3.1.0",
+    "eslint": "^8.55.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Lindi's Bakery",
+    "phone": "+27830000001",
+    "businessName": "Lindi Bakes"
+  },
+  {
+    "name": "Mzansi Spaza",
+    "phone": "+27830000002",
+    "businessName": "Mzansi Spaza"
+  },
+  {
+    "name": "Sizwe Salon",
+    "phone": "+27830000003",
+    "businessName": "Sizwe Salon"
+  },
+  {
+    "name": "Tumi Catering",
+    "phone": "+27830000004",
+    "businessName": "Tumi Catering"
+  },
+  {
+    "name": "Bongani Groceries",
+    "phone": "+27830000005",
+    "businessName": "Bongani Groceries"
+  }
+]

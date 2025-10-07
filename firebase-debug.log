@@ -1,0 +1,73 @@
+[debug] [2025-10-01T06:15:19.002Z] ----------------------------------------------------------------------
+[debug] [2025-10-01T06:15:19.006Z] Command:       /usr/local/Cellar/node/24.5.0/bin/node /usr/local/bin/firebase login
+[debug] [2025-10-01T06:15:19.006Z] CLI Version:   14.10.1
+[debug] [2025-10-01T06:15:19.006Z] Platform:      darwin
+[debug] [2025-10-01T06:15:19.006Z] Node Version:  v24.5.0
+[debug] [2025-10-01T06:15:19.006Z] Time:          Wed Oct 01 2025 08:15:19 GMT+0200 (South Africa Standard Time)
+[debug] [2025-10-01T06:15:19.006Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-01T06:15:19.010Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[error] 
+[error] Error: Cannot run login in non-interactive mode. See login:ci to generate a token for use in non-interactive environments.
+[debug] [2025-10-01T06:23:07.987Z] ----------------------------------------------------------------------
+[debug] [2025-10-01T06:23:07.994Z] Command:       /usr/local/Cellar/node/24.5.0/bin/node /usr/local/bin/firebase projects:list
+[debug] [2025-10-01T06:23:07.995Z] CLI Version:   14.10.1
+[debug] [2025-10-01T06:23:07.996Z] Platform:      darwin
+[debug] [2025-10-01T06:23:07.996Z] Node Version:  v24.5.0
+[debug] [2025-10-01T06:23:07.996Z] Time:          Wed Oct 01 2025 08:23:07 GMT+0200 (South Africa Standard Time)
+[debug] [2025-10-01T06:23:07.997Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-01T06:23:08.001Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-10-01T06:23:08.559Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-10-01T06:23:08.561Z] > authorizing via signed-in user (olaniyan4m@gmail.com)
+[debug] [2025-10-01T06:23:08.568Z] Checked if tokens are valid: false, expires at: 1759248329806
+[debug] [2025-10-01T06:23:08.569Z] Checked if tokens are valid: false, expires at: 1759248329806
+[debug] [2025-10-01T06:23:08.569Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T06:23:08.571Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T06:23:08.572Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T06:23:09.189Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-10-01T06:23:09.190Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-10-01T06:23:09.418Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T06:23:09.418Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T06:23:09.469Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-10-01T06:23:11.003Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-10-01T06:23:11.003Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] ┌──────────────────────┬──────────────────────┬────────────────┬──────────────────────┐
+│ Project Display Name │ Project ID           │ Project Number │ Resource Location ID │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Aivista              │ aivista-453f1        │ 982736675572   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ CMSI                 │ cmsi-7f73d           │ 317040189921   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ build                │ corebank-ai-demo     │ 228255874663   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Corebank-Monolith    │ corebank-monolith    │ 938347656571   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Dashley              │ dashley-2c758        │ 673925963908   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ DigiMedix            │ digimedix-d4740      │ 1094192385957  │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Finbank              │ finbank-c1994        │ 556599895538   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Fziro                │ fziro-15464          │ 1016084546358  │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Gymo                 │ gymo-b2d30           │ 710925870930   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Home Loan Model      │ home-loan-model      │ 580682680924   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ HomePro              │ homepro-b60ba        │ 1006075878624  │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Loyalty Wallet       │ loyalty-wallet-a8c12 │ 455229722312   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Modev Agent          │ modev-agent          │ 388143164849   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Pezela               │ pezela               │ 130842827895   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Supply Chain         │ supply-chain-4dd4a   │ 1016618844098  │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ VendoBridge          │ vendobridge          │ 767060926419   │ [Not specified]      │
+├──────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
+│ Vigilo Fight Crime   │ vigilo-fight-crime   │ 1033793270868  │ [Not specified]      │
+└──────────────────────┴──────────────────────┴────────────────┴──────────────────────┘
+[info] 
+[info] 17 project(s) total.

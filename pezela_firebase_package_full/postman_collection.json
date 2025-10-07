@@ -1,0 +1,53 @@
+{
+  "info": {
+    "name": "Pezela API - Postman Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5001/<project>/us-central1/api/health",
+          "host": [
+            "http://localhost:5001"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Register Merchant",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \\\"name\\\": \\\"Demo\\\",\\n  \\\"phone\\\": \\\"+27831234567\\\",\\n  \\\"businessName\\\": \\\"DemoShop\\\"\\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \\\"name\\\": \\\"Loaf\\\",\\n  \\\"price\\\": 25\\n}"
+        }
+      }
+    }
+  ]
+}

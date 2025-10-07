@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thenga Business App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #2E7D32;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: #1B5E20;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+        }
+        
+        .app-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .loading {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading h2 {
+            margin-bottom: 10px;
+        }
+        
+        .loading p {
+            opacity: 0.8;
+        }
+        
+        .error {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            margin: 20px;
+            border-radius: 10px;
+        }
+        
+        .error h2 {
+            color: #f44336;
+            margin-bottom: 15px;
+        }
+        
+        .error p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .retry-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .retry-btn:hover {
+            background: #d32f2f;
+        }
+        
+        .app-frame {
+            flex: 1;
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .status-bar {
+            background: rgba(0,0,0,0.1);
+            padding: 10px 20px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4CAF50;
+        }
+        
+        .status-dot.error {
+            background: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏢 Thenga Business App</h1>
+        <p>Your real business management application</p>
+    </div>
+    
+    <div class="app-container">
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <h2>Loading Your Business App...</h2>
+            <p>Connecting to your real Thenga Business application</p>
+        </div>
+        
+        <div id="error" class="error" style="display: none;">
+            <h2>❌ Connection Error</h2>
+            <p>Cannot connect to your Business App. Make sure it's running on port 3001.</p>
+            <button class="retry-btn" onclick="loadApp()">Retry Connection</button>
+        </div>
+        
+        <div id="app-frame-container" style="display: none;">
+            <div class="status-bar">
+                <div class="status-indicator">
+                    <div class="status-dot" id="status-dot"></div>
+                    <span id="status-text">Connected to Business App</span>
+                </div>
+                <div>Thenga Business v2.0</div>
+            </div>
+            <iframe id="app-frame" class="app-frame" src="http://192.168.0.173:3001/"></iframe>
+        </div>
+    </div>
+    
+    <script>
+        function loadApp() {
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const appFrameContainer = document.getElementById('app-frame-container');
+            const appFrame = document.getElementById('app-frame');
+            const statusDot = document.getElementById('status-dot');
+            const statusText = document.getElementById('status-text');
+            
+            // Show loading
+            loading.style.display = 'flex';
+            error.style.display = 'none';
+            appFrameContainer.style.display = 'none';
+            
+            // Test connection
+            fetch('http://192.168.0.173:3001/', { mode: 'no-cors' })
+                .then(() => {
+                    // Connection successful
+                    loading.style.display = 'none';
+                    error.style.display = 'none';
+                    appFrameContainer.style.display = 'block';
+                    statusDot.classList.remove('error');
+                    statusText.textContent = 'Connected to Business App';
+                })
+                .catch(() => {
+                    // Connection failed
+                    loading.style.display = 'none';
+                    error.style.display = 'flex';
+                    appFrameContainer.style.display = 'none';
+                });
+        }
+        
+        // Load app on page load
+        loadApp();
+        
+        // Check connection every 10 seconds
+        setInterval(() => {
+            fetch('http://192.168.0.173:3001/', { mode: 'no-cors' })
+                .then(() => {
+                    document.getElementById('status-dot').classList.remove('error');
+                    document.getElementById('status-text').textContent = 'Connected to Business App';
+                })
+                .catch(() => {
+                    document.getElementById('status-dot').classList.add('error');
+                    document.getElementById('status-text').textContent = 'Connection Lost';
+                });
+        }, 10000);
+    </script>
+</body>
+</html>

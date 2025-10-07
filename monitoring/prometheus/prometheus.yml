@@ -1,0 +1,68 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "rules/*.yml"
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093
+
+scrape_configs:
+  # Prometheus itself
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Node Exporter - System metrics
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+
+  # Redis Exporter
+  - job_name: 'redis-exporter'
+    static_configs:
+      - targets: ['redis-exporter:9121']
+
+  # PostgreSQL Exporter
+  - job_name: 'postgres-exporter'
+    static_configs:
+      - targets: ['postgres-exporter:9187']
+
+  # Pezela API Gateway
+  - job_name: 'pezela-api-gateway'
+    static_configs:
+      - targets: ['api-gateway:3000']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+
+  # Pezela WhatsApp Service
+  - job_name: 'pezela-whatsapp-service'
+    static_configs:
+      - targets: ['whatsapp-service:3001']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+
+  # Pezela Inventory Service
+  - job_name: 'pezela-inventory-service'
+    static_configs:
+      - targets: ['inventory-service:3003']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+
+  # Pezela WebSocket Service
+  - job_name: 'pezela-websocket-service'
+    static_configs:
+      - targets: ['websocket-service:3004']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+
+  # Pezela PWA
+  - job_name: 'pezela-pwa'
+    static_configs:
+      - targets: ['pwa:3000']
+    metrics_path: '/metrics'
+    scrape_interval: 30s

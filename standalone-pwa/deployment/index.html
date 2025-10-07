@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Thenga - Digital Commerce for South Africa</title>
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2E7D32" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Thenga Business" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    
+    <!-- iOS PWA Support -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Thenga Business" />
+    <script type="module" crossorigin src="/assets/index-DQvnvixL.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D7ZXutcm.css">
+    
+    <!-- Tabbed Application Mode Styles -->
+    <style>
+      /* Tabbed application mode styles */
+      @media (display-mode: tabbed) {
+        body {
+          padding-top: 40px; /* Account for tab strip */
+        }
+        
+        .app-header {
+          margin-top: 20px;
+        }
+        
+        .tabbed-mode-indicator {
+          display: block;
+          background: rgba(46, 125, 50, 0.1);
+          border: 1px solid #2E7D32;
+          border-radius: 4px;
+          padding: 8px 12px;
+          margin: 10px 0;
+          font-size: 12px;
+          color: #2E7D32;
+          text-align: center;
+        }
+      }
+      
+      /* Hide tabbed mode indicator in non-tabbed mode */
+      @media not (display-mode: tabbed) {
+        .tabbed-mode-indicator {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <script>
+      // Register Service Worker for PWA functionality (js13kPWA pattern)
+      let swRegistration = null;
+      
+      if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+          .then((reg) => {
+            swRegistration = reg;
+            console.log('SW registered: ', reg);
+            
+            // Request notification permission
+            Notification.requestPermission();
+            
+            // Background Sync Registration
+            if ('serviceWorker' in navigator && 'SyncManager' in window) {
+              navigator.serviceWorker.ready.then(registration => {
+                // Register different sync tags for different data types
+                registration.sync.register('database-sync');
+                registration.sync.register('orders-sync');
+                registration.sync.register('payments-sync');
+                console.log('Background Sync registered');
+              });
+            }
+            
+            // Periodic Background Sync Registration
+            navigator.permissions.query({ name: 'periodic-background-sync' }).then(permission => {
+              if (permission.state == 'granted') {
+                navigator.serviceWorker.ready.then(registration => {
+                  registration.periodicSync.register('fetch-new-content', {
+                    minInterval: 24 * 60 * 60 * 1000 // Once per day
+                  });
+                  registration.periodicSync.register('analytics-sync', {
+                    minInterval: 6 * 60 * 60 * 1000 // Every 6 hours
+                  });
+                  console.log('Periodic Background Sync registered');
+                });
+              } else {
+                console.log('Periodic Background Sync permission not granted');
+              }
+            });
+            
+            // Check for updates
+            reg.addEventListener('updatefound', () => {
+              console.log('SW update found');
+              const newWorker = reg.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  console.log('New SW installed, reloading...');
+                  window.location.reload();
+                }
+              });
+            });
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      }
+      
+      // Listen for service worker messages
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.addEventListener('message', event => {
+          console.log('SW message received:', event.data);
+          
+          if (event.data.type === 'SW_UPDATE') {
+            console.log('Service Worker updated to version:', event.data.version);
+            // Optionally show update notification to user
+          }
+        });
+      }
+      
+      // PWA Install Prompt
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        console.log('PWA install prompt available');
+      });
+      
+      // Handle PWA install
+      function installPWA() {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the install prompt');
+            }
+            deferredPrompt = null;
+          });
+        }
+      }
+      
+      // Background Sync Implementation
+      async function registerBackgroundSync() {
+        // Check to make sure Sync is supported
+        if ('serviceWorker' in navigator && 'SyncManager' in window) {
+          try {
+            // Get our service worker registration
+            const registration = await navigator.serviceWorker.ready;
+            
+            // Register different sync tags for different data types
+            await registration.sync.register('business-orders-sync');
+            await registration.sync.register('business-payments-sync');
+            await registration.sync.register('business-products-sync');
+            await registration.sync.register('business-analytics-sync');
+            
+            console.log('PWA Builder: Background sync registered successfully');
+          } catch (error) {
+            console.log('PWA Builder: Background Sync failed:', error);
+          }
+        } else {
+          console.log('PWA Builder: Background Sync not supported');
+        }
+      }
+      
+      // Periodic Background Sync Implementation
+      async function registerPeriodicBackgroundSync() {
+        try {
+          // Query the user for permission
+          const periodicSyncPermission = await navigator.permissions.query({
+            name: 'periodic-background-sync',
+          });
+          
+          // Check if permission was properly granted
+          if (periodicSyncPermission.state === 'granted') {
+            const registration = await navigator.serviceWorker.ready;
+            
+            // Register periodic sync for different data types
+            await registration.periodicSync.register('business-daily-sync', {
+              minInterval: 24 * 60 * 60 * 1000 // Once per day
+            });
+            
+            await registration.periodicSync.register('business-hourly-sync', {
+              minInterval: 60 * 60 * 1000 // Once per hour
+            });
+            
+            console.log('PWA Builder: Periodic background sync registered successfully');
+          } else {
+            console.log('PWA Builder: Periodic background sync permission not granted');
+          }
+        } catch (error) {
+          console.log('PWA Builder: Periodic background sync failed:', error);
+        }
+      }
+      
+      // Register background sync when app loads
+      window.addEventListener('load', () => {
+        registerBackgroundSync();
+        registerPeriodicBackgroundSync();
+      });
+      
+      // Register background sync when coming back online
+      window.addEventListener('online', () => {
+        console.log('PWA Builder: Connection restored, registering background sync');
+        registerBackgroundSync();
+        registerPeriodicBackgroundSync();
+      });
+      
+      // Push Notification Permission Request
+      async function requestNotificationPermission() {
+        if ('Notification' in window) {
+          try {
+            const permission = await Notification.requestPermission();
+            if (permission === 'granted') {
+              console.log('PWA Builder: Notification permission granted');
+              return true;
+            } else {
+              console.log('PWA Builder: Notification permission denied');
+              return false;
+            }
+          } catch (error) {
+            console.log('PWA Builder: Error requesting notification permission:', error);
+            return false;
+          }
+        } else {
+          console.log('PWA Builder: Notifications not supported');
+          return false;
+        }
+      }
+      
+      // Test notification function
+      async function testNotification() {
+        if (await requestNotificationPermission()) {
+          if ('serviceWorker' in navigator) {
+            const registration = await navigator.serviceWorker.ready;
+            await registration.showNotification('Thenga Business Test', {
+              body: 'This is a test notification from Thenga Business!',
+              icon: '/icon-192.png',
+              badge: '/icon-72.png',
+              tag: 'test-notification',
+              actions: [
+                {
+                  action: 'view',
+                  title: 'View Dashboard',
+                  icon: '/icon-96.png'
+                },
+                {
+                  action: 'orders',
+                  title: 'View Orders',
+                  icon: '/icon-96.png'
+                }
+              ]
+            });
+          }
+        }
+      }
+      
+      // Request notification permission when app loads
+      window.addEventListener('load', () => {
+        requestNotificationPermission();
+      });
+    </script>
+  </body>
+</html>

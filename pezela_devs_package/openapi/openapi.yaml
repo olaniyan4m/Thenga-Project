@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: Pezela Core API
+  version: "1.0.0"
+  description: Core merchant / product /order / payment API for Pezela
+servers:
+  - url: https://api.pezela.co
+paths:
+  /auth/register:
+    post:
+      summary: Register merchant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: Created
+  /auth/login:
+    post:
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: OK
+  /merchants/{merchantId}/catalog:
+    get:
+      summary: List products
+      parameters:
+        - in: path
+          name: merchantId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+      responses:
+        '201':
+          description: Created
+  /merchants/{merchantId}/orders:
+    post:
+      summary: Create order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderCreate'
+      responses:
+        '201':
+          description: Created
+  /payments/webhook:
+    post:
+      summary: Payment webhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Received
+components:
+  schemas:
+    RegisterRequest:
+      type: object
+      required: [name, phone, businessName]
+      properties:
+        name: { type: string }
+        phone: { type: string }
+        businessName: { type: string }
+        email: { type: string }
+    LoginRequest:
+      type: object
+      required: [phone, password]
+      properties:
+        phone: { type: string }
+        password: { type: string }
+    ProductCreate:
+      type: object
+      required: [name, price]
+      properties:
+        name: { type: string }
+        sku: { type: string }
+        price: { type: number }
+        stock: { type: integer }
+    OrderCreate:
+      type: object
+      required: [items, customer]
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              productId: { type: string }
+              quantity: { type: integer }
+        customer:
+          type: object
+          properties:
+            name: { type: string }
+            phone: { type: string }
+            address: { type: string }

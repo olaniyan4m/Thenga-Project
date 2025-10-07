@@ -1,0 +1,1 @@
+Firebase Cloud Functions scaffold for Pezela backend. Run `npm install` then `npm run serve` (requires firebase-tools and emulators).

@@ -1,0 +1,332 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String   @unique
+  email     String?
+  role      UserRole @default(MERCHANT)
+  kycStatus KYCStatus @default(PENDING)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lastLoginAt DateTime?
+
+  // Relations
+  merchant     Merchant?
+  auditLogs    AuditLog[]
+  notifications Notification[]
+
+  @@map("users")
+}
+
+// Merchant model
+model Merchant {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  businessName String
+  businessType String
+  address     Json     // Address type from shared-types
+  phone       String
+  email       String?
+  website     String?
+  bankDetails Json?    // BankDetails type from shared-types
+  settings    Json     @default("{}") // Merchant settings
+  isActive    Boolean  @default(true)
+  isVerified  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  products Product[]
+  orders   Order[]
+  payments Payment[]
+  invoices Invoice[]
+
+  @@map("merchants")
+}
+
+// Product model
+model Product {
+  id          String   @id @default(cuid())
+  merchantId  String
+  sku         String
+  name        String
+  description String?
+  price       Decimal  @db.Decimal(10, 2)
+  cost        Decimal? @db.Decimal(10, 2)
+  stock       Int      @default(0)
+  images      String[] @default([])
+  category    String?
+  tags        String[] @default([])
+  isActive    Boolean  @default(true)
+  isDigital   Boolean  @default(false)
+  weight      Decimal? @db.Decimal(8, 2)
+  dimensions  Json?   // Product dimensions
+  variants    Json     @default("[]") // Product variants
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  merchant Merchant
+  orderItems OrderItem[]
+
+  @@unique([merchantId, sku])
+  @@map("products")
+}
+
+// Order model
+model Order {
+  id              String      @id @default(cuid())
+  merchantId      String
+  orderNumber     String      @unique
+  customerDetails Json        // CustomerDetails type
+  items           Json        // OrderItem[] type
+  subtotal        Decimal     @db.Decimal(10, 2)
+  tax             Decimal     @default(0) @db.Decimal(10, 2)
+  discount        Decimal     @default(0) @db.Decimal(10, 2)
+  totalAmount     Decimal     @db.Decimal(10, 2)
+  currency        String      @default("ZAR")
+  status          OrderStatus @default(PENDING)
+  paymentReference String?
+  notes           String?
+  metadata        Json        @default("{}")
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  confirmedAt     DateTime?
+  completedAt     DateTime?
+
+  // Relations
+  merchant Merchant
+  payments Payment[]
+  orderItems OrderItem[]
+
+  @@map("orders")
+}
+
+// OrderItem model
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  productId String
+  sku       String
+  name      String
+  price     Decimal @db.Decimal(10, 2)
+  quantity  Int
+  variant   Json?   // Product variant details
+
+  // Relations
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("order_items")
+}
+
+// Payment model
+model Payment {
+  id                    String        @id @default(cuid())
+  orderId               String
+  provider              String        // 'payfast', 'yoco', 'snapscan', etc.
+  providerTransactionId String?
+  amount                Decimal       @db.Decimal(10, 2)
+  currency              String        @default("ZAR")
+  method                PaymentMethod
+  status                PaymentStatus @default(PENDING)
+  isReconciled          Boolean       @default(false)
+  paymentUrl            String?
+  qrCode                String?
+  reference              String?
+  metadata              Json          @default("{}")
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+  processedAt           DateTime?
+  failedAt              DateTime?
+  refundedAt            DateTime?
+
+  // Relations
+  order     Order
+  refunds   Refund[]
+  reconciliations PaymentReconciliation[]
+
+  @@map("payments")
+}
+
+// Refund model
+model Refund {
+  id          String      @id @default(cuid())
+  paymentId   String
+  amount      Decimal     @db.Decimal(10, 2)
+  reason      String
+  status      RefundStatus @default(PENDING)
+  reference   String?
+  createdAt   DateTime    @default(now())
+  processedAt DateTime?
+
+  // Relations
+  payment Payment @relation(fields: [paymentId], references: [id])
+
+  @@map("refunds")
+}
+
+// PaymentReconciliation model
+model PaymentReconciliation {
+  id                    String   @id @default(cuid())
+  paymentId             String
+  providerTransactionId  String
+  amount                Decimal  @db.Decimal(10, 2)
+  status                ReconciliationStatus
+  discrepancy           Decimal? @db.Decimal(10, 2)
+  notes                 String?
+  reconciledAt          DateTime @default(now())
+  reconciledBy          String
+
+  // Relations
+  payment Payment @relation(fields: [paymentId], references: [id])
+
+  @@map("payment_reconciliations")
+}
+
+// Invoice model
+model Invoice {
+  id         String   @id @default(cuid())
+  merchantId String
+  orderId    String
+  pdfUrl     String
+  createdAt  DateTime @default(now())
+
+  // Relations
+  merchant Merchant @relation(fields: [merchantId], references: [id])
+
+  @@map("invoices")
+}
+
+// Notification model
+model Notification {
+  id          String              @id @default(cuid())
+  targetUser  String
+  channel     NotificationChannel
+  type        String
+  title       String?
+  message     String
+  payload     Json                @default("{}")
+  status      NotificationStatus  @default(PENDING)
+  priority    NotificationPriority @default(NORMAL)
+  scheduledAt DateTime?
+  sentAt      DateTime?
+  deliveredAt DateTime?
+  failedAt    DateTime?
+  retryCount  Int                  @default(0)
+  maxRetries  Int                  @default(3)
+  error       String?
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+
+  // Relations
+  user User @relation(fields: [targetUser], references: [id])
+
+  @@map("notifications")
+}
+
+// AuditLog model
+model AuditLog {
+  id         String   @id @default(cuid())
+  entityType String
+  entityId   String
+  action     String
+  userId     String?
+  userRole   String?
+  changes    Json?
+  metadata   Json     @default("{}")
+  ipAddress  String?
+  userAgent  String?
+  timestamp  DateTime @default(now())
+
+  // Relations
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("audit_logs")
+}
+
+// Enums
+enum UserRole {
+  MERCHANT
+  ADMIN
+  CUSTOMER
+}
+
+enum KYCStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+  REQUIRES_REVIEW
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  READY
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  CARD
+  EFT
+  QR
+  CASH
+  WALLET
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum RefundStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum ReconciliationStatus {
+  MATCHED
+  UNMATCHED
+  DISCREPANCY
+}
+
+enum NotificationChannel {
+  WHATSAPP
+  SMS
+  EMAIL
+  PUSH
+}
+
+enum NotificationStatus {
+  PENDING
+  SENT
+  DELIVERED
+  FAILED
+}
+
+enum NotificationPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}

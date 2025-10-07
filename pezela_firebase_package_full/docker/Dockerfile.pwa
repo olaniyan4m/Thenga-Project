@@ -1,0 +1,8 @@
+# Dockerfile for React PWA dev preview (not for production)
+FROM node:18
+WORKDIR /usr/src/app
+COPY react_pwa/package.json ./package.json
+RUN npm install --prefix react_pwa
+COPY react_pwa /usr/src/app/react_pwa
+WORKDIR /usr/src/app/react_pwa
+CMD [ "npm", "start" ]

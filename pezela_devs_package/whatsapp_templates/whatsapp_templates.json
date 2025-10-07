@@ -1,0 +1,24 @@
+{
+  "templates": [
+    {
+      "name": "greeting",
+      "language": "en",
+      "text": "Hello \ud83d\udc4b Thanks for contacting {business}. Browse: {catalogue_link}"
+    },
+    {
+      "name": "acknowledge_order",
+      "language": "en",
+      "text": "Thanks {customer_name}! We received your order #{order_id}. Pay: {payment_link}"
+    },
+    {
+      "name": "payment_confirm",
+      "language": "en",
+      "text": "Payment received \u2705 Order #{order_id} is confirmed."
+    },
+    {
+      "name": "daily_summary",
+      "language": "en",
+      "text": "Daily Summary {date}: Orders {total_orders}, Sales R{total_sales}."
+    }
+  ]
+}

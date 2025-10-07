@@ -1,0 +1,321 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  NODE_VERSION: '18'
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # Lint and Test
+  lint-and-test:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint code
+        run: npm run lint
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Run tests
+        run: npm run test
+
+  # Build and Test Mobile App
+  mobile-app:
+    name: Build Mobile App
+    runs-on: macos-latest
+    needs: lint-and-test
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install iOS dependencies
+        run: |
+          cd apps/mobile-app/ios
+          pod install
+
+      - name: Build iOS app
+        run: |
+          cd apps/mobile-app
+          npx react-native run-ios --configuration Release
+
+      - name: Build Android app
+        run: |
+          cd apps/mobile-app
+          npx react-native run-android --variant=release
+
+  # Build and Test PWA
+  pwa:
+    name: Build PWA
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build PWA
+        run: |
+          cd apps/pwa
+          npm run build
+
+      - name: Test PWA build
+        run: |
+          cd apps/pwa
+          npm run preview
+
+  # Build and Test Backend Services
+  backend-services:
+    name: Build Backend Services
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: pezela_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup database
+        run: |
+          cd libs/db-migrations
+          npm run db:push
+
+      - name: Build API Gateway
+        run: |
+          cd services/api-gateway
+          npm run build
+
+      - name: Build Notifications Service
+        run: |
+          cd services/notifications-service
+          npm run build
+
+      - name: Build Payments Service
+        run: |
+          cd services/payments-service
+          npm run build
+
+      - name: Test backend services
+        run: npm run test
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/pezela_test
+          REDIS_URL: redis://localhost:6379
+
+  # Security Scanning
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  # Build and Push Docker Images
+  build-and-push:
+    name: Build and Push Images
+    runs-on: ubuntu-latest
+    needs: [mobile-app, pwa, backend-services]
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push API Gateway
+        uses: docker/build-push-action@v5
+        with:
+          context: ./services/api-gateway
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/api-gateway:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build and push Notifications Service
+        uses: docker/build-push-action@v5
+        with:
+          context: ./services/notifications-service
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/notifications-service:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build and push Payments Service
+        uses: docker/build-push-action@v5
+        with:
+          context: ./services/payments-service
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/payments-service:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build and push PWA
+        uses: docker/build-push-action@v5
+        with:
+          context: ./apps/pwa
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/pwa:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # Deploy to Staging
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    if: github.ref == 'refs/heads/develop'
+    environment: staging
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: af-south-1
+
+      - name: Deploy to EKS
+        run: |
+          # Deploy infrastructure
+          cd infra/terraform
+          terraform init
+          terraform plan -var="environment=staging"
+          terraform apply -auto-approve -var="environment=staging"
+          
+          # Deploy applications
+          aws eks update-kubeconfig --region af-south-1 --name pezela-cluster
+          kubectl apply -f infra/k8s/
+
+  # Deploy to Production
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: af-south-1
+
+      - name: Deploy to EKS
+        run: |
+          # Deploy infrastructure
+          cd infra/terraform
+          terraform init
+          terraform plan -var="environment=production"
+          terraform apply -auto-approve -var="environment=production"
+          
+          # Deploy applications
+          aws eks update-kubeconfig --region af-south-1 --name pezela-cluster
+          kubectl apply -f infra/k8s/
+
+      - name: Run smoke tests
+        run: |
+          # Wait for deployment to be ready
+          kubectl wait --for=condition=available --timeout=300s deployment/api-gateway
+          kubectl wait --for=condition=available --timeout=300s deployment/pwa
+          
+          # Run basic health checks
+          kubectl get pods
+          kubectl get services

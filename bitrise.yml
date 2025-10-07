@@ -1,0 +1,73 @@
+format_version: '11'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+  react-native-ios:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@8: {}
+    - cache-pull@2: {}
+    - npm@1:
+        inputs:
+        - command: install
+        - workdir: apps/mobile-app
+    - react-native-bundle@0:
+        inputs:
+        - platform: ios
+        - workdir: apps/mobile-app
+    - xcode-archive@4:
+        inputs:
+        - project_path: "apps/mobile-app/ios/Thenga.xcworkspace"
+        - scheme: "Thenga"
+        - export_method: "app-store"
+        - configuration: "Release"
+    - deploy-to-itunesconnect-deliver@2:
+        inputs:
+        - itunescon_user: "$APPLE_ID"
+        - password: "$APPLE_APP_SPECIFIC_PASSWORD"
+        - app_id: "$APPLE_APP_ID"
+        - submit_for_review: "false"
+    - cache-push@2: {}
+
+  react-native-android:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@8: {}
+    - cache-pull@2: {}
+    - npm@1:
+        inputs:
+        - command: install
+        - workdir: apps/mobile-app
+    - react-native-bundle@0:
+        inputs:
+        - platform: android
+        - workdir: apps/mobile-app
+    - gradle-runner@1:
+        inputs:
+        - gradle_file: "apps/mobile-app/android/build.gradle"
+        - gradle_task: "assembleRelease"
+    - cache-push@2: {}
+
+  test:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@8: {}
+    - cache-pull@2: {}
+    - npm@1:
+        inputs:
+        - command: install
+        - workdir: apps/mobile-app
+    - npm@1:
+        inputs:
+        - command: test
+        - workdir: apps/mobile-app
+    - cache-push@2: {}
+
+app:
+  envs:
+  - APPLE_ID: $APPLE_ID
+  - APPLE_APP_SPECIFIC_PASSWORD: $APPLE_APP_SPECIFIC_PASSWORD
+  - APPLE_APP_ID: $APPLE_APP_ID

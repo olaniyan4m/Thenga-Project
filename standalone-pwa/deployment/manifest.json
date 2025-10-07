@@ -1,0 +1,310 @@
+{
+  "name": "Thenga Business - Complete Business Management",
+  "short_name": "Thenga Business",
+  "description": "Complete business management solution for South African entrepreneurs. Manage orders, payments, products, tax compliance, and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "tabbed", "standalone", "minimal-ui", "browser"],
+  "background_color": "#2E7D32",
+  "theme_color": "#2E7D32",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "id": "/?homescreen=1",
+  "icons": [
+    {
+      "src": "/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "finance", "utilities"],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view showing Thenga Business dashboard with orders, payments, and analytics"
+    },
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop view showing Thenga Business complete management interface with all features"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "View business dashboard and analytics",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "short_name": "Orders",
+      "description": "Manage customer orders",
+      "url": "/orders",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Payments",
+      "short_name": "Payments",
+      "description": "Track payments and revenue",
+      "url": "/payments",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "short_name": "Products",
+      "description": "Manage inventory and products",
+      "url": "/products",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "short_name": "Settings",
+      "description": "Business settings and configuration",
+      "url": "/settings",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Tax & SARS",
+      "short_name": "Tax",
+      "description": "Tax compliance and SARS submissions",
+      "url": "/settings#tax",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "short_name": "Analytics",
+      "description": "Business analytics and reports",
+      "url": "/#analytics",
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://customerpezela.mozdev.co.za",
+      "id": "pezela-customer"
+    },
+    {
+      "platform": "windows",
+      "url": "https://pezela.mozdev.co.za",
+      "id": "com.pezela.business"
+    }
+  ],
+  "prefer_related_applications": false,
+  "iarc_rating_id": "e58c174a-81d2-5c3c-32cc-34b8de4a52e9",
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  "handle_links": "preferred",
+  "tab_strip": {
+    "home_tab": {
+      "scope_patterns": [
+        {"pathname": "/"},
+        {"pathname": "/index.html"}
+      ]
+    },
+    "new_tab_button": {
+      "url": "/"
+    }
+  },
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "widgets": [
+    {
+      "name": "Thenga Business Dashboard",
+      "description": "Quick access to business dashboard and key metrics",
+      "tag": "pezela-business-dashboard",
+      "template": "business-dashboard-template",
+      "ms_ac_template": "widgets/dashboard-template.json",
+      "data": "widgets/dashboard-data.json",
+      "type": "application/json",
+      "screenshots": [
+        {
+          "src": "./screenshot-widget-business.png",
+          "sizes": "600x400",
+          "label": "Thenga Business dashboard widget"
+        }
+      ],
+      "icons": [
+        {
+          "src": "/icon-96.png",
+          "sizes": "96x96"
+        }
+      ],
+      "auth": false,
+      "update": 86400
+    }
+  ],
+  "note_taking": {
+    "new_note_url": "/#business/notes"
+  },
+  "file_handlers": [
+    {
+      "action": "/#business/orders",
+      "accept": {
+        "application/pdf": [".pdf"],
+        "application/vnd.ms-excel": [".xls"],
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [".xlsx"],
+        "text/csv": [".csv"]
+      },
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ],
+      "launch_type": "single-client"
+    },
+    {
+      "action": "/#business/products",
+      "accept": {
+        "image/jpeg": [".jpg", ".jpeg"],
+        "image/png": [".png"],
+        "image/gif": [".gif"],
+        "image/webp": [".webp"]
+      },
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ],
+      "launch_type": "single-client"
+    }
+  ],
+  "scope_extensions": [
+    {"origin": "*.pezela.co.za"},
+    {"origin": "pezela.mozdev.co.za"},
+    {"origin": "*.mozdev.co.za"}
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+pezela",
+      "url": "/#business?action=%s"
+    },
+    {
+      "protocol": "web+pezela-business",
+      "url": "/#business?action=%s"
+    },
+    {
+      "protocol": "web+pezela-orders",
+      "url": "/#business/orders?order=%s"
+    },
+    {
+      "protocol": "web+pezela-payments",
+      "url": "/#business/payments?payment=%s"
+    }
+  ]
+}
