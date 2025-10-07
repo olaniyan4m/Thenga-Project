@@ -27,13 +27,14 @@ workflows:
           node --version
           npm --version
           
-          # This is an Nx workspace - install all dependencies at once
-          echo "Installing Nx workspace dependencies..."
-          npm install --legacy-peer-deps
+          # Install mobile app dependencies directly
+          echo "Installing mobile app dependencies..."
+          cd apps/mobile-app
+          npm install --legacy-peer-deps --no-optional
           
-          # Verify installation
-          echo "Checking installed packages..."
-          npm list --depth=0
+          # Create node_modules symlink in root for CocoaPods
+          cd ../..
+          ln -sf apps/mobile-app/node_modules node_modules
       - name: Skip code signing setup
         script: |
           echo "Building without code signing for simulator"
