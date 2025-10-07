@@ -9,11 +9,14 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.thenga.commerce
+        team_id: YJJA9A296N
       vars:
         BUNDLE_ID: "com.thenga.commerce"
-        XCODE_WORKSPACE: "apps/mobile-app/ios/Thenga.xcworkspace"
+        XCODE_PROJECT: "apps/mobile-app/ios/Thenga.xcodeproj"
         XCODE_SCHEME: "Thenga"
         APP_STORE_APPLE_ID: 1234567890
+        APPLE_ID: "m.olaniyan@icloud.com"
+        TEAM_ID: "YJJA9A296N"
         SUPPORT_EMAIL: "support@thenga.mozdev.co.za"
         SUPPORT_URL: "https://thenga.mozdev.co.za/support"
         MARKETING_URL: "https://thenga.mozdev.co.za"
@@ -35,7 +38,7 @@ workflows:
       - name: Build ipa for distribution
         script: | 
           xcode-project build-ipa \
-            --workspace "$CM_BUILD_DIR/apps/mobile-app/ios/$XCODE_WORKSPACE" \
+            --project "$CM_BUILD_DIR/apps/mobile-app/ios/$XCODE_PROJECT" \
             --scheme "$XCODE_SCHEME"
     artifacts:
       - build/ios/ipa/*.ipa
@@ -51,6 +54,7 @@ workflows:
           failure: false
       app_store_connect:
         auth: integration
+        apple_id: m.olaniyan@icloud.com
         submit_to_testflight: true
         beta_groups:
           - Testers

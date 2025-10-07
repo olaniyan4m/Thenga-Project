@@ -1,0 +1,20 @@
+# Codemagic Environment Variables for Thenga Project
+# Apple Developer Information
+APPLE_ID: "m.olaniyan@icloud.com"
+TEAM_ID: "YJJA9A296N"
+BUNDLE_ID: "com.thenga.commerce"
+
+# App Store Connect
+APP_STORE_APPLE_ID: "1234567890"  # Replace with your actual App Store Connect App ID
+
+# Project Configuration
+XCODE_PROJECT: "apps/mobile-app/ios/Thenga.xcodeproj"
+XCODE_SCHEME: "Thenga"
+
+# Support Information
+SUPPORT_EMAIL: "support@thenga.mozdev.co.za"
+SUPPORT_URL: "https://thenga.mozdev.co.za/support"
+MARKETING_URL: "https://thenga.mozdev.co.za"
+
+# Email Notifications
+NOTIFICATION_EMAIL: "olaniyan4m@gmail.com"
