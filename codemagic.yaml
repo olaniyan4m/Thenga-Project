@@ -3,8 +3,8 @@ workflows:
     name: React Native iOS
     max_build_duration: 120
     instance_type: mac_mini_m2
-    # integrations:
-    #   app_store_connect: codemagic
+    integrations:
+      app_store_connect: codemagic
     environment:
       ios_signing:
         distribution_type: app_store
@@ -25,45 +25,6 @@ workflows:
         script: | 
           cd apps/mobile-app
           npm install
-      - name: Debug certificates and profiles
-        script: |
-          echo "=== Available Certificates ==="
-          security find-identity -v -p codesigning
-          echo ""
-          echo "=== Available Provisioning Profiles ==="
-          ls ~/Library/MobileDevice/Provisioning\ Profiles/ 2>/dev/null || echo "No profiles found"
-          echo ""
-          echo "=== Team ID Check ==="
-          echo "TEAM_ID: $TEAM_ID"
-          echo "BUNDLE_ID: $BUNDLE_ID"
-          echo ""
-          echo "=== App Store Connect API Check ==="
-          app-store-connect get-apps
-          echo ""
-          echo "=== Try to get certificates from App Store Connect ==="
-          app-store-connect get-certificates || echo "Failed to get certificates"
-      - name: Install local certificates and provisioning profiles
-        script: |
-          # Install certificate
-          security import certificates/ios_distribution.cer -k /Library/Keychains/System.keychain -T /usr/bin/codesign
-          
-          # Install provisioning profile
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp certificates/Thenga_App_Store_Profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
-          
-          # List installed profiles and certificates
-          echo "Installed provisioning profiles:"
-          ls ~/Library/MobileDevice/Provisioning\ Profiles/
-          echo "Installed certificates:"
-          security find-identity -v -p codesigning
-          
-          # Check provisioning profile details
-          echo "Provisioning profile details:"
-          security cms -D -i certificates/Thenga_App_Store_Profile.mobileprovision
-          
-          # Try to match certificate with profile
-          echo "Trying to find matching certificate for profile..."
-          xcode-project use-profiles --verbose
       - name: Set up provisioning profiles settings on Xcode project
         script: xcode-project use-profiles
       - name: Install CocoaPods dependencies
@@ -91,13 +52,13 @@ workflows:
         notify:
           success: true
           failure: false
-      # app_store_connect:
-      #   auth: integration
-      #   apple_id: m.olaniyan@icloud.com
-      #   submit_to_testflight: false
-      #   beta_groups:
-      #     - Testers
-      #   submit_to_app_store: false
+      app_store_connect:
+        auth: integration
+        apple_id: m.olaniyan@icloud.com
+        submit_to_testflight: true
+        beta_groups:
+          - Testers
+        submit_to_app_store: false
 
   react-native-android:
     name: React Native Android
