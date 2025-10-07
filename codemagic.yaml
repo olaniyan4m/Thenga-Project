@@ -8,9 +8,9 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: com.thenga.mobile
+        bundle_identifier: com.thenga.commerce
       vars:
-        BUNDLE_ID: "com.thenga.mobile"
+        BUNDLE_ID: "com.thenga.commerce"
         XCODE_WORKSPACE: "apps/mobile-app/ios/Thenga.xcworkspace"
         XCODE_SCHEME: "Thenga"
         APP_STORE_APPLE_ID: 1234567890
@@ -63,7 +63,7 @@ workflows:
       groups:
         - google_play
       vars:
-        PACKAGE_NAME: "com.thenga.mobile"
+        PACKAGE_NAME: "com.thenga.commerce"
     scripts:
       - name: Set Android SDK location
         script: | 
