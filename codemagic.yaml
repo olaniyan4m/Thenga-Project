@@ -38,52 +38,37 @@ workflows:
       - name: Skip code signing setup
         script: |
           echo "Building without code signing for simulator"
-      - name: Fix CocoaPods and boost checksum issue
+      - name: Skip CocoaPods - Use React Native CLI directly
         script: | 
-          cd apps/mobile-app/ios
+          cd apps/mobile-app
           
           # Debug: Show current directory and files
           echo "Current directory: $(pwd)"
           echo "Files in directory:"
           ls -la
           
-          # Update CocoaPods to latest version
-          gem install cocoapods --no-document
+          # Check if React Native CLI is available
+          echo "Checking React Native CLI..."
+          npx react-native --version
           
-          # Try to manually fix the boost checksum issue
-          echo "Attempting to fix boost checksum issue manually..."
-          
-          # Remove all cached files
-          rm -rf Podfile.lock Pods/ ~/.cocoapods/repos/master/
-          
-          # Clear all caches
-          pod cache clean --all
-          
-          # Update repo
-          pod repo update
-          
-          # Debug: Show Podfile content
-          echo "Podfile content:"
-          cat Podfile
-          
-          # Try installing with specific boost version
-          pod install --repo-update --verbose || {
-            echo "Standard install failed, trying with CDN..."
-            pod install --repo-update --verbose --use-modular-headers
-          }
+          # Skip CocoaPods entirely and use React Native CLI
+          echo "Skipping CocoaPods due to persistent issues..."
+          echo "Using React Native CLI for iOS build instead..."
       - name: Set build number
         script: | 
           cd apps/mobile-app/ios
           agvtool new-version -all $BUILD_NUMBER
-      - name: Build for iOS Simulator
+      - name: Build for iOS Simulator using React Native CLI
         script: | 
-          cd apps/mobile-app/ios
+          cd apps/mobile-app
           
-          # Build using Xcode directly
-          xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 15' build
+          # Use React Native CLI to build for iOS simulator
+          # This will handle dependencies automatically
+          npx react-native run-ios --simulator="iPhone 15" --configuration=Release --no-packager
     artifacts:
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       - apps/mobile-app/ios/build/**/*.app
+      - apps/mobile-app/ios/Build/**/*.app
       - /tmp/xcodebuild_logs/*.log
     publishing:
       email:
