@@ -9,7 +9,6 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.thenga.commerce
-        team_id: YJJA9A296N
       vars:
         BUNDLE_ID: "com.thenga.commerce"
         XCODE_PROJECT: "apps/mobile-app/ios/Thenga.xcodeproj"
