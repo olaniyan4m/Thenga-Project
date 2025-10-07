@@ -25,6 +25,17 @@ workflows:
         script: | 
           cd apps/mobile-app
           npm install
+      - name: Debug certificates and profiles
+        script: |
+          echo "=== Available Certificates ==="
+          security find-identity -v -p codesigning
+          echo ""
+          echo "=== Available Provisioning Profiles ==="
+          ls ~/Library/MobileDevice/Provisioning\ Profiles/ 2>/dev/null || echo "No profiles found"
+          echo ""
+          echo "=== Team ID Check ==="
+          echo "TEAM_ID: $TEAM_ID"
+          echo "BUNDLE_ID: $BUNDLE_ID"
       - name: Set up provisioning profiles settings on Xcode project
         script: xcode-project use-profiles
       - name: Install CocoaPods dependencies
