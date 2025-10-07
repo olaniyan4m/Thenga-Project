@@ -28,8 +28,10 @@ workflows:
       - name: Install CocoaPods dependencies
         script: | 
           cd apps/mobile-app/ios && pod install
-      - name: Set up provisioning profiles settings on Xcode project
-        script: xcode-project use-profiles
+      - name: Set up automatic code signing
+        script: |
+          cd apps/mobile-app/ios
+          xcode-project use-profiles
       - name: Increment build number
         script: | 
           cd apps/mobile-app/ios
