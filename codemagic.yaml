@@ -40,7 +40,19 @@ workflows:
           echo "Building without code signing for simulator"
       - name: Install CocoaPods dependencies
         script: | 
-          cd apps/mobile-app/ios && pod install
+          cd apps/mobile-app/ios
+          
+          # Remove Podfile.lock to force fresh install
+          rm -f Podfile.lock
+          
+          # Clear CocoaPods cache to fix checksum issues
+          pod cache clean --all
+          
+          # Update CocoaPods repo
+          pod repo update
+          
+          # Install with verbose output
+          pod install --verbose --repo-update
       - name: Set build number
         script: | 
           cd apps/mobile-app/ios
