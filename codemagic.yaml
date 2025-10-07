@@ -25,20 +25,14 @@ workflows:
         script: | 
           cd apps/mobile-app
           npm install
-      - name: Install certificates and provisioning profiles
+      - name: Install provisioning profile
         script: |
-          # Install certificate
-          security create-keychain -p "" build.keychain
-          security default-keychain -s build.keychain
-          security unlock-keychain -p "" build.keychain
-          security import certificates/ios_distribution.cer -k build.keychain -T /usr/bin/codesign
-          security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
-          
           # Install provisioning profile
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp certificates/Thenga_App_Store_Profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
           
           # List installed profiles
+          echo "Installed provisioning profiles:"
           ls ~/Library/MobileDevice/Provisioning\ Profiles/
           
           # Set up Xcode project to use the installed profiles
