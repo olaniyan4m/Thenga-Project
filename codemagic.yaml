@@ -56,6 +56,14 @@ workflows:
           ls ~/Library/MobileDevice/Provisioning\ Profiles/
           echo "Installed certificates:"
           security find-identity -v -p codesigning
+          
+          # Check provisioning profile details
+          echo "Provisioning profile details:"
+          security cms -D -i certificates/Thenga_App_Store_Profile.mobileprovision
+          
+          # Try to match certificate with profile
+          echo "Trying to find matching certificate for profile..."
+          xcode-project use-profiles --verbose
       - name: Set up provisioning profiles settings on Xcode project
         script: xcode-project use-profiles
       - name: Install CocoaPods dependencies
