@@ -1,70 +1,99 @@
 workflows:
   react-native-ios:
-    name: Build iOS App
-    instance_type: mac_mini_m1
+    name: React Native iOS
+    max_build_duration: 120
+    instance_type: mac_mini_m2
+    integrations:
+      app_store_connect: codemagic
     environment:
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.thenga.mobileapp
       vars:
+        BUNDLE_ID: "com.thenga.mobileapp"
         XCODE_WORKSPACE: "apps/mobile-app/ios/Thenga.xcworkspace"
         XCODE_SCHEME: "Thenga"
-        APP_STORE_CONNECT_ISSUER_ID: Encrypted(...)
-        APP_STORE_CONNECT_KEY_IDENTIFIER: Encrypted(...)
-        APP_STORE_CONNECT_PRIVATE_KEY: Encrypted(...)
-        APPLE_ID: Encrypted(...)
-        APPLE_APP_SPECIFIC_PASSWORD: Encrypted(...)
-        APP_STORE_CONNECT_API_KEY: Encrypted(...)
-      node: 18
-      xcode: latest
-      cocoapods: default
+        APP_STORE_APPLE_ID: 1555555551
     scripts:
-      - name: Install dependencies
-        script: |
+      - name: Install npm dependencies
+        script: | 
           cd apps/mobile-app
           npm install
-      - name: Install iOS dependencies
-        script: |
+      - name: Install CocoaPods dependencies
+        script: | 
+          cd apps/mobile-app/ios && pod install
+      - name: Set up provisioning profiles settings on Xcode project
+        script: xcode-project use-profiles
+      - name: Increment build number
+        script: | 
           cd apps/mobile-app/ios
-          pod install
-      - name: Bundle React Native assets
-        script: |
-          cd apps/mobile-app
-          npx react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/main.jsbundle
-      - name: Build iOS
-        script: |
-          cd apps/mobile-app/ios
+          LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID")
+          agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
+      - name: Build ipa for distribution
+        script: | 
           xcode-project build-ipa \
-            --workspace "$XCODE_WORKSPACE" \
-            --scheme "$XCODE_SCHEME" \
-            --export-method app-store
+            --workspace "$CM_BUILD_DIR/apps/mobile-app/ios/$XCODE_WORKSPACE" \
+            --scheme "$XCODE_SCHEME"
     artifacts:
       - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
     publishing:
+      email:
+        recipients:
+          - olaniyan4m@gmail.com
+        notify:
+          success: true
+          failure: false
       app_store_connect:
-        api_key: $APP_STORE_CONNECT_API_KEY
-        apple_id: $APPLE_ID
+        auth: integration
         submit_to_testflight: true
+        beta_groups:
+          - Testers
+        submit_to_app_store: false
 
   react-native-android:
-    name: Build Android App
-    instance_type: linux_x2
+    name: React Native Android
+    max_build_duration: 120
+    instance_type: mac_mini_m2
     environment:
+      android_signing:
+        - keystore_reference
+      groups:
+        - google_play
       vars:
         PACKAGE_NAME: "com.thenga.mobileapp"
-        GOOGLE_PLAY_SERVICE_ACCOUNT: Encrypted(...)
-        GOOGLE_PLAY_SERVICE_ACCOUNT_PRIVATE_KEY: Encrypted(...)
-      node: 18
-      java: 11
     scripts:
-      - name: Install dependencies
-        script: |
+      - name: Set Android SDK location
+        script: | 
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/apps/mobile-app/android/local.properties"
+      - name: Install npm dependencies
+        script: | 
           cd apps/mobile-app
           npm install
-      - name: Build Android
-        script: |
-          cd apps/mobile-app
-          npx react-native run-android --variant=release
+      - name: Build Android release
+        script: | 
+          LATEST_GOOGLE_PLAY_BUILD_NUMBER=$(google-play get-latest-build-number --package-name "$PACKAGE_NAME")
+          if [ -z $LATEST_GOOGLE_PLAY_BUILD_NUMBER ]; then
+              UPDATED_BUILD_NUMBER=$BUILD_NUMBER
+          else
+              UPDATED_BUILD_NUMBER=$(($LATEST_GOOGLE_PLAY_BUILD_NUMBER + 1))
+          fi
+          cd apps/mobile-app/android
+          ./gradlew bundleRelease \
+            -PversionCode=$UPDATED_BUILD_NUMBER \
+            -PversionName=1.0.$UPDATED_BUILD_NUMBER
     artifacts:
-      - build/android/app/build/outputs/bundle/release/*.aab
+      - apps/mobile-app/android/app/build/outputs/**/*.aab
     publishing:
+      email:
+        recipients:
+          - olaniyan4m@gmail.com
+        notify:
+          success: true
+          failure: false
       google_play:
-        credentials: $GOOGLE_PLAY_SERVICE_ACCOUNT
+        credentials: $GOOGLE_PLAY_SERVICE_ACCOUNT_CREDENTIALS
         track: internal
+        submit_as_draft: true
