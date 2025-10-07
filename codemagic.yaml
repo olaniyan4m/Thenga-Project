@@ -9,8 +9,6 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.thenga.commerce
-        certificate: certificates/ios_distribution.cer
-        provisioning_profile: certificates/Thenga_App_Store_Profile.mobileprovision
       vars:
         BUNDLE_ID: "com.thenga.commerce"
         XCODE_PROJECT: "apps/mobile-app/ios/Thenga.xcodeproj"
@@ -42,13 +40,13 @@ workflows:
           
           # List installed profiles
           ls ~/Library/MobileDevice/Provisioning\ Profiles/
+          
+          # Set up Xcode project to use the installed profiles
+          cd apps/mobile-app/ios
+          xcode-project use-profiles
       - name: Install CocoaPods dependencies
         script: | 
           cd apps/mobile-app/ios && pod install
-      - name: Set up automatic code signing
-        script: |
-          cd apps/mobile-app/ios
-          xcode-project use-profiles
       - name: Increment build number
         script: | 
           cd apps/mobile-app/ios
