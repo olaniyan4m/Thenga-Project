@@ -38,73 +38,23 @@ workflows:
       - name: Skip code signing setup
         script: |
           echo "Building without code signing for simulator"
-      - name: Install CocoaPods dependencies
+      - name: Skip CocoaPods and use React Native CLI
         script: | 
-          cd apps/mobile-app/ios
-          
-          # Create a backup of the original Podfile
-          cp Podfile Podfile.backup
-          
-          # Create a modified Podfile that skips boost checksum verification
-          cat > Podfile << 'EOF'
-          require_relative '../node_modules/react-native/scripts/react_native_pods'
-          require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
-          
-          platform :ios, '17.0'
-          prepare_react_native_project!
-          
-          target 'Thenga' do
-            config = use_native_modules!
-            
-            # Flags change depending on the env values.
-            flags = get_default_flags()
-            
-            use_react_native!(
-              :path => config[:reactNativePath],
-              :hermes_enabled => flags[:hermes_enabled],
-              :fabric_enabled => flags[:fabric_enabled],
-              :flipper_configuration => FlipperConfiguration.disabled,
-              :app_path => "#{Pod::Config.instance.installation_root}/.."
-            )
-            
-            post_install do |installer|
-              react_native_post_install(
-                installer,
-                config[:reactNativePath],
-                :mac_catalyst_enabled => false
-              )
-              
-              # Fix boost checksum issue
-              installer.pods_project.targets.each do |target|
-                if target.name == 'boost'
-                  target.build_configurations.each do |config|
-                    config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
-                    config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'BOOST_ASIO_ENABLE_HANDLER_TRACKING=0'
-                  end
-                end
-              end
-            end
-          end
-          EOF
-          
-          # Remove existing Podfile.lock and Pods directory
-          rm -rf Podfile.lock Pods/
-          
-          # Clear all CocoaPods caches
-          pod cache clean --all
-          
-          # Install with the modified Podfile
-          pod install --repo-update --verbose
+          echo "Skipping CocoaPods due to boost checksum issues..."
+          echo "Using React Native CLI for iOS build instead..."
       - name: Set build number
         script: | 
           cd apps/mobile-app/ios
           agvtool new-version -all $BUILD_NUMBER
-      - name: Build for iOS Simulator (no signing required)
+      - name: Build for iOS Simulator using React Native CLI
         script: | 
-          cd apps/mobile-app/ios
-          xcodebuild -project Thenga.xcodeproj -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 15' build
+          cd apps/mobile-app
+          
+          # Use React Native CLI to build for iOS simulator
+          npx react-native run-ios --simulator="iPhone 15" --configuration=Release
     artifacts:
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+      - apps/mobile-app/ios/build/**/*.app
       - /tmp/xcodebuild_logs/*.log
     publishing:
       email:
