@@ -13,7 +13,8 @@ workflows:
         BUNDLE_ID: "com.thenga.commerce"
         XCODE_PROJECT: "apps/mobile-app/ios/Thenga.xcodeproj"
         XCODE_SCHEME: "Thenga"
-        APP_STORE_APPLE_ID: 1234567890
+        APP_STORE_APPLE_ID: 1097265059220834
+        APP_STORE_APP_SECRET: "3f1cf7aad0f4b83dc44714d21b62fdcb"
         APPLE_ID: "m.olaniyan@icloud.com"
         TEAM_ID: "YJJA9A296N"
         SUPPORT_EMAIL: "support@thenga.mozdev.co.za"
