@@ -84,7 +84,6 @@ workflows:
           success: true
           failure: false
       app_store_connect:
-        auth: integration
         apple_id: m.olaniyan@icloud.com
         submit_to_testflight: true
         beta_groups:
