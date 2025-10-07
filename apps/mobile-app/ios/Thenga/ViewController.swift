@@ -86,7 +86,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - Business Web View Controller
-class BusinessWebViewController: UIViewController {
+class BusinessWebViewController: UIViewController, WKNavigationDelegate {
     
     private var webView: WKWebView!
     
@@ -127,10 +127,23 @@ class BusinessWebViewController: UIViewController {
     @objc private func closeButtonTapped() {
         dismiss(animated: true)
     }
+    
+    // MARK: - WKNavigationDelegate
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        print("Loading business app...")
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("Business app loaded successfully")
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        print("Failed to load business app: \(error.localizedDescription)")
+    }
 }
 
 // MARK: - Customer Web View Controller
-class CustomerWebViewController: UIViewController {
+class CustomerWebViewController: UIViewController, WKNavigationDelegate {
     
     private var webView: WKWebView!
     
@@ -171,24 +184,8 @@ class CustomerWebViewController: UIViewController {
     @objc private func closeButtonTapped() {
         dismiss(animated: true)
     }
-}
-
-// MARK: - Web View Navigation Delegate
-extension BusinessWebViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Loading business app...")
-    }
     
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("Business app loaded successfully")
-    }
-    
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("Failed to load business app: \(error.localizedDescription)")
-    }
-}
-
-extension CustomerWebViewController: WKNavigationDelegate {
+    // MARK: - WKNavigationDelegate
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         print("Loading customer app...")
     }

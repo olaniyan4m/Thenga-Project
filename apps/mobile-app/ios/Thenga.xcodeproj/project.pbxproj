@@ -10,12 +10,14 @@
 		A1234567890ABCDEF001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF000 /* AppDelegate.swift */; };
 		A1234567890ABCDEF003 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF002 /* ViewController.swift */; };
 		A1234567890ABCDEF007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF006 /* Assets.xcassets */; };
+		A1234567890ABCDEF008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF009 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A1234567890ABCDEF000 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF002 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1234567890ABCDEF009 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1234567890ABCDEF00A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1234567890ABCDEF0FD /* Thenga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thenga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -53,6 +55,7 @@
 				A1234567890ABCDEF000 /* AppDelegate.swift */,
 				A1234567890ABCDEF002 /* ViewController.swift */,
 				A1234567890ABCDEF006 /* Assets.xcassets */,
+				A1234567890ABCDEF009 /* LaunchScreen.storyboard */,
 				A1234567890ABCDEF00A /* Info.plist */,
 			);
 			path = Thenga;
@@ -117,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1234567890ABCDEF007 /* Assets.xcassets in Resources */,
+				A1234567890ABCDEF008 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
