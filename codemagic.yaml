@@ -3,12 +3,12 @@ workflows:
     name: React Native iOS
     max_build_duration: 120
     instance_type: mac_mini_m1
-    integrations:
-      app_store_connect: codemagic
+    # integrations:
+    #   app_store_connect: codemagic
     environment:
-      ios_signing:
-        distribution_type: development
-        bundle_identifier: com.thenga.commerce
+      # ios_signing:
+      #   distribution_type: development
+      #   bundle_identifier: com.thenga.commerce
       vars:
         BUNDLE_ID: "com.thenga.commerce"
         XCODE_PROJECT: "apps/mobile-app/ios/Thenga.xcodeproj"
@@ -25,20 +25,16 @@ workflows:
         script: | 
           cd apps/mobile-app
           npm install
-      - name: Set up automatic code signing
+      - name: Skip code signing setup
         script: |
-          cd apps/mobile-app/ios
-          # Enable automatic signing in Xcode project
-          xcode-project use-profiles
-          echo "Automatic signing configured"
+          echo "Building without code signing for simulator"
       - name: Install CocoaPods dependencies
         script: | 
           cd apps/mobile-app/ios && pod install
-      - name: Increment build number
+      - name: Set build number
         script: | 
           cd apps/mobile-app/ios
-          LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID")
-          agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
+          agvtool new-version -all $BUILD_NUMBER
       - name: Build for iOS Simulator (no signing required)
         script: | 
           cd apps/mobile-app/ios
