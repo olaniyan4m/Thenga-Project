@@ -9,6 +9,8 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.thenga.commerce
+        certificate: certificates/ios_distribution.cer
+        provisioning_profile: certificates/Thenga_App_Store_Profile.mobileprovision
       vars:
         BUNDLE_ID: "com.thenga.commerce"
         XCODE_PROJECT: "apps/mobile-app/ios/Thenga.xcodeproj"
@@ -25,6 +27,21 @@ workflows:
         script: | 
           cd apps/mobile-app
           npm install
+      - name: Install certificates and provisioning profiles
+        script: |
+          # Install certificate
+          security create-keychain -p "" build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p "" build.keychain
+          security import certificates/ios_distribution.cer -k build.keychain -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
+          
+          # Install provisioning profile
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp certificates/Thenga_App_Store_Profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+          
+          # List installed profiles
+          ls ~/Library/MobileDevice/Provisioning\ Profiles/
       - name: Install CocoaPods dependencies
         script: | 
           cd apps/mobile-app/ios && pod install
