@@ -23,6 +23,16 @@ workflows:
     scripts:
       - name: Install npm dependencies
         script: | 
+          # Check Node.js and npm versions
+          node --version
+          npm --version
+          
+          # Install root dependencies first
+          echo "Installing root dependencies..."
+          npm install
+          
+          # Then install mobile app dependencies
+          echo "Installing mobile app dependencies..."
           cd apps/mobile-app
           npm install
       - name: Skip code signing setup
