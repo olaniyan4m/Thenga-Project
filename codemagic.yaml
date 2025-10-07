@@ -21,20 +21,19 @@ workflows:
         SUPPORT_URL: "https://thenga.mozdev.co.za/support"
         MARKETING_URL: "https://thenga.mozdev.co.za"
     scripts:
-      - name: Install npm dependencies
+      - name: Install dependencies
         script: | 
           # Check Node.js and npm versions
           node --version
           npm --version
           
-          # Install root dependencies first
-          echo "Installing root dependencies..."
-          npm install
+          # This is an Nx workspace - install all dependencies at once
+          echo "Installing Nx workspace dependencies..."
+          npm install --legacy-peer-deps
           
-          # Then install mobile app dependencies
-          echo "Installing mobile app dependencies..."
-          cd apps/mobile-app
-          npm install
+          # Verify installation
+          echo "Checking installed packages..."
+          npm list --depth=0
       - name: Skip code signing setup
         script: |
           echo "Building without code signing for simulator"
