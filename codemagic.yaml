@@ -42,6 +42,11 @@ workflows:
         script: | 
           cd apps/mobile-app/ios
           
+          # Debug: Show current directory and files
+          echo "Current directory: $(pwd)"
+          echo "Files in directory:"
+          ls -la
+          
           # Update CocoaPods to latest version
           gem install cocoapods --no-document
           
@@ -56,6 +61,10 @@ workflows:
           
           # Update repo
           pod repo update
+          
+          # Debug: Show Podfile content
+          echo "Podfile content:"
+          cat Podfile
           
           # Try installing with specific boost version
           pod install --repo-update --verbose || {

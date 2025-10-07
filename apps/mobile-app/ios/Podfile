@@ -4,6 +4,9 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '17.0'
 prepare_react_native_project!
 
+# Specify the Xcode project
+project 'Thenga.xcodeproj'
+
 target 'Thenga' do
   config = use_native_modules!
 
