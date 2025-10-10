@@ -1,5 +1,5 @@
-# Pezela Infrastructure - South African Digital Commerce Platform
-# This configuration sets up a production-ready infrastructure for Pezela
+# Thenga Infrastructure - South African Digital Commerce Platform
+# This configuration sets up a production-ready infrastructure for Thenga
 
 terraform {
   required_version = ">= 1.0"
@@ -25,7 +25,7 @@ provider "aws" {
   
   default_tags {
     tags = {
-      Project     = "Pezela"
+      Project     = "Thenga"
       Environment = var.environment
       ManagedBy   = "Terraform"
     }
@@ -175,7 +175,7 @@ resource "aws_elasticache_subnet_group" "main" {
 
 resource "aws_elasticache_replication_group" "main" {
   replication_group_id       = "${var.project_name}-redis"
-  description                = "Redis cluster for Pezela"
+  description                = "Redis cluster for Thenga"
 
   node_type            = var.redis_node_type
   port                 = 6379

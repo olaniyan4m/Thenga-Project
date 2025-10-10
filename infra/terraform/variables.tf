@@ -1,4 +1,4 @@
-# Variables for Pezela Infrastructure
+# Variables for Thenga Infrastructure
 
 variable "aws_region" {
   description = "AWS region"
@@ -15,13 +15,13 @@ variable "environment" {
 variable "project_name" {
   description = "Project name"
   type        = string
-  default     = "pezela"
+  default     = "thenga"
 }
 
 variable "cluster_name" {
   description = "EKS cluster name"
   type        = string
-  default     = "pezela-cluster"
+  default     = "thenga-cluster"
 }
 
 variable "kubernetes_version" {
@@ -90,13 +90,13 @@ variable "db_allocated_storage" {
 variable "db_name" {
   description = "Database name"
   type        = string
-  default     = "pezela"
+  default     = "thenga"
 }
 
 variable "db_username" {
   description = "Database username"
   type        = string
-  default     = "pezela"
+  default     = "thenga"
 }
 
 variable "db_password" {
