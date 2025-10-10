@@ -23,20 +23,21 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@nx/js": "^17.2.0",
-    "@nx/react": "^17.2.0",
-    "@nx/react-native": "^17.2.0",
-    "@nx/nest": "^17.2.0",
     "@nx/eslint": "^17.2.0",
     "@nx/eslint-plugin": "^17.2.0",
-    "@nx/prettier": "^17.2.0",
+    "@nx/js": "^17.2.0",
+    "@nx/nest": "^17.2.0",
+    "@nx/react": "^17.2.0",
+    "@nx/react-native": "^17.2.0",
     "@nx/workspace": "^17.2.0",
-    "nx": "^17.2.0",
-    "typescript": "^5.3.0",
-    "prettier": "^3.1.0",
     "eslint": "^8.55.0",
     "husky": "^8.0.3",
-    "lint-staged": "^15.2.0"
+    "lint-staged": "^15.2.0",
+    "nx": "^17.2.0",
+    "patch-package": "^8.0.1",
+    "postinstall-postinstall": "^2.1.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.0"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [

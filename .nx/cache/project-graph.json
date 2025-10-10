@@ -1,0 +1,869 @@
+{
+  "nodes": {
+    "@pezela/notifications-service": {
+      "name": "@pezela/notifications-service",
+      "type": "lib",
+      "data": {
+        "root": "services/notifications-service",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint"
+            },
+            "configurations": {}
+          },
+          "format": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "format"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "configurations": {}
+          },
+          "start:dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start:dev"
+            },
+            "configurations": {}
+          },
+          "start:debug": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start:debug"
+            },
+            "configurations": {}
+          },
+          "start:prod": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start:prod"
+            },
+            "configurations": {}
+          },
+          "test:watch": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test:watch"
+            },
+            "configurations": {}
+          },
+          "test:cov": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test:cov"
+            },
+            "configurations": {}
+          },
+          "test:debug": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test:debug"
+            },
+            "configurations": {}
+          },
+          "test:e2e": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test:e2e"
+            },
+            "configurations": {}
+          },
+          "type-check": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "type-check"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "sourceRoot": "services/notifications-service",
+        "name": "@pezela/notifications-service",
+        "projectType": "library",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    },
+    "@pezela/analytics-service": {
+      "name": "@pezela/analytics-service",
+      "type": "lib",
+      "data": {
+        "root": "services/analytics-service",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "configurations": {}
+          },
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "sourceRoot": "services/analytics-service",
+        "name": "@pezela/analytics-service",
+        "projectType": "library",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    },
+    "@pezela/inventory-service": {
+      "name": "@pezela/inventory-service",
+      "type": "lib",
+      "data": {
+        "root": "services/inventory-service",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "configurations": {}
+          },
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "configurations": {}
+          },
+          "migrate": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "migrate"
+            },
+            "configurations": {}
+          },
+          "generate": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "generate"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "sourceRoot": "services/inventory-service",
+        "name": "@pezela/inventory-service",
+        "projectType": "library",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    },
+    "@pezela/websocket-service": {
+      "name": "@pezela/websocket-service",
+      "type": "lib",
+      "data": {
+        "root": "services/websocket-service",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "configurations": {}
+          },
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "sourceRoot": "services/websocket-service",
+        "name": "@pezela/websocket-service",
+        "projectType": "library",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    },
+    "@pezela/whatsapp-service": {
+      "name": "@pezela/whatsapp-service",
+      "type": "lib",
+      "data": {
+        "root": "services/whatsapp-service",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "configurations": {}
+          },
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "sourceRoot": "services/whatsapp-service",
+        "name": "@pezela/whatsapp-service",
+        "projectType": "library",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    },
+    "@pezela/api-gateway": {
+      "name": "@pezela/api-gateway",
+      "type": "lib",
+      "data": {
+        "root": "services/api-gateway",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint"
+            },
+            "configurations": {}
+          },
+          "format": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "format"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "configurations": {}
+          },
+          "start:dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start:dev"
+            },
+            "configurations": {}
+          },
+          "start:debug": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start:debug"
+            },
+            "configurations": {}
+          },
+          "start:prod": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start:prod"
+            },
+            "configurations": {}
+          },
+          "test:watch": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test:watch"
+            },
+            "configurations": {}
+          },
+          "test:cov": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test:cov"
+            },
+            "configurations": {}
+          },
+          "test:debug": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test:debug"
+            },
+            "configurations": {}
+          },
+          "test:e2e": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test:e2e"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "sourceRoot": "services/api-gateway",
+        "name": "@pezela/api-gateway",
+        "projectType": "library",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    },
+    "@pezela/db-migrations": {
+      "name": "@pezela/db-migrations",
+      "type": "lib",
+      "data": {
+        "root": "libs/db-migrations",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "configurations": {}
+          },
+          "db:generate": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "db:generate"
+            },
+            "configurations": {}
+          },
+          "db:push": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "db:push"
+            },
+            "configurations": {}
+          },
+          "db:migrate": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "db:migrate"
+            },
+            "configurations": {}
+          },
+          "db:deploy": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "db:deploy"
+            },
+            "configurations": {}
+          },
+          "db:seed": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "db:seed"
+            },
+            "configurations": {}
+          },
+          "db:studio": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "db:studio"
+            },
+            "configurations": {}
+          },
+          "db:reset": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "db:reset"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "sourceRoot": "libs/db-migrations",
+        "name": "@pezela/db-migrations",
+        "projectType": "library",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    },
+    "@thenga/shared-types": {
+      "name": "@thenga/shared-types",
+      "type": "lib",
+      "data": {
+        "root": "libs/shared-types",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "configurations": {}
+          },
+          "type-check": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "type-check"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "sourceRoot": "libs/shared-types",
+        "name": "@thenga/shared-types",
+        "projectType": "library",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    },
+    "@thenga/mobile-app": {
+      "name": "@thenga/mobile-app",
+      "type": "lib",
+      "data": {
+        "root": "apps/mobile-app",
+        "targets": {
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint"
+            },
+            "configurations": {}
+          },
+          "android": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "android"
+            },
+            "configurations": {}
+          },
+          "ios": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "ios"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "configurations": {}
+          },
+          "type-check": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "type-check"
+            },
+            "configurations": {}
+          },
+          "build:android": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build:android"
+            },
+            "configurations": {}
+          },
+          "build:ios": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build:ios"
+            },
+            "configurations": {}
+          },
+          "clean:android": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "clean:android"
+            },
+            "configurations": {}
+          },
+          "clean:ios": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "clean:ios"
+            },
+            "configurations": {}
+          },
+          "pod-install": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "pod-install"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "sourceRoot": "apps/mobile-app",
+        "name": "@thenga/mobile-app",
+        "projectType": "library",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    },
+    "@thenga/pwa": {
+      "name": "@thenga/pwa",
+      "type": "lib",
+      "data": {
+        "root": "apps/pwa",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint"
+            },
+            "configurations": {}
+          },
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "configurations": {}
+          },
+          "preview": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "preview"
+            },
+            "configurations": {}
+          },
+          "type-check": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "type-check"
+            },
+            "configurations": {}
+          }
+        },
+        "sourceRoot": "apps/pwa",
+        "name": "@thenga/pwa",
+        "projectType": "library",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    }
+  },
+  "externalNodes": {},
+  "dependencies": {
+    "@pezela/notifications-service": [
+      {
+        "source": "@pezela/notifications-service",
+        "target": "@thenga/shared-types",
+        "type": "static"
+      }
+    ],
+    "@pezela/analytics-service": [],
+    "@pezela/inventory-service": [],
+    "@pezela/websocket-service": [],
+    "@pezela/whatsapp-service": [],
+    "@pezela/api-gateway": [],
+    "@pezela/db-migrations": [
+      {
+        "source": "@pezela/db-migrations",
+        "target": "@thenga/shared-types",
+        "type": "static"
+      }
+    ],
+    "@thenga/shared-types": [],
+    "@thenga/mobile-app": [
+      {
+        "source": "@thenga/mobile-app",
+        "target": "@thenga/shared-types",
+        "type": "static"
+      }
+    ],
+    "@thenga/pwa": [
+      {
+        "source": "@thenga/pwa",
+        "target": "@thenga/shared-types",
+        "type": "static"
+      }
+    ]
+  },
+  "version": "6.0"
+}
