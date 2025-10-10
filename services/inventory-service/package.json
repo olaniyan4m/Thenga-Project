@@ -1,7 +1,7 @@
 {
-  "name": "@pezela/inventory-service",
+  "name": "@Thenga/inventory-service",
   "version": "1.0.0",
-  "description": "Inventory management service for Pezela",
+  "description": "Inventory management service for Thenga",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

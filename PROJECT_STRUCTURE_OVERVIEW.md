@@ -28,7 +28,7 @@
 ├── src/                         # PWA source code
 └── firebase.json               # Firebase config
 ```
-**Status**: ✅ Deployed at `https://pezela-customer-68704.web.app`
+**Status**: ✅ Deployed at `https://Thenga-customer-68704.web.app`
 **Type**: Web app that works like native app
 
 ### **3. Admin Dashboard**
@@ -64,7 +64,7 @@
 - 🔄 **Next**: Build and test
 
 ### **PWA**:
-- ✅ **Deployed**: https://pezela-customer-68704.web.app
+- ✅ **Deployed**: https://Thenga-customer-68704.web.app
 - ✅ **Working**: Live and accessible
 - ✅ **Features**: Complete shopping app
 

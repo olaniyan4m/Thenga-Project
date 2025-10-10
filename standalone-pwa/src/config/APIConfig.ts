@@ -6,7 +6,7 @@ export const API_CONFIG = {
   SARS: {
     clientId: import.meta.env.VITE_SARS_CLIENT_ID || 'your_sars_client_id',
     clientSecret: import.meta.env.VITE_SARS_CLIENT_SECRET || 'your_sars_client_secret',
-    redirectUri: import.meta.env.VITE_SARS_REDIRECT_URI || 'https://pezela.co.za/oauth/sars/callback',
+    redirectUri: import.meta.env.VITE_SARS_REDIRECT_URI || 'https://Thenga.co.za/oauth/sars/callback',
     environment: (import.meta.env.VITE_SARS_ENVIRONMENT as 'sandbox' | 'production') || 'sandbox',
     vatNumber: import.meta.env.VITE_VAT_NUMBER || '4880303328',
     taxYear: import.meta.env.VITE_TAX_YEAR || '2024'
@@ -16,7 +16,7 @@ export const API_CONFIG = {
   QUICKBOOKS: {
     clientId: import.meta.env.VITE_QUICKBOOKS_CLIENT_ID || 'your_quickbooks_client_id',
     clientSecret: import.meta.env.VITE_QUICKBOOKS_CLIENT_SECRET || 'your_quickbooks_client_secret',
-    redirectUri: import.meta.env.VITE_QUICKBOOKS_REDIRECT_URI || 'https://pezela.co.za/oauth/quickbooks/callback',
+    redirectUri: import.meta.env.VITE_QUICKBOOKS_REDIRECT_URI || 'https://Thenga.co.za/oauth/quickbooks/callback',
     environment: (import.meta.env.VITE_QUICKBOOKS_ENVIRONMENT as 'sandbox' | 'production') || 'sandbox',
     companyId: import.meta.env.VITE_QUICKBOOKS_COMPANY_ID || 'your_company_id'
   },
@@ -25,7 +25,7 @@ export const API_CONFIG = {
   XERO: {
     clientId: import.meta.env.VITE_XERO_CLIENT_ID || 'your_xero_client_id',
     clientSecret: import.meta.env.VITE_XERO_CLIENT_SECRET || 'your_xero_client_secret',
-    redirectUri: import.meta.env.VITE_XERO_REDIRECT_URI || 'https://pezela.co.za/oauth/xero/callback',
+    redirectUri: import.meta.env.VITE_XERO_REDIRECT_URI || 'https://Thenga.co.za/oauth/xero/callback',
     environment: (import.meta.env.VITE_XERO_ENVIRONMENT as 'sandbox' | 'production') || 'sandbox'
   },
 
@@ -33,7 +33,7 @@ export const API_CONFIG = {
   SAGE: {
     clientId: import.meta.env.VITE_SAGE_CLIENT_ID || 'your_sage_client_id',
     clientSecret: import.meta.env.VITE_SAGE_CLIENT_SECRET || 'your_sage_client_secret',
-    redirectUri: import.meta.env.VITE_SAGE_REDIRECT_URI || 'https://pezela.co.za/oauth/sage/callback',
+    redirectUri: import.meta.env.VITE_SAGE_REDIRECT_URI || 'https://Thenga.co.za/oauth/sage/callback',
     environment: (import.meta.env.VITE_SAGE_ENVIRONMENT as 'sandbox' | 'production') || 'sandbox'
   },
 
@@ -41,7 +41,7 @@ export const API_CONFIG = {
   PASTEL: {
     clientId: import.meta.env.VITE_PASTEL_CLIENT_ID || 'your_pastel_client_id',
     clientSecret: import.meta.env.VITE_PASTEL_CLIENT_SECRET || 'your_pastel_client_secret',
-    redirectUri: import.meta.env.VITE_PASTEL_REDIRECT_URI || 'https://pezela.co.za/oauth/pastel/callback',
+    redirectUri: import.meta.env.VITE_PASTEL_REDIRECT_URI || 'https://Thenga.co.za/oauth/pastel/callback',
     environment: (import.meta.env.VITE_PASTEL_ENVIRONMENT as 'sandbox' | 'production') || 'sandbox'
   },
 
@@ -122,8 +122,8 @@ export const ENVIRONMENT_CONFIG = {
     pastelUrl: 'https://api.pastel.com/v1'
   },
   production: {
-    baseUrl: 'https://pezela.co.za',
-    apiUrl: 'https://api.pezela.co.za',
+    baseUrl: 'https://Thenga.co.za',
+    apiUrl: 'https://api.Thenga.co.za',
     sarsUrl: 'https://efiling.sars.gov.za/api/v1',
     quickbooksUrl: 'https://quickbooks.api.intuit.com/v3',
     xeroUrl: 'https://api.xero.com/api.xro/2.0',

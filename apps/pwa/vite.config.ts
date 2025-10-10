@@ -10,8 +10,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Pezela - Digital Commerce',
-        short_name: 'Pezela',
+        name: 'Thenga - Digital Commerce',
+        short_name: 'Thenga',
         description: 'Digital commerce platform for micro and small businesses',
         theme_color: '#2E7D32',
         background_color: '#ffffff',
@@ -36,7 +36,7 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/api\.pezela\.co\.za\/.*/i,
+            urlPattern: /^https:\/\/api\.Thenga\.co\.za\/.*/i,
             handler: 'NetworkFirst',
             options: {
               cacheName: 'api-cache',

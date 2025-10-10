@@ -33,8 +33,8 @@ navigator.serviceWorker.register('/sw.js', { scope: '/' })
 #### **Before (WRONG)**:
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "pezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "Thenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -42,8 +42,8 @@ navigator.serviceWorker.register('/sw.js', { scope: '/' })
 #### **After (CORRECT)**:
 ```json
 "scope_extensions": [
-  {"origin": "https://*.pezela.co.za"},
-  {"origin": "https://pezela.mozdev.co.za"},
+  {"origin": "https://*.Thenga.co.za"},
+  {"origin": "https://Thenga.mozdev.co.za"},
   {"origin": "https://*.mozdev.co.za"}
 ]
 ```
@@ -106,15 +106,15 @@ navigator.serviceWorker.register('/sw.js', { scope: '/' })
 ```json
 // OLD (WRONG)
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "pezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "Thenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 
 // NEW (CORRECT)
 "scope_extensions": [
-  {"origin": "https://*.pezela.co.za"},
-  {"origin": "https://pezela.mozdev.co.za"},
+  {"origin": "https://*.Thenga.co.za"},
+  {"origin": "https://Thenga.mozdev.co.za"},
   {"origin": "https://*.mozdev.co.za"}
 ]
 ```
@@ -123,15 +123,15 @@ navigator.serviceWorker.register('/sw.js', { scope: '/' })
 ```json
 // OLD (WRONG)
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "customerpezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "customerThenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 
 // NEW (CORRECT)
 "scope_extensions": [
-  {"origin": "https://*.pezela.co.za"},
-  {"origin": "https://customerpezela.mozdev.co.za"},
+  {"origin": "https://*.Thenga.co.za"},
+  {"origin": "https://customerThenga.mozdev.co.za"},
   {"origin": "https://*.mozdev.co.za"}
 ]
 ```
@@ -189,4 +189,4 @@ The two persistent PWA Builder issues have been fixed:
 1. **✅ Service Worker Issue**: Fixed service worker registration path and scope
 2. **✅ Scope Extensions Issue**: Fixed scope_extensions format with proper protocol
 
-Your Pezela apps should now pass PWA Builder validation! 🚀
+Your Thenga apps should now pass PWA Builder validation! 🚀

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# 🚀 Pezela Business Platform - Investor Demo Setup Script
+# 🚀 Thenga Business Platform - Investor Demo Setup Script
 # This script sets up both Business and Customer applications for investor demos
 
-echo "🚀 Setting up Pezela Business Platform for Investor Demo..."
+echo "🚀 Setting up Thenga Business Platform for Investor Demo..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -106,7 +106,7 @@ else
 fi
 
 echo ""
-echo "🎉 Pezela Business Platform is ready for Investor Demo!"
+echo "🎉 Thenga Business Platform is ready for Investor Demo!"
 echo ""
 echo "📱 Business Application (Admin Dashboard):"
 echo "   URL: http://localhost:3000"
@@ -117,7 +117,7 @@ echo "   URL: http://localhost:3002"
 echo "   Features: Product catalog, shopping cart, checkout"
 echo ""
 echo "🔐 Demo Credentials:"
-echo "   Business Admin: demo@pezela.co.za / DemoBusiness2024!"
+echo "   Business Admin: demo@Thenga.co.za / DemoBusiness2024!"
 echo "   Customer: customer@test.com / TestCustomer2024!"
 echo ""
 echo "📊 Key Demo Features:"

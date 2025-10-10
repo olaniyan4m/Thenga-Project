@@ -1,7 +1,7 @@
-# 🚀 Real App Solution - Get Your Actual Pezela App
+# 🚀 Real App Solution - Get Your Actual Thenga App
 
 ## 🚨 **The Problem:**
-You're seeing a simple HTML demo instead of your actual Pezela app with:
+You're seeing a simple HTML demo instead of your actual Thenga app with:
 - ✅ **Complete Business Dashboard** with all features
 - ✅ **Orders Management** with real data
 - ✅ **Payments Processing** with live stats
@@ -25,7 +25,7 @@ Convert your React app to a proper mobile app with all features.
 
 ### **Step 1: Make sure your web app is running**
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/standalone-pwa
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/standalone-pwa
 npm run dev
 ```
 
@@ -33,7 +33,7 @@ npm run dev
 Instead of HTML demos, load your actual React app from `http://localhost:3004/`
 
 ### **Step 3: Test on mobile**
-- Your phone will load your REAL Pezela app
+- Your phone will load your REAL Thenga app
 - All business features will work
 - Orders, payments, products, settings - everything!
 
@@ -57,7 +57,7 @@ Instead of HTML demos, load your actual React app from `http://localhost:3004/`
 ## 💡 **Why This Happened:**
 
 - We created a simple HTML demo for testing
-- But you want your ACTUAL Pezela app with all features
+- But you want your ACTUAL Thenga app with all features
 - Your real app is much more powerful and complete
 - We need to load your real React app instead of the demo
 
@@ -65,9 +65,9 @@ Instead of HTML demos, load your actual React app from `http://localhost:3004/`
 
 1. **Keep your web app running** on port 3004
 2. **Update the mobile app** to load your real app
-3. **Test your actual Pezela app** on mobile
+3. **Test your actual Thenga app** on mobile
 4. **Get all the business features** you built
 
-**Your real Pezela app is much better than the demo - let's get it running on mobile!** 🚀
+**Your real Thenga app is much better than the demo - let's get it running on mobile!** 🚀
 
 

@@ -25,7 +25,7 @@
 ## 📱 **How to Test:**
 
 ### **Step 1: Open App Selector**
-- You should see "Pezela - Choose Your App"
+- You should see "Thenga - Choose Your App"
 - Two cards: Business App (green) and Customer App (blue)
 
 ### **Step 2: Test Business App**

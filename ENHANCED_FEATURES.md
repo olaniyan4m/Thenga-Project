@@ -1,4 +1,4 @@
-# 🚀 Pezela PWA - Enhanced Features & Complete Functionality
+# 🚀 Thenga PWA - Enhanced Features & Complete Functionality
 
 ## ✅ **ALL FEATURES IMPLEMENTED & FULLY FUNCTIONAL**
 
@@ -122,4 +122,4 @@
 5. **Manage Products**: Products → Edit stock/prices → Delete products
 6. **Configure Settings**: Settings → Toggle options → Change preferences
 
-**Your Pezela app is now a fully functional business management system! 🎉📱**
+**Your Thenga app is now a fully functional business management system! 🎉📱**

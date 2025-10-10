@@ -3,7 +3,7 @@
 ## ✅ **Your App is Ready!**
 
 ### **What We Have:**
-- ✅ **Expo Project**: `PezelaAppStore` with WebView integration
+- ✅ **Expo Project**: `ThengaAppStore` with WebView integration
 - ✅ **Business App**: Green theme with business features
 - ✅ **Customer App**: Blue theme with customer features
 - ✅ **App Selector**: Choose between Business and Customer apps
@@ -14,7 +14,7 @@
 
 ### **Step 1: Test Your App**
 ```bash
-# You're already in the right directory: PezelaAppStore
+# You're already in the right directory: ThengaAppStore
 # The app should be running with: npm start
 # Scan QR code with Expo Go app on your iPhone
 ```
@@ -25,7 +25,7 @@
 3. **Click "Create Project"** or **"Import Project"**
 
 ### **Step 3: Build and Submit**
-1. **Import your project**: `PezelaAppStore` folder
+1. **Import your project**: `ThengaAppStore` folder
 2. **Click "Build"** → Select iOS → Production
 3. **Wait for build** (10-15 minutes)
 4. **Click "Submit"** → Follow prompts to App Store
@@ -38,8 +38,8 @@
 - 🎨 **Beautiful UI**: Modern design with gradients
 
 ## 🎯 **App Store Information:**
-- **Name**: Pezela
-- **Bundle ID**: com.pezela.app
+- **Name**: Thenga
+- **Bundle ID**: com.Thenga.app
 - **Version**: 2.0.0
 - **Category**: Business
 - **Description**: Complete business management solution with customer shopping app
@@ -51,7 +51,7 @@
 
 ## 🚀 **Ready to Deploy?**
 
-**Your app is running and ready! Just go to https://expo.dev and import your `PezelaAppStore` project to get started!**
+**Your app is running and ready! Just go to https://expo.dev and import your `ThengaAppStore` project to get started!**
 
 **The web interface is the easiest way to deploy without any command line issues!** 🎉
 

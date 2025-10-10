@@ -19,7 +19,7 @@ describe('Products (e2e)', () => {
     const loginResponse = await request(app.getHttpServer())
       .post('/api/v1/auth/login')
       .send({
-        email: 'demo@pezela.co.za',
+        email: 'demo@Thenga.co.za',
         password: 'password123',
       });
 

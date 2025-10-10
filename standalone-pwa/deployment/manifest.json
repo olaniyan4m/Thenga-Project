@@ -181,13 +181,13 @@
   "related_applications": [
     {
       "platform": "web",
-      "url": "https://customerpezela.mozdev.co.za",
-      "id": "pezela-customer"
+      "url": "https://customerThenga.mozdev.co.za",
+      "id": "Thenga-customer"
     },
     {
       "platform": "windows",
-      "url": "https://pezela.mozdev.co.za",
-      "id": "com.pezela.business"
+      "url": "https://Thenga.mozdev.co.za",
+      "id": "com.Thenga.business"
     }
   ],
   "prefer_related_applications": false,
@@ -223,7 +223,7 @@
     {
       "name": "Thenga Business Dashboard",
       "description": "Quick access to business dashboard and key metrics",
-      "tag": "pezela-business-dashboard",
+      "tag": "Thenga-business-dashboard",
       "template": "business-dashboard-template",
       "ms_ac_template": "widgets/dashboard-template.json",
       "data": "widgets/dashboard-data.json",
@@ -285,25 +285,25 @@
     }
   ],
   "scope_extensions": [
-    {"origin": "*.pezela.co.za"},
-    {"origin": "pezela.mozdev.co.za"},
+    {"origin": "*.Thenga.co.za"},
+    {"origin": "Thenga.mozdev.co.za"},
     {"origin": "*.mozdev.co.za"}
   ],
   "protocol_handlers": [
     {
-      "protocol": "web+pezela",
+      "protocol": "web+Thenga",
       "url": "/#business?action=%s"
     },
     {
-      "protocol": "web+pezela-business",
+      "protocol": "web+Thenga-business",
       "url": "/#business?action=%s"
     },
     {
-      "protocol": "web+pezela-orders",
+      "protocol": "web+Thenga-orders",
       "url": "/#business/orders?order=%s"
     },
     {
-      "protocol": "web+pezela-payments",
+      "protocol": "web+Thenga-payments",
       "url": "/#business/payments?payment=%s"
     }
   ]

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# 🚀 Pezela Production Testing Script
+# 🚀 Thenga Production Testing Script
 # This script tests the production deployment and builds
 
 set -e
 
-echo "🧪 Starting Pezela Production Testing..."
+echo "🧪 Starting Thenga Production Testing..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -32,8 +32,8 @@ print_error() {
 }
 
 # Test configuration
-API_URL="https://api.pezela.co.za"
-PWA_URL="https://app.pezela.co.za"
+API_URL="https://api.Thenga.co.za"
+PWA_URL="https://app.Thenga.co.za"
 TEST_TIMEOUT=30
 
 print_status "Testing production deployment..."
@@ -70,7 +70,7 @@ fi
 
 # Test 4: SSL Certificate
 print_status "Testing SSL certificate..."
-if openssl s_client -connect api.pezela.co.za:443 -servername api.pezela.co.za </dev/null 2>/dev/null | grep -q "Verify return code: 0"; then
+if openssl s_client -connect api.Thenga.co.za:443 -servername api.Thenga.co.za </dev/null 2>/dev/null | grep -q "Verify return code: 0"; then
     print_success "✅ SSL certificate is valid"
 else
     print_warning "⚠️  SSL certificate test inconclusive (may not be deployed yet)"
@@ -83,7 +83,7 @@ cd apps/mobile-app
 
 # Test iOS build
 print_status "Testing iOS build configuration..."
-if [ -f "ios/Pezela.xcworkspace" ]; then
+if [ -f "ios/Thenga.xcworkspace" ]; then
     print_success "✅ iOS workspace found"
 else
     print_error "❌ iOS workspace not found"
@@ -114,14 +114,14 @@ cd ../..
 print_status "Testing Docker images..."
 
 # Test API Gateway image
-if docker images | grep -q "pezela/api-gateway"; then
+if docker images | grep -q "Thenga/api-gateway"; then
     print_success "✅ API Gateway Docker image found"
 else
     print_warning "⚠️  API Gateway Docker image not found (run build script first)"
 fi
 
 # Test PWA image
-if docker images | grep -q "pezela/pwa"; then
+if docker images | grep -q "Thenga/pwa"; then
     print_success "✅ PWA Docker image found"
 else
     print_warning "⚠️  PWA Docker image not found (run build script first)"
@@ -252,4 +252,4 @@ echo "- Google Play Console: https://play.google.com/console"
 echo "- AWS EKS: https://aws.amazon.com/eks"
 echo ""
 
-print_success "🚀 Pezela is ready for production deployment!"
+print_success "🚀 Thenga is ready for production deployment!"

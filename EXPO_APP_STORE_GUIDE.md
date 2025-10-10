@@ -16,8 +16,8 @@ npm install -g @expo/cli
 
 ### **Step 2: Create Expo Project**
 ```bash
-npx create-expo-app PezelaApp --template blank
-cd PezelaApp
+npx create-expo-app ThengaApp --template blank
+cd ThengaApp
 ```
 
 ### **Step 3: Add Your WebView Content**
@@ -111,8 +111,8 @@ npm install -g react-native-cli
 
 ### **Step 2: Create Project**
 ```bash
-npx react-native init PezelaApp
-cd PezelaApp
+npx react-native init ThengaApp
+cd ThengaApp
 ```
 
 ### **Step 3: Add WebView**

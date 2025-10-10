@@ -5,12 +5,12 @@ import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore, doc, setDoc, getDoc, collection, addDoc, updateDoc } from 'firebase/firestore';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
-// Firebase configuration for Pezela project
+// Firebase configuration for Thenga project
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyDJUj26kbMpY3CQRtDFIZYgzmD7_s5kjEY",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "pezela.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "pezela",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "pezela.firebasestorage.app",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "Thenga.firebaseapp.com",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "Thenga",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "Thenga.firebasestorage.app",
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "130842827895",
   appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:130842827895:web:260084e690afd77828fa72",
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "G-XFEGWTMEKJ"

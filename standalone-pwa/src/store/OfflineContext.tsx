@@ -10,7 +10,7 @@ interface OfflineContextType {
   setCachedData: (key: string, data: any) => Promise<void>;
 }
 
-interface PezelaDB extends DBSchema {
+interface ThengaDB extends DBSchema {
   cache: {
     key: string;
     value: {
@@ -44,13 +44,13 @@ export const useOffline = () => {
 export const OfflineProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [syncQueue, setSyncQueue] = useState<any[]>([]);
-  const [db, setDb] = useState<IDBPDatabase<PezelaDB> | null>(null);
+  const [db, setDb] = useState<IDBPDatabase<ThengaDB> | null>(null);
 
   // Initialize IndexedDB
   useEffect(() => {
     const initDB = async () => {
       try {
-        const database = await openDB<PezelaDB>('PezelaDB', 1, {
+        const database = await openDB<ThengaDB>('ThengaDB', 1, {
           upgrade(db) {
             // Cache store for offline data
             if (!db.objectStoreNames.contains('cache')) {

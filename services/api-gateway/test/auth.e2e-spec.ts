@@ -43,7 +43,7 @@ describe('Auth (e2e)', () => {
         .send({
           name: 'Test User',
           phone: '+27821234567',
-          email: 'demo@pezela.co.za', // Existing email
+          email: 'demo@Thenga.co.za', // Existing email
           password: 'password123',
         })
         .expect(409);
@@ -55,7 +55,7 @@ describe('Auth (e2e)', () => {
       return request(app.getHttpServer())
         .post('/api/v1/auth/login')
         .send({
-          email: 'demo@pezela.co.za',
+          email: 'demo@Thenga.co.za',
           password: 'password123',
         })
         .expect(200)
@@ -70,7 +70,7 @@ describe('Auth (e2e)', () => {
       return request(app.getHttpServer())
         .post('/api/v1/auth/login')
         .send({
-          email: 'demo@pezela.co.za',
+          email: 'demo@Thenga.co.za',
           password: 'wrongpassword',
         })
         .expect(401);
@@ -83,7 +83,7 @@ describe('Auth (e2e)', () => {
       const loginResponse = await request(app.getHttpServer())
         .post('/api/v1/auth/login')
         .send({
-          email: 'demo@pezela.co.za',
+          email: 'demo@Thenga.co.za',
           password: 'password123',
         });
 

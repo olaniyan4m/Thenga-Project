@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Deploy Pezela Business App to https://pezela.mozdev.co.za
+# Deploy Thenga Business App to https://Thenga.mozdev.co.za
 # This script builds and prepares the app for deployment to your domain
 
-echo "🚀 Deploying Pezela Business App to https://pezela.mozdev.co.za"
+echo "🚀 Deploying Thenga Business App to https://Thenga.mozdev.co.za"
 
 # Navigate to the app directory
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/standalone-pwa
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/standalone-pwa
 
 # Clean previous builds
 echo "🧹 Cleaning previous builds..."
@@ -30,9 +30,9 @@ cp package-lock.json deployment/
 
 # Create deployment instructions
 cat > deployment/DEPLOYMENT_INSTRUCTIONS.md << 'EOF'
-# Pezela Business App - Domain Deployment
+# Thenga Business App - Domain Deployment
 
-## Domain: https://pezela.mozdev.co.za
+## Domain: https://Thenga.mozdev.co.za
 
 ### Files to Upload:
 1. Upload all files from the `deployment/` folder to your domain's root directory
@@ -50,7 +50,7 @@ cat > deployment/DEPLOYMENT_INSTRUCTIONS.md << 'EOF'
 3. Set up SSL certificate for HTTPS
 
 ### Testing:
-- Visit https://pezela.mozdev.co.za
+- Visit https://Thenga.mozdev.co.za
 - Test all business features
 - Verify mobile responsiveness
 
@@ -73,4 +73,4 @@ EOF
 
 echo "✅ Deployment package created in 'deployment/' folder"
 echo "📋 See DEPLOYMENT_INSTRUCTIONS.md for next steps"
-echo "🌐 Your app will be available at: https://pezela.mozdev.co.za"
+echo "🌐 Your app will be available at: https://Thenga.mozdev.co.za"

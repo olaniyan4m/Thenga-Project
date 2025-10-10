@@ -86,7 +86,7 @@ After these corrections:
 
 ## 🎉 **PWA Builder Compliance**
 
-Your Pezela apps now follow the **exact PWA Builder documentation**:
+Your Thenga apps now follow the **exact PWA Builder documentation**:
 
 1. **✅ Service Worker**: Correct registration format and file structure
 2. **✅ Scope Extensions**: Simple path format that PWA Builder recognizes
@@ -99,7 +99,7 @@ Your Pezela apps now follow the **exact PWA Builder documentation**:
 - **Scope Extensions**: Simple format that PWA Builder expects
 - **File Structure**: Correct `sw.js` placement and registration
 
-Your Pezela apps should now pass PWA Builder validation! 🚀
+Your Thenga apps should now pass PWA Builder validation! 🚀
 
 The key was following the **exact documentation format** you provided:
 - `typeof navigator.serviceWorker !== 'undefined'`

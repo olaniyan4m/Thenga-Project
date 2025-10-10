@@ -1,4 +1,4 @@
-// 🔐 Pezela POPIA Compliance Service
+// 🔐 Thenga POPIA Compliance Service
 // Protection of Personal Information Act (POPIA) compliance for South Africa
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -215,8 +215,8 @@ class POPIAComplianceService {
         purpose,
         legalBasis,
         withdrawalMethod: 'mobile_app_settings',
-        dataController: 'Pezela (Pty) Ltd',
-        dataProcessor: 'Pezela (Pty) Ltd',
+        dataController: 'Thenga (Pty) Ltd',
+        dataProcessor: 'Thenga (Pty) Ltd',
       };
 
       // Save to Firestore

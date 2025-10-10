@@ -283,11 +283,11 @@ class ApiService {
 
 // Production configuration
 export const productionConfig: ApiConfig = {
-  baseUrl: 'https://api.pezela.com',
+  baseUrl: 'https://api.Thenga.com',
   apiKey: '',
   businessId: 'store_123',
   enableWebSocket: true,
-  websocketUrl: 'wss://api.pezela.com/ws'
+  websocketUrl: 'wss://api.Thenga.com/ws'
 };
 
 // Development configuration

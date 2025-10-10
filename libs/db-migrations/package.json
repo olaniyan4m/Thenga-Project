@@ -1,7 +1,7 @@
 {
-  "name": "@pezela/db-migrations",
+  "name": "@Thenga/db-migrations",
   "version": "1.0.0",
-  "description": "Database migrations and schema management for Pezela",
+  "description": "Database migrations and schema management for Thenga",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

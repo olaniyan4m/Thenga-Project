@@ -113,7 +113,7 @@ jobs:
         image: postgres:15
         env:
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: pezela_test
+          POSTGRES_DB: Thenga_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -164,7 +164,7 @@ jobs:
       - name: Test backend services
         run: npm run test
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/pezela_test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/Thenga_test
           REDIS_URL: redis://localhost:6379
 
   # Security Scanning
@@ -276,7 +276,7 @@ jobs:
           terraform apply -auto-approve -var="environment=staging"
           
           # Deploy applications
-          aws eks update-kubeconfig --region af-south-1 --name pezela-cluster
+          aws eks update-kubeconfig --region af-south-1 --name Thenga-cluster
           kubectl apply -f infra/k8s/
 
   # Deploy to Production
@@ -307,7 +307,7 @@ jobs:
           terraform apply -auto-approve -var="environment=production"
           
           # Deploy applications
-          aws eks update-kubeconfig --region af-south-1 --name pezela-cluster
+          aws eks update-kubeconfig --region af-south-1 --name Thenga-cluster
           kubectl apply -f infra/k8s/
 
       - name: Run smoke tests

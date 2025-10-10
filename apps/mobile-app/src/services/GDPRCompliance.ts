@@ -1,4 +1,4 @@
-// 🔐 Pezela GDPR Compliance Service
+// 🔐 Thenga GDPR Compliance Service
 // General Data Protection Regulation (GDPR) compliance for international users
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -275,8 +275,8 @@ class GDPRComplianceService {
         purpose,
         legalBasis,
         withdrawalMethod: 'mobile_app_settings',
-        dataController: 'Pezela (Pty) Ltd',
-        dataProcessor: 'Pezela (Pty) Ltd',
+        dataController: 'Thenga (Pty) Ltd',
+        dataProcessor: 'Thenga (Pty) Ltd',
         thirdPartySharing,
         crossBorderTransfer,
         automatedDecisionMaking,
@@ -497,8 +497,8 @@ class GDPRComplianceService {
         format: 'JSON',
         encoding: 'UTF-8',
         exportedAt: new Date(),
-        dataController: 'Pezela (Pty) Ltd',
-        dataProcessor: 'Pezela (Pty) Ltd',
+        dataController: 'Thenga (Pty) Ltd',
+        dataProcessor: 'Thenga (Pty) Ltd',
       };
 
       // Log data portability

@@ -9,7 +9,7 @@ I've implemented all the requested PWA features following the exact documentatio
 #### **✅ Business App Service Worker** (`standalone-pwa/deployment/sw.js`):
 ```javascript
 // js13kPWA Service Worker - Business App
-const cacheName = 'pezela-business-v1';
+const cacheName = 'Thenga-business-v1';
 const appShellFiles = [
     '/', '/index.html', '/manifest.json', '/sw.js',
     '/assets/index-D7ZXutcm.css', '/assets/index-DQvnvixL.js',
@@ -68,7 +68,7 @@ self.addEventListener('fetch', (e) => {
 ```
 
 #### **✅ Customer App Service Worker** (`apps/pwa/customer-deployment/sw.js`):
-- Same js13kPWA pattern with `pezela-customer-v1` cache name
+- Same js13kPWA pattern with `Thenga-customer-v1` cache name
 - Customer-specific dynamic content caching
 - Complete offline functionality
 

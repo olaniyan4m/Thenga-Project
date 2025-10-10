@@ -2,17 +2,17 @@
 
 ## ✅ **Complete js13kPWA Pattern Implementation**
 
-Both Pezela Business and Customer apps now follow the **exact js13kPWA pattern** for service workers, providing optimal offline functionality and caching strategies.
+Both Thenga Business and Customer apps now follow the **exact js13kPWA pattern** for service workers, providing optimal offline functionality and caching strategies.
 
 ### **🔧 Service Worker Structure (js13kPWA Pattern)**
 
 #### **1. Cache Management**
 ```javascript
 // Business App
-const cacheName = 'pezela-business-v1';
+const cacheName = 'Thenga-business-v1';
 
 // Customer App  
-const cacheName = 'pezela-customer-v1';
+const cacheName = 'Thenga-customer-v1';
 ```
 
 #### **2. App Shell Files**
@@ -144,7 +144,7 @@ if ('serviceWorker' in navigator) {
 ### **🚀 Key Benefits of js13kPWA Pattern**
 
 #### **1. Version Management**
-- ✅ **Cache Versioning**: `pezela-business-v1`, `pezela-customer-v1`
+- ✅ **Cache Versioning**: `Thenga-business-v1`, `Thenga-customer-v1`
 - ✅ **Automatic Cleanup**: Old caches are deleted on activate
 - ✅ **Easy Updates**: Change version number to update cache
 
@@ -202,8 +202,8 @@ When updating the app:
 
 ### **📱 Deployment URLs**
 
-- **Business App**: `https://pezela.mozdev.co.za`
-- **Customer App**: `https://customerpezela.mozdev.co.za`
+- **Business App**: `https://Thenga.mozdev.co.za`
+- **Customer App**: `https://customerThenga.mozdev.co.za`
 
 Both apps now implement the **complete js13kPWA pattern** for optimal PWA performance and offline functionality! 🎉
 
@@ -215,4 +215,4 @@ Both apps now implement the **complete js13kPWA pattern** for optimal PWA perfor
 4. **Test Push Notifications**: Verify notifications work
 5. **PWA Builder Validation**: Upload to PWA Builder for final validation
 
-Your Pezela apps are now **100% compliant** with both PWA Builder requirements and js13kPWA best practices! 🚀
+Your Thenga apps are now **100% compliant** with both PWA Builder requirements and js13kPWA best practices! 🚀

@@ -38,7 +38,7 @@ async function bootstrap() {
 
   // Swagger documentation
   const config = new DocumentBuilder()
-    .setTitle('Pezela API')
+    .setTitle('Thenga API')
     .setDescription('Digital commerce platform for South African businesses')
     .setVersion('1.0')
     .addBearerAuth()

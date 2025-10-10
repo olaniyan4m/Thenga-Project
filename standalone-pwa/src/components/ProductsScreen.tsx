@@ -63,12 +63,12 @@ const ProductsScreen: React.FC<ProductsScreenProps> = ({ user, onLogout }) => {
           ];
           setLiveProducts(sampleProducts);
           setProducts(sampleProducts);
-          localStorage.setItem('pezela-products', JSON.stringify(sampleProducts));
+          localStorage.setItem('Thenga-products', JSON.stringify(sampleProducts));
         }
       } catch (error) {
         console.error('Failed to load live products:', error);
         // Fallback to localStorage if API fails
-        const storedProducts = localStorage.getItem('pezela-products');
+        const storedProducts = localStorage.getItem('Thenga-products');
         if (storedProducts) {
           setProducts(JSON.parse(storedProducts));
         }
@@ -82,7 +82,7 @@ const ProductsScreen: React.FC<ProductsScreenProps> = ({ user, onLogout }) => {
 
   const saveProducts = async (updatedProducts: Product[]) => {
     setProducts(updatedProducts);
-    localStorage.setItem('pezela-products', JSON.stringify(updatedProducts));
+    localStorage.setItem('Thenga-products', JSON.stringify(updatedProducts));
     
     // Sync with live API
     try {
@@ -164,7 +164,7 @@ const ProductsScreen: React.FC<ProductsScreenProps> = ({ user, onLogout }) => {
     <div className="screen">
       <div className="screen-header">
         <div className="header-left">
-          <img src="/assets/Logo2.PNG" alt="Pezela Logo" className="header-logo" />
+          <img src="/assets/Logo2.PNG" alt="Thenga Logo" className="header-logo" />
           <h1>Products ({products.length})</h1>
           {isLoading && (
             <div className="loading-indicator">

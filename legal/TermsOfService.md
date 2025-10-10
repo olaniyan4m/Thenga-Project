@@ -1,15 +1,15 @@
-# 📋 Pezela Terms of Service
+# 📋 Thenga Terms of Service
 
 **Effective Date: January 1, 2024**  
 **Last Updated: January 1, 2024**
 
 ## 1. Acceptance of Terms
 
-By accessing or using the Pezela mobile application and services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our services.
+By accessing or using the Thenga mobile application and services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our services.
 
 ## 2. Description of Service
 
-Pezela is a digital commerce platform designed for South African micro and small businesses. Our services include:
+Thenga is a digital commerce platform designed for South African micro and small businesses. Our services include:
 
 - **Mobile Application**: iOS and Android mobile app for business management
 - **Payment Processing**: Integration with South African payment gateways
@@ -75,7 +75,7 @@ You may not use our services to:
 ## 6. Intellectual Property
 
 ### 6.1 Our Rights
-- Pezela owns all rights to the platform and services
+- Thenga owns all rights to the platform and services
 - Our trademarks, logos, and branding are protected
 - You may not use our intellectual property without permission
 
@@ -222,7 +222,7 @@ If any provision of these Terms is found to be invalid or unenforceable, the rem
 
 ## 18. Entire Agreement
 
-These Terms, together with our Privacy Policy, constitute the entire agreement between you and Pezela.
+These Terms, together with our Privacy Policy, constitute the entire agreement between you and Thenga.
 
 ## 19. Changes to Terms
 
@@ -239,16 +239,16 @@ These Terms, together with our Privacy Policy, constitute the entire agreement b
 ## 20. Contact Information
 
 ### 20.1 General Inquiries
-- **Email**: info@pezela.co.za
+- **Email**: info@Thenga.co.za
 - **Phone**: +27 11 123 4567
-- **Website**: https://pezela.co.za
+- **Website**: https://Thenga.co.za
 
 ### 20.2 Legal Inquiries
-- **Email**: legal@pezela.co.za
+- **Email**: legal@Thenga.co.za
 - **Phone**: +27 11 123 4567
 
 ### 20.3 Support
-- **Email**: support@pezela.co.za
+- **Email**: support@Thenga.co.za
 - **Phone**: +27 11 123 4567
 - **In-App**: Use the support chat feature
 
@@ -258,9 +258,9 @@ These Terms of Service are effective as of January 1, 2024, and apply to all use
 
 ---
 
-**Pezela (Pty) Ltd**  
+**Thenga (Pty) Ltd**  
 **Registration Number**: 2024/123456/07  
 **Address**: 123 Business Street, Johannesburg, 2000, South Africa  
 **Phone**: +27 11 123 4567  
-**Email**: legal@pezela.co.za  
-**Website**: https://pezela.co.za
+**Email**: legal@Thenga.co.za  
+**Website**: https://Thenga.co.za

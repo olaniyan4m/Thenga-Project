@@ -19,7 +19,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   return (
     <div className="splash-screen">
       <div className="splash-content">
-        <img src="/assets/Logo4.PNG" alt="Pezela" className="splash-logo" />
+        <img src="/assets/Logo4.PNG" alt="Thenga" className="splash-logo" />
         <p className="splash-subtitle">Digital Commerce for South Africa</p>
         <div className="splash-loader">
           <div className="loader"></div>

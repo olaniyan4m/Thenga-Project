@@ -106,10 +106,10 @@ function App() {
 
   // Load data from localStorage on mount
   useEffect(() => {
-    const savedProducts = localStorage.getItem('pezela-products');
-    const savedOrders = localStorage.getItem('pezela-orders');
-    const savedPayments = localStorage.getItem('pezela-payments');
-    const savedSettings = localStorage.getItem('pezela-settings');
+    const savedProducts = localStorage.getItem('Thenga-products');
+    const savedOrders = localStorage.getItem('Thenga-orders');
+    const savedPayments = localStorage.getItem('Thenga-payments');
+    const savedSettings = localStorage.getItem('Thenga-settings');
 
     if (savedProducts) {
       setProducts(JSON.parse(savedProducts));
@@ -161,24 +161,24 @@ function App() {
   // Save data to localStorage whenever it changes
   useEffect(() => {
     if (products.length > 0) {
-      localStorage.setItem('pezela-products', JSON.stringify(products));
+      localStorage.setItem('Thenga-products', JSON.stringify(products));
     }
   }, [products]);
 
   useEffect(() => {
     if (orders.length > 0) {
-      localStorage.setItem('pezela-orders', JSON.stringify(orders));
+      localStorage.setItem('Thenga-orders', JSON.stringify(orders));
     }
   }, [orders]);
 
   useEffect(() => {
     if (payments.length > 0) {
-      localStorage.setItem('pezela-payments', JSON.stringify(payments));
+      localStorage.setItem('Thenga-payments', JSON.stringify(payments));
     }
   }, [payments]);
 
   useEffect(() => {
-    localStorage.setItem('pezela-settings', JSON.stringify(settings));
+    localStorage.setItem('Thenga-settings', JSON.stringify(settings));
   }, [settings]);
 
   // Calculate stats from real data
@@ -198,7 +198,7 @@ function App() {
       name: 'Demo Merchant', 
       businessName: 'Demo Coffee Shop',
       phone: '+27821234567',
-      email: 'demo@pezela.co.za'
+      email: 'demo@Thenga.co.za'
     };
     
     try {
@@ -238,7 +238,7 @@ function App() {
     setUser(newUser);
     
     // Generate storefront URL
-    const storeUrl = `https://pezela.co.za/store/${newUser.id}`;
+    const storeUrl = `https://Thenga.co.za/store/${newUser.id}`;
     setStorefrontUrl(storeUrl);
     
     setCurrentScreen('dashboard');
@@ -249,9 +249,9 @@ function App() {
     setUser({ 
       id: 'admin',
       name: 'Admin User', 
-      businessName: 'Pezela Admin',
+      businessName: 'Thenga Admin',
       phone: '+27820000000',
-      email: 'admin@pezela.co.za'
+      email: 'admin@Thenga.co.za'
     });
     setIsAdmin(true);
     setCurrentScreen('admin');
@@ -428,7 +428,7 @@ function App() {
           <div className="phone-screen">
             <div className="login-container">
               <div className="login-header">
-                <img src={Logo2} alt="Pezela Logo" className="login-logo" />
+                <img src={Logo2} alt="Thenga Logo" className="login-logo" />
                 <p>Digital Commerce for South Africa</p>
               </div>
               
@@ -547,7 +547,7 @@ function App() {
                 <div className="login-header">
                   <img 
                     src={Logo2} 
-                    alt="Pezela Logo" 
+                    alt="Thenga Logo" 
                     className="login-logo" 
                     onClick={handleLogoClick}
                     style={{ cursor: 'pointer' }}
@@ -1029,7 +1029,7 @@ const DashboardScreen = ({ user, onLogout, stats, orders, storefrontUrl, setShow
   <div className="screen">
     <div className="screen-header">
       <div className="header-left">
-        <img src={Logo2} alt="Pezela Logo" className="header-logo" />
+        <img src={Logo2} alt="Thenga Logo" className="header-logo" />
         <h1>Dashboard</h1>
       </div>
       <div className="header-actions">
@@ -3676,7 +3676,7 @@ const LendingScreen = ({ user, onLogout }: {
                               },
                               body: JSON.stringify({
                                 ...loanApplication,
-                                reviewEmail: 'loan@pezela.co.za',
+                                reviewEmail: 'loan@Thenga.co.za',
                                 applicationDate: new Date().toISOString()
                               })
                             });
@@ -3691,14 +3691,14 @@ const LendingScreen = ({ user, onLogout }: {
                             const application = {
                               id: `app-${Date.now()}`,
                               ...loanApplication,
-                              reviewEmail: 'loan@pezela.co.za',
+                              reviewEmail: 'loan@Thenga.co.za',
                               status: 'Under Review',
                               applicationDate: new Date().toISOString(),
                               estimatedDecision: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
                             };
                             setLoanApplications(prev => [...prev, application]);
                             setShowLoanApplication(false);
-                            console.log('Loan application submitted to loan@pezela.co.za:', application);
+                            console.log('Loan application submitted to loan@Thenga.co.za:', application);
                           }
                         } catch (error) {
                           console.error('Error applying for loan:', error);
@@ -3808,7 +3808,7 @@ const MarketplaceScreen = ({ user, onLogout }: {
           });
           
           // Mock storefront data
-          setStorefrontUrl('https://storefront.pezela.co.za/business/12345');
+          setStorefrontUrl('https://storefront.Thenga.co.za/business/12345');
           setStorefrontStats({
             views: 1250,
             visitors: 890,
@@ -3893,7 +3893,7 @@ const MarketplaceScreen = ({ user, onLogout }: {
                 <div className="card-content">
                   <div className="info-row">
                     <span className="label">URL:</span>
-                    <span className="value">{storefrontUrl || 'https://storefront.pezela.co.za/business/12345'}</span>
+                    <span className="value">{storefrontUrl || 'https://storefront.Thenga.co.za/business/12345'}</span>
                   </div>
                   <div className="info-row">
                     <span className="label">Views:</span>
@@ -3914,7 +3914,7 @@ const MarketplaceScreen = ({ user, onLogout }: {
                     onClick={async () => {
                       try {
                         const isProduction = window.location.hostname !== 'localhost';
-                        const url = storefrontUrl || 'https://storefront.pezela.co.za/business/12345';
+                        const url = storefrontUrl || 'https://storefront.Thenga.co.za/business/12345';
                         
                         if (isProduction) {
                           // Track view in production
@@ -3934,7 +3934,7 @@ const MarketplaceScreen = ({ user, onLogout }: {
                       } catch (error) {
                         console.error('Error opening storefront:', error);
                         // Fallback - open URL anyway
-                        const url = storefrontUrl || 'https://storefront.pezela.co.za/business/12345';
+                        const url = storefrontUrl || 'https://storefront.Thenga.co.za/business/12345';
                         window.open(url, '_blank');
                       }
                     }}
@@ -3946,7 +3946,7 @@ const MarketplaceScreen = ({ user, onLogout }: {
                     onClick={async () => {
                       try {
                         const isProduction = window.location.hostname !== 'localhost';
-                        const url = storefrontUrl || 'https://storefront.pezela.co.za/business/12345';
+                        const url = storefrontUrl || 'https://storefront.Thenga.co.za/business/12345';
                         
                         if (isProduction) {
                           // Track share in production
@@ -3969,7 +3969,7 @@ const MarketplaceScreen = ({ user, onLogout }: {
                       } catch (error) {
                         console.error('Error sharing storefront:', error);
                         // Fallback - show URL for manual copy
-                        alert(`Storefront URL: ${storefrontUrl || 'https://storefront.pezela.co.za/business/12345'}`);
+                        alert(`Storefront URL: ${storefrontUrl || 'https://storefront.Thenga.co.za/business/12345'}`);
                       }
                     }}
                   >
@@ -5015,7 +5015,7 @@ const LoyaltyScreen = ({ user, onLogout }: {
                             // Development mode - simulate sharing
                             console.log(`Sharing ${coupon.code}...`);
                             
-                            const shareUrl = `https://storefront.pezela.co.za/coupon/${coupon.code}`;
+                            const shareUrl = `https://storefront.Thenga.co.za/coupon/${coupon.code}`;
                             await navigator.clipboard.writeText(shareUrl);
                             
                             alert(`✅ ${coupon.code} coupon shared successfully!\n\nShare URL copied to clipboard:\n${shareUrl}\n\nShare Details:\n- Code: ${coupon.code}\n- Discount: ${coupon.discount}%\n- Valid Until: ${coupon.validUntil}\n- Remaining Uses: ${coupon.maxUses - coupon.uses}\n- Share URL: ${shareUrl}`);

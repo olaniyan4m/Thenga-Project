@@ -1,7 +1,7 @@
 {
-  "name": "@pezela/api-gateway",
+  "name": "@Thenga/api-gateway",
   "version": "1.0.0",
-  "description": "Pezela API Gateway - Main backend service",
+  "description": "Thenga API Gateway - Main backend service",
   "main": "dist/main.js",
   "scripts": {
     "build": "nest build",

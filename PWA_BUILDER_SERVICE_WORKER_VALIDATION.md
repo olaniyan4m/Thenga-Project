@@ -16,7 +16,7 @@ Based on the [PWA Builder service worker documentation](https://docs.pwabuilder.
 ##### **1. Basic Service Worker Structure**
 ```javascript
 // PWA Builder Service Worker - Business App (js13kPWA Pattern)
-const cacheName = 'pezela-business-v1';
+const cacheName = 'Thenga-business-v1';
 const SW_VERSION = '1.0.0';
 ```
 
@@ -190,7 +190,7 @@ self.addEventListener('push', event => {
     console.log('PWA Builder: Push event received');
     
     const options = {
-        body: event.data ? event.data.text() : 'New notification from Pezela Business',
+        body: event.data ? event.data.text() : 'New notification from Thenga Business',
         icon: '/icon-192.png',
         badge: '/icon-72.png',
         vibrate: [100, 50, 100],
@@ -213,7 +213,7 @@ self.addEventListener('push', event => {
     };
     
     event.waitUntil(
-        self.registration.showNotification('Pezela Business', options)
+        self.registration.showNotification('Thenga Business', options)
     );
 });
 ```
@@ -357,7 +357,7 @@ With this information, I can:
 
 ## **🎉 Service Worker Implementation Complete!**
 
-Your Pezela apps have **complete service worker implementation** with all PWA Builder requirements:
+Your Thenga apps have **complete service worker implementation** with all PWA Builder requirements:
 
 - ✅ **Service Worker File**: Present at correct path
 - ✅ **Service Worker Registration**: Properly registered

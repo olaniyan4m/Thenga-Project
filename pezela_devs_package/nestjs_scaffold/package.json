@@ -1,9 +1,0 @@
-{
-  "name": "pezela-api",
-  "version": "0.1.0",
-  "scripts": {
-    "start": "node dist/main.js",
-    "start:dev": "ts-node-dev --respawn --transpile-only src/main.ts",
-    "build": "tsc -p tsconfig.build.json"
-  }
-}

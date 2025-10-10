@@ -292,7 +292,7 @@ class AccountingService {
     return {
       Type: 'ACCREC',
       Contact: {
-        Name: 'Pezela Customer'
+        Name: 'Thenga Customer'
       },
       Date: transaction.date,
       LineItems: [{

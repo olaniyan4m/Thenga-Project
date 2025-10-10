@@ -21,8 +21,8 @@
 #### **Business App Manifest** (`standalone-pwa/deployment/manifest.json`):
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "pezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "Thenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -30,8 +30,8 @@
 #### **Customer App Manifest** (`apps/pwa/customer-deployment/manifest.json`):
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "customerpezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "customerThenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -110,12 +110,12 @@ If you notice files disappearing, you can restore them using the backup files:
 
 ```bash
 # Restore Business App
-cp /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/standalone-pwa/deployment/manifest.json.backup /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/standalone-pwa/deployment/manifest.json
-cp /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/standalone-pwa/deployment/sw.js.backup /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/standalone-pwa/deployment/sw.js
+cp /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/standalone-pwa/deployment/manifest.json.backup /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/standalone-pwa/deployment/manifest.json
+cp /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/standalone-pwa/deployment/sw.js.backup /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/standalone-pwa/deployment/sw.js
 
 # Restore Customer App
-cp /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/apps/pwa/customer-deployment/manifest.json.backup /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/apps/pwa/customer-deployment/manifest.json
-cp /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/apps/pwa/customer-deployment/sw.js.backup /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/apps/pwa/customer-deployment/sw.js
+cp /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/apps/pwa/customer-deployment/manifest.json.backup /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/apps/pwa/customer-deployment/manifest.json
+cp /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/apps/pwa/customer-deployment/sw.js.backup /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/apps/pwa/customer-deployment/sw.js
 ```
 
 ## 🎉 **All Files Present and Verified**

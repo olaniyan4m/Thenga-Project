@@ -1,4 +1,4 @@
-# Xcode Deployment Guide for Pezela Apps
+# Xcode Deployment Guide for Thenga Apps
 
 ## ✅ **Current Status**
 
@@ -19,13 +19,13 @@
 ### **Step 1: Open Xcode Project**
 ```bash
 # Already opened:
-open /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/Pezela/Pezela.xcodeproj
+open /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/Thenga/Thenga.xcodeproj
 ```
 
 ### **Step 2: Configure iOS Simulator**
 1. **Open Xcode** (should be open now)
 2. **Select Simulator**: Choose iPhone 15 Pro or iPhone 14 Pro
-3. **Select Target**: Pezela (iOS)
+3. **Select Target**: Thenga (iOS)
 4. **Build Configuration**: Debug
 
 ### **Step 3: Build and Run**

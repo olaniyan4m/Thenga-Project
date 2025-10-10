@@ -1,4 +1,4 @@
-// 🔐 Pezela Authentication Service
+// 🔐 Thenga Authentication Service
 // Secure Firebase Authentication with comprehensive security features
 
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';

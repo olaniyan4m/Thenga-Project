@@ -277,7 +277,7 @@ const AdminPanel: React.FC = () => {
   return (
     <div className="admin-panel">
       <div className="admin-header">
-        <h1>Pezela Admin Panel</h1>
+        <h1>Thenga Admin Panel</h1>
         <div className="admin-tabs">
           <button 
             className={activeTab === 'dashboard' ? 'active' : ''}

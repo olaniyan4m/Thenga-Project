@@ -1,4 +1,4 @@
-// 💰 Pezela Subscription Plans Component
+// 💰 Thenga Subscription Plans Component
 // Subscription plan selection after registration
 
 import React, { useState } from 'react';
@@ -101,7 +101,7 @@ const SubscriptionPlans: React.FC<SubscriptionPlansProps> = ({ onSelectPlan, onB
         <button className="back-button" onClick={onBack}>
           ← Back to Registration
         </button>
-        <h2>💰 Choose Your Pezela Plan</h2>
+        <h2>💰 Choose Your Thenga Plan</h2>
         <p>Select the perfect plan for your business needs</p>
       </div>
 
@@ -251,7 +251,7 @@ const SubscriptionPlans: React.FC<SubscriptionPlansProps> = ({ onSelectPlan, onB
 
       {/* Benefits Section */}
       <div className="plan-benefits">
-        <h3>🎯 Why Choose Pezela?</h3>
+        <h3>🎯 Why Choose Thenga?</h3>
         <div className="benefits-grid">
           <div className="benefit-item">
             <span className="icon">🇿🇦</span>

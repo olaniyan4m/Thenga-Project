@@ -1,4 +1,4 @@
-# 🔥 Firebase Hosting Setup Guide for Pezela Business Platform
+# 🔥 Firebase Hosting Setup Guide for Thenga Business Platform
 
 ## 🚀 **Quick Setup - Get Your Web.app URLs**
 
@@ -14,8 +14,8 @@ firebase login
 
 ### 3. **Create Firebase Projects**
 You'll need to create two Firebase projects:
-- **Business App**: `pezela-business`
-- **Customer App**: `pezela-store`
+- **Business App**: `Thenga-business`
+- **Customer App**: `Thenga-store`
 
 ### 4. **Deploy Applications**
 
@@ -38,13 +38,13 @@ You'll need to create two Firebase projects:
 ## 🌐 **Your Web.app URLs**
 
 ### 📱 **Business Application (Admin Dashboard)**
-- **Primary URL**: `https://pezela-business.web.app`
-- **Custom URL**: `https://business.pezela.web.app`
+- **Primary URL**: `https://Thenga-business.web.app`
+- **Custom URL**: `https://business.Thenga.web.app`
 - **Features**: Complete business management dashboard
 
 ### 🛒 **Customer Application (Storefront)**
-- **Primary URL**: `https://pezela-store.web.app`
-- **Custom URL**: `https://store.pezela.web.app`
+- **Primary URL**: `https://Thenga-store.web.app`
+- **Custom URL**: `https://store.Thenga.web.app`
 - **Features**: Customer-facing e-commerce storefront
 
 ---
@@ -58,7 +58,7 @@ cd standalone-pwa
 # Initialize Firebase (if not already done)
 firebase init hosting
 
-# Select project: pezela-business
+# Select project: Thenga-business
 # Public directory: dist
 # Single-page app: Yes
 # GitHub integration: No
@@ -75,7 +75,7 @@ cd apps/pwa
 # Initialize Firebase (if not already done)
 firebase init hosting
 
-# Select project: pezela-store
+# Select project: Thenga-store
 # Public directory: dist
 # Single-page app: Yes
 # GitHub integration: No
@@ -91,7 +91,7 @@ firebase deploy
 
 ### Business Admin Account
 ```
-Email: demo@pezela.co.za
+Email: demo@Thenga.co.za
 Password: DemoBusiness2024!
 Role: Business Owner
 ```
@@ -130,7 +130,7 @@ Role: Customer
 ## 🎯 **Investor Demo Flow**
 
 ### 1. **Start with Business App**
-1. Go to `https://pezela-business.web.app`
+1. Go to `https://Thenga-business.web.app`
 2. Login with demo credentials
 3. Show dashboard analytics
 4. Demonstrate order management
@@ -139,7 +139,7 @@ Role: Customer
 7. Highlight advanced features
 
 ### 2. **Switch to Customer App**
-1. Go to `https://pezela-store.web.app`
+1. Go to `https://Thenga-store.web.app`
 2. Browse product catalog
 3. Add items to cart
 4. Show checkout process
@@ -199,8 +199,8 @@ npm install --legacy-peer-deps
 firebase projects:list
 
 # Switch project if needed
-firebase use pezela-business
-firebase use pezela-store
+firebase use Thenga-business
+firebase use Thenga-store
 ```
 
 ---
@@ -209,22 +209,22 @@ firebase use pezela-store
 
 ### Business App (Mobile)
 ```
-https://pezela-business.web.app/mobile
+https://Thenga-business.web.app/mobile
 ```
 
 ### Customer App (Mobile)
 ```
-https://pezela-store.web.app/mobile
+https://Thenga-store.web.app/mobile
 ```
 
 ---
 
 ## 🎉 **Ready for Investor Demo!**
 
-Your Pezela Business Platform is now live on Firebase with professional web.app URLs:
+Your Thenga Business Platform is now live on Firebase with professional web.app URLs:
 
-- **Business App**: `https://pezela-business.web.app`
-- **Customer App**: `https://pezela-store.web.app`
+- **Business App**: `https://Thenga-business.web.app`
+- **Customer App**: `https://Thenga-store.web.app`
 
 Both applications are fully functional and ready for investor presentations!
 
@@ -233,6 +233,6 @@ Both applications are fully functional and ready for investor presentations!
 ## 📞 **Support**
 
 If you need help with deployment:
-- **Email**: tech@pezela.co.za
-- **Documentation**: https://docs.pezela.co.za
+- **Email**: tech@Thenga.co.za
+- **Documentation**: https://docs.Thenga.co.za
 - **Firebase Docs**: https://firebase.google.com/docs/hosting

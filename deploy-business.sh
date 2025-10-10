@@ -3,7 +3,7 @@
 # 🚀 Deploy Business Application to Firebase Hosting
 # This script builds and deploys the Business App to Firebase
 
-echo "🚀 Deploying Pezela Business Application to Firebase..."
+echo "🚀 Deploying Thenga Business Application to Firebase..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -72,8 +72,8 @@ if [ $? -eq 0 ]; then
     print_status "Business Application deployed successfully!"
     echo ""
     echo "🌐 Your Business App is now live at:"
-    echo "   https://pezela-business.web.app"
-    echo "   https://business.pezela.web.app"
+    echo "   https://Thenga-business.web.app"
+    echo "   https://business.Thenga.web.app"
     echo ""
     echo "📱 Features available:"
     echo "   ✅ Dashboard Analytics"
@@ -85,7 +85,7 @@ if [ $? -eq 0 ]; then
     echo "   ✅ Advanced Features"
     echo ""
     echo "🔐 Demo Credentials:"
-    echo "   Email: demo@pezela.co.za"
+    echo "   Email: demo@Thenga.co.za"
     echo "   Password: DemoBusiness2024!"
     echo ""
 else

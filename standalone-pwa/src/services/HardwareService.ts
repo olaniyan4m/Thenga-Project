@@ -348,7 +348,7 @@ class HardwareService {
    */
   private formatReceipt(transactionData: any): string {
     return `
-Pezela Receipt
+Thenga Receipt
 ==============
 Date: ${new Date().toLocaleString()}
 Transaction: ${transactionData.transactionId}

@@ -1,4 +1,4 @@
-# 🚀 Pezela Project - Complete Setup Summary
+# 🚀 Thenga Project - Complete Setup Summary
 
 ## ✅ All Todo Items Completed Successfully!
 
@@ -130,7 +130,7 @@ terraform apply
 
 ## 🎉 **Ready for Development!**
 
-Your Pezela project is now **production-ready** with:
+Your Thenga project is now **production-ready** with:
 
 ✅ **Mobile Apps**: iOS (Xcode) + Android  
 ✅ **PWA**: Phone frame design  

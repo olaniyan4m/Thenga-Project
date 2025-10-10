@@ -1,23 +1,23 @@
-# 🚀 Pezela - READY FOR APP STORE SUBMISSION!
+# 🚀 Thenga - READY FOR APP STORE SUBMISSION!
 
 ## ✅ **PRODUCTION READINESS STATUS: 100% COMPLETE**
 
-Your Pezela project is **fully ready** for Apple App Store and Google Play Store submission! Here's what's been configured:
+Your Thenga project is **fully ready** for Apple App Store and Google Play Store submission! Here's what's been configured:
 
 ---
 
 ## 📱 **MOBILE APP CONFIGURATION**
 
 ### **✅ iOS App (App Store Ready)**
-- **Bundle ID**: `com.pezela.mobile`
+- **Bundle ID**: `com.Thenga.mobile`
 - **Xcode Project**: Fully configured with proper settings
 - **Build Scripts**: Production build automation ready
 - **Permissions**: Camera, location, storage, network access configured
 - **App Icons**: Ready for 1024x1024 App Store icon
-- **Launch Screen**: Configured with Pezela branding
+- **Launch Screen**: Configured with Thenga branding
 
 ### **✅ Android App (Play Store Ready)**
-- **Package Name**: `com.pezela.mobile`
+- **Package Name**: `com.Thenga.mobile`
 - **Build Configuration**: Release APK and AAB builds ready
 - **Permissions**: All required permissions configured
 - **Manifest**: Production-ready AndroidManifest.xml
@@ -36,7 +36,7 @@ Your Pezela project is **fully ready** for Apple App Store and Google Play Store
 - **SSL**: HTTPS configuration for all endpoints
 
 ### **✅ API Endpoints**
-- **Base URL**: `https://api.pezela.co.za`
+- **Base URL**: `https://api.Thenga.co.za`
 - **Health Check**: `/health` endpoint configured
 - **Authentication**: JWT-based security
 - **Rate Limiting**: Protection against abuse
@@ -116,7 +116,7 @@ Your Pezela project is **fully ready** for Apple App Store and Google Play Store
 
 ### **✅ Required for Apple App Store**
 - [x] **Apple Developer Account** ($99/year)
-- [x] **Bundle Identifier**: `com.pezela.mobile`
+- [x] **Bundle Identifier**: `com.Thenga.mobile`
 - [x] **App Icons**: Ready for 1024x1024 upload
 - [x] **Screenshots**: Required for all device sizes
 - [x] **App Description**: Ready for store listing
@@ -126,7 +126,7 @@ Your Pezela project is **fully ready** for Apple App Store and Google Play Store
 
 ### **✅ Required for Google Play Store**
 - [x] **Google Play Console** ($25 one-time)
-- [x] **Package Name**: `com.pezela.mobile`
+- [x] **Package Name**: `com.Thenga.mobile`
 - [x] **App Signing**: Production keystore ready
 - [x] **Feature Graphic**: 1024x500 required
 - [x] **Screenshots**: All device sizes
@@ -210,7 +210,7 @@ Your Pezela project is **fully ready** for Apple App Store and Google Play Store
 
 ## 🎉 **CONGRATULATIONS!**
 
-**Your Pezela project is 100% ready for production deployment and App Store submission!**
+**Your Thenga project is 100% ready for production deployment and App Store submission!**
 
 ### **What You Have:**
 - ✅ **Complete Mobile App** (iOS + Android)
@@ -232,6 +232,6 @@ Your Pezela project is **fully ready** for Apple App Store and Google Play Store
 
 ---
 
-**🚀 Pezela is ready to revolutionize digital commerce in South Africa!**
+**🚀 Thenga is ready to revolutionize digital commerce in South Africa!**
 
 *Built with ❤️ for South African businesses*

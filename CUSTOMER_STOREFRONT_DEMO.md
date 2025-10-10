@@ -1,6 +1,6 @@
 # 🛍️ Customer Storefront - What Customers See
 
-## **When a merchant shares their Pezela store link, customers see this beautiful, mobile-optimized storefront:**
+## **When a merchant shares their Thenga store link, customers see this beautiful, mobile-optimized storefront:**
 
 ---
 
@@ -63,7 +63,7 @@
 - **Offline Support** - Works during loadshedding
 
 ### **South African Branding**
-- **Green Color Scheme** - Matches Pezela branding
+- **Green Color Scheme** - Matches Thenga branding
 - **Local Currency** - All prices in Rands (R)
 - **Local Products** - Kotas, drinks, sides
 - **Local Language** - English with South African context
@@ -143,7 +143,7 @@
 ## **🔗 How It Works**
 
 ### **1. Merchant Setup**
-- Merchant creates storefront in Pezela dashboard
+- Merchant creates storefront in Thenga dashboard
 - Adds products, prices, descriptions, images
 - Sets delivery areas and minimum orders
 - Gets unique store URL
@@ -188,7 +188,7 @@
 
 ---
 
-## **🎉 This is What Makes Pezela Special!**
+## **🎉 This is What Makes Thenga Special!**
 
 **Your customers get a professional, beautiful, mobile-optimized storefront that:**
 - ✅ **Looks Professional** - Builds trust and credibility

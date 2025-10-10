@@ -32,36 +32,36 @@ scrape_configs:
     static_configs:
       - targets: ['postgres-exporter:9187']
 
-  # Pezela API Gateway
-  - job_name: 'pezela-api-gateway'
+  # Thenga API Gateway
+  - job_name: 'Thenga-api-gateway'
     static_configs:
       - targets: ['api-gateway:3000']
     metrics_path: '/metrics'
     scrape_interval: 10s
 
-  # Pezela WhatsApp Service
-  - job_name: 'pezela-whatsapp-service'
+  # Thenga WhatsApp Service
+  - job_name: 'Thenga-whatsapp-service'
     static_configs:
       - targets: ['whatsapp-service:3001']
     metrics_path: '/metrics'
     scrape_interval: 10s
 
-  # Pezela Inventory Service
-  - job_name: 'pezela-inventory-service'
+  # Thenga Inventory Service
+  - job_name: 'Thenga-inventory-service'
     static_configs:
       - targets: ['inventory-service:3003']
     metrics_path: '/metrics'
     scrape_interval: 10s
 
-  # Pezela WebSocket Service
-  - job_name: 'pezela-websocket-service'
+  # Thenga WebSocket Service
+  - job_name: 'Thenga-websocket-service'
     static_configs:
       - targets: ['websocket-service:3004']
     metrics_path: '/metrics'
     scrape_interval: 10s
 
-  # Pezela PWA
-  - job_name: 'pezela-pwa'
+  # Thenga PWA
+  - job_name: 'Thenga-pwa'
     static_configs:
       - targets: ['pwa:3000']
     metrics_path: '/metrics'

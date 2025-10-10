@@ -33,12 +33,12 @@
 ## 🚀 **Xcode Deployment Steps**
 
 ### **Step 1: Xcode is Already Open**
-- ✅ Xcode project is open: `Pezela/Pezela.xcodeproj`
+- ✅ Xcode project is open: `Thenga/Thenga.xcodeproj`
 - ✅ Ready for building and testing
 
 ### **Step 2: Build and Run**
 1. **Select Simulator**: Choose iPhone 15 Pro or iPhone 14 Pro
-2. **Select Target**: Pezela (iOS)
+2. **Select Target**: Thenga (iOS)
 3. **Click "Build and Run"** (▶️ button)
 4. **Wait for Build**: First build may take 5-10 minutes
 
@@ -68,7 +68,7 @@
 ### **App Selector Screen:**
 ```
 ┌─────────────────────────┐
-│        Pezela           │
+│        Thenga           │
 │     Choose Your App     │
 │                         │
 │  ┌─────────────────┐   │
@@ -117,7 +117,7 @@
 ┌─────────────────────────┐
 │  ← Customer App    🛒   │
 │                         │
-│  Welcome to Pezela!     │
+│  Welcome to Thenga!     │
 │  Your shopping companion │
 │                         │
 │  Your Activity          │

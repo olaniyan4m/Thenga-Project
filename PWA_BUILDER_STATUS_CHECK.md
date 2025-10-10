@@ -12,8 +12,8 @@
 ### **Manifest Fields - Business App**
 
 #### **✅ Required Fields (Present)**
-- ✅ `name`: "Pezela Business - Complete Business Management"
-- ✅ `short_name`: "Pezela Business"
+- ✅ `name`: "Thenga Business - Complete Business Management"
+- ✅ `short_name`: "Thenga Business"
 - ✅ `description`: Complete description provided
 - ✅ `start_url`: "/"
 - ✅ `display`: "standalone"
@@ -52,8 +52,8 @@
 ### **Manifest Fields - Customer App**
 
 #### **✅ Required Fields (Present)**
-- ✅ `name`: "Pezela Customer - Shop & Order Online"
-- ✅ `short_name`: "Pezela Customer"
+- ✅ `name`: "Thenga Customer - Shop & Order Online"
+- ✅ `short_name`: "Thenga Customer"
 - ✅ `description`: Complete description provided
 - ✅ `start_url`: "/"
 - ✅ `display`: "standalone"
@@ -124,8 +124,8 @@ According to PWA Builder documentation, the two fields it typically asks for are
 - **Current Implementation**:
   ```json
   "scope_extensions": [
-    {"origin": "*.pezela.co.za"},
-    {"origin": "pezela.mozdev.co.za"},
+    {"origin": "*.Thenga.co.za"},
+    {"origin": "Thenga.mozdev.co.za"},
     {"origin": "*.mozdev.co.za"}
   ]
   ```

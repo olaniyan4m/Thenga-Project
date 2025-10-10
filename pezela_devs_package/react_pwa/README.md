@@ -1,1 +1,0 @@
-React PWA skeleton. Add CRA/Vite and dependencies to run.

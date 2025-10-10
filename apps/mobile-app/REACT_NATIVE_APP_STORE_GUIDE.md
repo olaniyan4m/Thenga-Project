@@ -2,7 +2,7 @@
 
 ## ✅ What We've Accomplished:
 - ✅ **React Native project** configured and ready
-- ✅ **iOS project** renamed from Pezela to Thenga
+- ✅ **iOS project** renamed from Thenga to Thenga
 - ✅ **Bundle identifier** set to `com.thenga.commerce`
 - ✅ **Xcode project** opened and ready
 

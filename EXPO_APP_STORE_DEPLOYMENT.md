@@ -3,7 +3,7 @@
 ## ✅ **Your App is Ready!**
 
 ### **What We've Created:**
-- ✅ **Expo Project**: `PezelaAppStore` with WebView integration
+- ✅ **Expo Project**: `ThengaAppStore` with WebView integration
 - ✅ **Business App**: Green theme with business features
 - ✅ **Customer App**: Blue theme with customer features
 - ✅ **App Selector**: Choose between Business and Customer apps
@@ -53,8 +53,8 @@ eas submit --platform ios
 ## 🎯 **App Store Information:**
 
 ### **App Details:**
-- **Name**: Pezela
-- **Bundle ID**: com.pezela.app
+- **Name**: Thenga
+- **Bundle ID**: com.Thenga.app
 - **Version**: 2.0.0
 - **Category**: Business
 - **Description**: Complete business management solution with customer shopping app

@@ -1,4 +1,4 @@
-# Pezela Mobile App
+# Thenga Mobile App
 
 React Native mobile application for iOS and Android with native Xcode project integration.
 
@@ -89,7 +89,7 @@ src/
 Create `.env` file in the root directory:
 
 ```env
-API_BASE_URL=https://api.pezela.co.za
+API_BASE_URL=https://api.Thenga.co.za
 WHATSAPP_API_URL=https://api.whatsapp.com
 PAYMENT_PROVIDER_URL=https://api.payfast.co.za
 ```
@@ -97,7 +97,7 @@ PAYMENT_PROVIDER_URL=https://api.payfast.co.za
 ### iOS Configuration
 
 The iOS app is configured with:
-- **Bundle ID**: `com.pezela.mobile`
+- **Bundle ID**: `com.Thenga.mobile`
 - **Deployment Target**: iOS 11.0+
 - **Permissions**: Camera, Location, Contacts, Microphone
 - **Capabilities**: Push Notifications, Background Modes
@@ -105,7 +105,7 @@ The iOS app is configured with:
 ### Android Configuration
 
 The Android app is configured with:
-- **Package**: `com.pezela.mobile`
+- **Package**: `com.Thenga.mobile`
 - **Min SDK**: 21 (Android 5.0)
 - **Target SDK**: 34 (Android 14)
 - **Permissions**: Camera, Location, Contacts, etc.
@@ -127,7 +127,7 @@ npx react-native run-ios --configuration Release
 3. **Archive for App Store**
 ```bash
 # Open Xcode
-open ios/Pezela.xcworkspace
+open ios/Thenga.xcworkspace
 # Archive in Xcode
 ```
 

@@ -1,4 +1,4 @@
-# 🚀 Production Configuration for Pezela
+# 🚀 Production Configuration for Thenga
 
 ## 📱 **APP STORE SUBMISSION CHECKLIST**
 
@@ -17,7 +17,7 @@
 # Required Actions:
 1. Create Apple Developer Account ($99/year)
 2. Set up App Store Connect
-3. Create app listing with bundle ID: com.pezela.mobile
+3. Create app listing with bundle ID: com.Thenga.mobile
 4. Upload app icons (1024x1024 required)
 5. Add screenshots for all device sizes
 6. Write app description and keywords
@@ -29,15 +29,15 @@
 
 # Backend API (.env.production)
 NODE_ENV=production
-DATABASE_URL=postgresql://user:pass@prod-db.af-south-1.rds.amazonaws.com:5432/pezela
-API_HOST=https://api.pezela.co.za
+DATABASE_URL=postgresql://user:pass@prod-db.af-south-1.rds.amazonaws.com:5432/Thenga
+API_HOST=https://api.Thenga.co.za
 JWT_SECRET=your-super-secure-jwt-secret
 PAYFAST_MERCHANT_ID=your-payfast-id
 WHATSAPP_ACCESS_TOKEN=your-whatsapp-token
 SENTRY_DSN=your-sentry-dsn
 
 # Mobile App (.env.production)
-API_BASE_URL=https://api.pezela.co.za
+API_BASE_URL=https://api.Thenga.co.za
 FIREBASE_API_KEY=your-firebase-key
 AMPLITUDE_API_KEY=your-amplitude-key
 ```
@@ -61,9 +61,9 @@ cd apps/mobile-app/android
 #### **4. Domain & SSL Setup**
 ```bash
 # Required Domains:
-- api.pezela.co.za (Backend API)
-- app.pezela.co.za (PWA)
-- admin.pezela.co.za (Admin Dashboard)
+- api.Thenga.co.za (Backend API)
+- app.Thenga.co.za (PWA)
+- admin.Thenga.co.za (Admin Dashboard)
 
 # SSL Certificates:
 - Let's Encrypt or AWS Certificate Manager
@@ -114,8 +114,8 @@ terraform apply -var="environment=production"
 ### **Step 3: Deploy Backend Services**
 ```bash
 # Build and deploy containers
-docker build -t pezela-api-gateway .
-docker push your-registry/pezela-api-gateway:latest
+docker build -t Thenga-api-gateway .
+docker push your-registry/Thenga-api-gateway:latest
 
 # Deploy to Kubernetes
 kubectl apply -f infra/k8s/
@@ -125,7 +125,7 @@ kubectl apply -f infra/k8s/
 ```bash
 # iOS App Store Build
 cd apps/mobile-app/ios
-xcodebuild -workspace Pezela.xcworkspace -scheme Pezela -configuration Release archive
+xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release archive
 
 # Android Play Store Build
 cd apps/mobile-app/android

@@ -60,7 +60,7 @@ export const CustomerDashboard: React.FC<CustomerDashboardProps> = ({ stats, isL
     <ScrollView style={styles.container}>
       {/* Welcome Section */}
       <View style={styles.welcomeContainer}>
-        <Text style={styles.welcomeTitle}>Welcome to Pezela!</Text>
+        <Text style={styles.welcomeTitle}>Welcome to Thenga!</Text>
         <Text style={styles.welcomeSubtitle}>Your shopping companion</Text>
       </View>
 

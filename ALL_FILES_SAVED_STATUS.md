@@ -74,7 +74,7 @@ All files are properly saved and ready for:
 
 ## 🎉 **All Files Successfully Saved!**
 
-Your Pezela Business and Customer PWAs are now complete with:
+Your Thenga Business and Customer PWAs are now complete with:
 
 - ✅ **Complete PWA Builder Compliance**
 - ✅ **js13kPWA Pattern Implementation**

@@ -9,14 +9,14 @@ Based on the PWA Builder documentation, I've ensured both manifests meet all req
 ### **1. Required Properties (Info Section)**
 
 #### **✅ name: string**
-- **Customer**: `"Pezela Customer - Shop & Order Online"`
-- **Business**: `"Pezela Business - Complete Business Management"`
+- **Customer**: `"Thenga Customer - Shop & Order Online"`
+- **Business**: `"Thenga Business - Complete Business Management"`
 - **Requirement**: ✅ At least 2 characters, descriptive name
 - **Purpose**: Display name for the application
 
 #### **✅ short_name: string**
-- **Customer**: `"Pezela Customer"`
-- **Business**: `"Pezela Business"`
+- **Customer**: `"Thenga Customer"`
+- **Business**: `"Thenga Business"`
 - **Requirement**: ✅ 12 characters or less
 - **Purpose**: Used when there's limited space for the full name
 
@@ -26,7 +26,7 @@ Based on the PWA Builder documentation, I've ensured both manifests meet all req
 - **Purpose**: Allows browser to associate app identity with specific install
 
 #### **✅ description: string**
-- **Customer**: `"Shop and order delicious food online with Pezela. Browse our menu, place orders, and track deliveries in real-time."`
+- **Customer**: `"Shop and order delicious food online with Thenga. Browse our menu, place orders, and track deliveries in real-time."`
 - **Business**: `"Complete business management solution for South African entrepreneurs. Manage orders, payments, products, tax compliance, and more."`
 - **Requirement**: ✅ Descriptive functionality and purpose
 - **Purpose**: Describes what the app does
@@ -42,11 +42,11 @@ Based on the PWA Builder documentation, I've ensured both manifests meet all req
 - **Purpose**: How the app should be displayed (full screen, no browser UI)
 
 #### **✅ background_color: string**
-- **Both Apps**: `"#2E7D32"` (Pezela green)
+- **Both Apps**: `"#2E7D32"` (Thenga green)
 - **Purpose**: Background color shown during app loading
 
 #### **✅ theme_color: string**
-- **Both Apps**: `"#2E7D32"` (Pezela green)
+- **Both Apps**: `"#2E7D32"` (Thenga green)
 - **Purpose**: Theme color for the app
 
 #### **✅ orientation: string**
@@ -102,9 +102,9 @@ Based on the PWA Builder documentation, I've ensured both manifests meet all req
 ### **Customer App Manifest:**
 ```json
 {
-  "name": "Pezela Customer - Shop & Order Online",
-  "short_name": "Pezela Customer",
-  "description": "Shop and order delicious food online with Pezela...",
+  "name": "Thenga Customer - Shop & Order Online",
+  "short_name": "Thenga Customer",
+  "description": "Shop and order delicious food online with Thenga...",
   "id": "/?homescreen=1",
   "start_url": "/",
   "display": "standalone",
@@ -122,8 +122,8 @@ Based on the PWA Builder documentation, I've ensured both manifests meet all req
 ### **Business App Manifest:**
 ```json
 {
-  "name": "Pezela Business - Complete Business Management",
-  "short_name": "Pezela Business",
+  "name": "Thenga Business - Complete Business Management",
+  "short_name": "Thenga Business",
   "description": "Complete business management solution for South African entrepreneurs...",
   "id": "/?homescreen=1",
   "start_url": "/",

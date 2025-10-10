@@ -1,4 +1,4 @@
-# 🚀 Pezela - Digital Commerce Platform for South Africa
+# 🚀 Thenga - Digital Commerce Platform for South Africa
 
 **A fully functioning mobile-first digital commerce platform designed specifically for South African micro and small businesses.**
 
@@ -80,7 +80,7 @@ npm run dev
 - **Best for**: Testing and development
 
 ### **Mobile App**
-- **iOS**: Open `apps/mobile-app/ios/Pezela.xcworkspace` in Xcode
+- **iOS**: Open `apps/mobile-app/ios/Thenga.xcworkspace` in Xcode
 - **Android**: Run `npx react-native run-android`
 - **Features**: Native mobile experience, push notifications
 
@@ -131,7 +131,7 @@ npm run dev
 
 ### **Project Structure**
 ```
-Pezela/
+Thenga/
 ├── apps/
 │   ├── pwa/                 # Progressive Web App
 │   └── mobile-app/         # React Native Mobile App
@@ -228,7 +228,7 @@ terraform apply
 
 ## 🎉 **Ready to Use!**
 
-Your Pezela platform is now **fully functional** with:
+Your Thenga platform is now **fully functional** with:
 
 ✅ **Complete PWA** with phone frame design  
 ✅ **Mobile App** for iOS and Android  

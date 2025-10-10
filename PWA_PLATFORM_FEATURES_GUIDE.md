@@ -2,7 +2,7 @@
 
 ## ✅ **Complete PWA Platform Features Implementation**
 
-Both Pezela Business and Customer apps now have **complete platform features** including IARC rating, related applications, shortcuts, and all PWA Builder requirements.
+Both Thenga Business and Customer apps now have **complete platform features** including IARC rating, related applications, shortcuts, and all PWA Builder requirements.
 
 ### **🔧 Platform Features Implementation**
 
@@ -19,13 +19,13 @@ Both Pezela Business and Customer apps now have **complete platform features** i
 "related_applications": [
   {
     "platform": "web",
-    "url": "https://customerpezela.mozdev.co.za",
-    "id": "pezela-customer"
+    "url": "https://customerThenga.mozdev.co.za",
+    "id": "Thenga-customer"
   },
   {
     "platform": "windows",
-    "url": "https://pezela.mozdev.co.za",
-    "id": "com.pezela.business"
+    "url": "https://Thenga.mozdev.co.za",
+    "id": "com.Thenga.business"
   }
 ]
 ```
@@ -165,7 +165,7 @@ Both Pezela Business and Customer apps now have **complete platform features** i
 #### **App Discovery**
 - **✅ Store Recommendations**: App stores can recommend related apps
 - **✅ Cross-Promotion**: Users discover complementary apps
-- **✅ Ecosystem**: Complete Pezela ecosystem awareness
+- **✅ Ecosystem**: Complete Thenga ecosystem awareness
 
 ### **📱 Platform Compliance**
 
@@ -244,7 +244,7 @@ apps/pwa/customer-deployment/
 #### **Related Applications**
 - **✅ Cross-Platform**: Links between web and Windows versions
 - **✅ App Discovery**: Users find related apps
-- **✅ Ecosystem**: Complete Pezela ecosystem
+- **✅ Ecosystem**: Complete Thenga ecosystem
 - **✅ User Choice**: Platform preference options
 
 #### **Enhanced Shortcuts**
@@ -264,12 +264,12 @@ apps/pwa/customer-deployment/
 - **✅ Store Ready**: Meets all app store requirements
 
 #### **Deployment URLs**
-- **Business App**: `https://pezela.mozdev.co.za`
-- **Customer App**: `https://customerpezela.mozdev.co.za`
+- **Business App**: `https://Thenga.mozdev.co.za`
+- **Customer App**: `https://customerThenga.mozdev.co.za`
 
 ### **🎉 Complete PWA Platform Features!**
 
-Your Pezela Business and Customer apps now have **complete platform features** with:
+Your Thenga Business and Customer apps now have **complete platform features** with:
 
 - ✅ **IARC Rating**: Age-appropriate rating for app stores
 - ✅ **Related Applications**: Cross-platform app linking
@@ -280,4 +280,4 @@ Your Pezela Business and Customer apps now have **complete platform features** w
 
 ## **🚀 Ready for Global App Store Submission!**
 
-Your Pezela apps are now **100% compliant** with all PWA Builder requirements and ready for global app store submission! 🎉
+Your Thenga apps are now **100% compliant** with all PWA Builder requirements and ready for global app store submission! 🎉

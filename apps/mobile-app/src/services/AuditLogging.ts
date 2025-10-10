@@ -1,4 +1,4 @@
-// 🔐 Pezela Audit Logging Service
+// 🔐 Thenga Audit Logging Service
 // Comprehensive audit logging and monitoring for security and compliance
 
 import AsyncStorage from '@react-native-async-storage/async-storage';

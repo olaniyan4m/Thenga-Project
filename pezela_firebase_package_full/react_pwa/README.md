@@ -1,1 +1,0 @@
-React PWA skeleton integrated with Firebase Firestore example. Replace firebaseConfig with your project's details.

@@ -1,11 +1,11 @@
-# 🔐 Pezela Privacy Policy
+# 🔐 Thenga Privacy Policy
 
 **Effective Date: January 1, 2024**  
 **Last Updated: January 1, 2024**
 
 ## 1. Introduction
 
-Pezela (Pty) Ltd ("we," "our," or "us") is committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and services.
+Thenga (Pty) Ltd ("we," "our," or "us") is committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and services.
 
 ## 2. Information We Collect
 
@@ -29,7 +29,7 @@ Pezela (Pty) Ltd ("we," "our," or "us") is committed to protecting your privacy 
 ## 3. How We Use Your Information
 
 ### 3.1 Service Provision
-- **Account Management**: Create and manage your Pezela account
+- **Account Management**: Create and manage your Thenga account
 - **Payment Processing**: Process payments and transactions
 - **Order Management**: Handle orders and customer communications
 - **Business Analytics**: Provide insights and reporting
@@ -186,7 +186,7 @@ You can opt-out of marketing communications at any time by:
 
 ### 13.1 Contact Information
 Our Data Protection Officer can be contacted at:
-- **Email**: privacy@pezela.co.za
+- **Email**: privacy@Thenga.co.za
 - **Phone**: +27 11 123 4567
 - **Address**: 123 Business Street, Johannesburg, 2000, South Africa
 
@@ -212,12 +212,12 @@ We will notify you of changes through:
 ## 16. Contact Information
 
 ### 16.1 General Inquiries
-- **Email**: info@pezela.co.za
+- **Email**: info@Thenga.co.za
 - **Phone**: +27 11 123 4567
-- **Website**: https://pezela.co.za
+- **Website**: https://Thenga.co.za
 
 ### 16.2 Data Protection Inquiries
-- **Email**: privacy@pezela.co.za
+- **Email**: privacy@Thenga.co.za
 - **Phone**: +27 11 123 4567
 
 ## 17. Governing Law
@@ -230,9 +230,9 @@ This Privacy Policy is effective as of January 1, 2024, and applies to all users
 
 ---
 
-**Pezela (Pty) Ltd**  
+**Thenga (Pty) Ltd**  
 **Registration Number**: 2024/123456/07  
 **Address**: 123 Business Street, Johannesburg, 2000, South Africa  
 **Phone**: +27 11 123 4567  
-**Email**: privacy@pezela.co.za  
-**Website**: https://pezela.co.za
+**Email**: privacy@Thenga.co.za  
+**Website**: https://Thenga.co.za

@@ -2,7 +2,7 @@
 
 ## ✅ **Complete display_override Implementation**
 
-Based on the [PWA Builder documentation](https://docs.pwabuilder.com/#/builder/manifest?id=display_override-array), we have now implemented the complete `display_override` fallback sequence for both Pezela apps.
+Based on the [PWA Builder documentation](https://docs.pwabuilder.com/#/builder/manifest?id=display_override-array), we have now implemented the complete `display_override` fallback sequence for both Thenga apps.
 
 ### **🔧 What Was Missing and Now Fixed**
 
@@ -64,7 +64,7 @@ Based on the [PWA Builder documentation](https://docs.pwabuilder.com/#/builder/m
 #### **Business App Manifest**
 ```json
 {
-  "name": "Pezela Business - Complete Business Management",
+  "name": "Thenga Business - Complete Business Management",
   "display": "standalone",
   "display_override": ["tabbed", "standalone", "minimal-ui", "browser"],
   "tab_strip": {
@@ -84,7 +84,7 @@ Based on the [PWA Builder documentation](https://docs.pwabuilder.com/#/builder/m
 #### **Customer App Manifest**
 ```json
 {
-  "name": "Pezela Customer - Shop & Order Online",
+  "name": "Thenga Customer - Shop & Order Online",
   "display": "standalone",
   "display_override": ["tabbed", "standalone", "minimal-ui", "browser"],
   "tab_strip": {
@@ -186,7 +186,7 @@ console.log('Current display mode:', displayMode);
 
 ### **🎉 Complete PWA Builder display_override Compliance!**
 
-Your Pezela Business and Customer apps now have **complete display_override implementation** with:
+Your Thenga Business and Customer apps now have **complete display_override implementation** with:
 
 - ✅ **Tabbed Mode**: Primary modern PWA experience
 - ✅ **Standalone Fallback**: Native app experience
@@ -197,4 +197,4 @@ Your Pezela Business and Customer apps now have **complete display_override impl
 
 ## **🚀 Ready for Global Deployment!**
 
-Your Pezela apps now have **complete PWA Builder display_override compliance** with proper fallback sequences for all browsers and devices! 🎉
+Your Thenga apps now have **complete PWA Builder display_override compliance** with proper fallback sequences for all browsers and devices! 🎉

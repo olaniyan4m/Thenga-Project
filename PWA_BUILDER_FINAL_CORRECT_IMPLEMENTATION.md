@@ -16,7 +16,7 @@ if (typeof navigator.serviceWorker !== 'undefined') {
 #### **Service Worker File Structure (EXACT FORMAT)**:
 ```javascript
 // PWA Builder Service Worker - Business App
-const CACHE_NAME = 'pezela-business-v1';
+const CACHE_NAME = 'Thenga-business-v1';
 
 // Add whichever assets you want to pre-cache here:
 const PRECACHE_ASSETS = [
@@ -75,8 +75,8 @@ self.addEventListener('fetch', event => {
 #### **Business App Scope Extensions (EXACT FORMAT)**:
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "pezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "Thenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -84,8 +84,8 @@ self.addEventListener('fetch', event => {
 #### **Customer App Scope Extensions (EXACT FORMAT)**:
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "customerpezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "customerThenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -97,7 +97,7 @@ self.addEventListener('fetch', event => {
 {
   "web_apps": [
     {
-      "web_app_identity": "https://pezela.mozdev.co.za/"
+      "web_app_identity": "https://Thenga.mozdev.co.za/"
     }
   ]
 }
@@ -108,7 +108,7 @@ self.addEventListener('fetch', event => {
 {
   "web_apps": [
     {
-      "web_app_identity": "https://customerpezela.mozdev.co.za/"
+      "web_app_identity": "https://customerThenga.mozdev.co.za/"
     }
   ]
 }
@@ -123,7 +123,7 @@ self.addEventListener('fetch', event => {
 | **File Location** | ✅ Root level | ✅ Root level | ✅ Exact |
 | **Registration Check** | ✅ `typeof navigator.serviceWorker !== 'undefined'` | ✅ `typeof navigator.serviceWorker !== 'undefined'` | ✅ Exact |
 | **Registration Path** | ✅ `'sw.js'` | ✅ `'sw.js'` | ✅ Exact |
-| **CACHE_NAME** | ✅ `'pezela-business-v1'` | ✅ `'pezela-customer-v1'` | ✅ Exact |
+| **CACHE_NAME** | ✅ `'Thenga-business-v1'` | ✅ `'Thenga-customer-v1'` | ✅ Exact |
 | **PRECACHE_ASSETS** | ✅ Array of assets | ✅ Array of assets | ✅ Exact |
 | **Install Event** | ✅ `caches.open(CACHE_NAME)` | ✅ `caches.open(CACHE_NAME)` | ✅ Exact |
 | **Activate Event** | ✅ `self.clients.claim()` | ✅ `self.clients.claim()` | ✅ Exact |
@@ -133,7 +133,7 @@ self.addEventListener('fetch', event => {
 | Requirement | Business App | Customer App | Status |
 |-------------|-------------|-------------|---------|
 | **Format** | ✅ `{"origin": "*.domain.com"}` | ✅ `{"origin": "*.domain.com"}` | ✅ Exact |
-| **Business Origins** | ✅ `*.pezela.co.za`, `pezela.mozdev.co.za`, `*.mozdev.co.za` | ✅ `*.pezela.co.za`, `customerpezela.mozdev.co.za`, `*.mozdev.co.za` | ✅ Exact |
+| **Business Origins** | ✅ `*.Thenga.co.za`, `Thenga.mozdev.co.za`, `*.mozdev.co.za` | ✅ `*.Thenga.co.za`, `customerThenga.mozdev.co.za`, `*.mozdev.co.za` | ✅ Exact |
 | **Structure** | ✅ Array of origin objects | ✅ Array of origin objects | ✅ Exact |
 | **Web App Origin Association** | ✅ Present and correct | ✅ Present and correct | ✅ Exact |
 
@@ -149,8 +149,8 @@ self.addEventListener('fetch', event => {
 ### **✅ Scope Extensions Pattern (EXACT PWA Builder Format)**:
 
 1. **Format**: Array of objects with `origin` properties
-2. **Business**: `{"origin": "*.pezela.co.za"}`, `{"origin": "pezela.mozdev.co.za"}`, `{"origin": "*.mozdev.co.za"}`
-3. **Customer**: `{"origin": "*.pezela.co.za"}`, `{"origin": "customerpezela.mozdev.co.za"}`, `{"origin": "*.mozdev.co.za"}`
+2. **Business**: `{"origin": "*.Thenga.co.za"}`, `{"origin": "Thenga.mozdev.co.za"}`, `{"origin": "*.mozdev.co.za"}`
+3. **Customer**: `{"origin": "*.Thenga.co.za"}`, `{"origin": "customerThenga.mozdev.co.za"}`, `{"origin": "*.mozdev.co.za"}`
 4. **Web App Origin Association**: Files present and correctly formatted
 
 ## 🚀 **Expected Results**
@@ -170,7 +170,7 @@ After implementing the **exact PWA Builder documentation format**:
 
 ## 🎉 **PWA Builder Compliance - EXACT IMPLEMENTATION**
 
-Your Pezela apps now follow the **exact PWA Builder documentation**:
+Your Thenga apps now follow the **exact PWA Builder documentation**:
 
 1. **✅ Service Worker**: Exact format from PWA Builder documentation
 2. **✅ Scope Extensions**: Exact format with `{"origin": "*.domain.com"}` structure
@@ -188,7 +188,7 @@ Your Pezela apps now follow the **exact PWA Builder documentation**:
 - **File Structure**: Correct `sw.js` placement and registration
 - **Event Handlers**: Exact install, activate, fetch pattern from documentation
 
-Your Pezela apps should now pass PWA Builder validation! 🚀
+Your Thenga apps should now pass PWA Builder validation! 🚀
 
 The key was implementing the **exact service worker pattern** and **exact scope_extensions format** from the PWA Builder documentation you provided:
 - Service Worker: `typeof navigator.serviceWorker !== 'undefined'` and `'sw.js'` path

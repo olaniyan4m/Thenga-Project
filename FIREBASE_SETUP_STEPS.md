@@ -15,16 +15,16 @@ This will open your browser to authenticate with Google.
 1. Go to [Firebase Console](https://console.firebase.google.com/)
 2. Click "Create a project" or "Add project"
 3. Create two projects:
-   - **Project 1**: `pezela-business` (for Business App)
-   - **Project 2**: `pezela-store` (for Customer App)
+   - **Project 1**: `Thenga-business` (for Business App)
+   - **Project 2**: `Thenga-store` (for Customer App)
 
 #### **Option B: Using Firebase CLI**
 ```bash
 # Create Business App project
-firebase projects:create pezela-business
+firebase projects:create Thenga-business
 
 # Create Customer App project  
-firebase projects:create pezela-store
+firebase projects:create Thenga-store
 ```
 
 ### **Step 3: Initialize Firebase Hosting**
@@ -34,7 +34,7 @@ firebase projects:create pezela-store
 cd standalone-pwa
 firebase init hosting
 ```
-- Select project: `pezela-business`
+- Select project: `Thenga-business`
 - Public directory: `dist`
 - Single-page app: `Yes`
 - GitHub integration: `No`
@@ -44,7 +44,7 @@ firebase init hosting
 cd apps/pwa
 firebase init hosting
 ```
-- Select project: `pezela-store`
+- Select project: `Thenga-store`
 - Public directory: `dist`
 - Single-page app: `Yes`
 - GitHub integration: `No`
@@ -72,12 +72,12 @@ firebase deploy
 ## 🌐 **Your Web.app URLs Will Be:**
 
 ### **Business Application:**
-- `https://pezela-business.web.app`
-- `https://pezela-business.firebaseapp.com`
+- `https://Thenga-business.web.app`
+- `https://Thenga-business.firebaseapp.com`
 
 ### **Customer Application:**
-- `https://pezela-store.web.app`
-- `https://pezela-store.firebaseapp.com`
+- `https://Thenga-store.web.app`
+- `https://Thenga-store.firebaseapp.com`
 
 ---
 
@@ -100,8 +100,8 @@ firebase login
 If you already have Firebase projects, you can use them:
 
 1. **Update .firebaserc files:**
-   - Change `pezela-business` to your existing project ID
-   - Change `pezela-store` to your existing project ID
+   - Change `Thenga-business` to your existing project ID
+   - Change `Thenga-store` to your existing project ID
 
 2. **Deploy directly:**
    ```bash
@@ -139,8 +139,8 @@ npm install --legacy-peer-deps
 ## 📱 **After Deployment**
 
 Your apps will be live at:
-- **Business**: `https://pezela-business.web.app`
-- **Customer**: `https://pezela-store.web.app`
+- **Business**: `https://Thenga-business.web.app`
+- **Customer**: `https://Thenga-store.web.app`
 
 Both will be fully functional with all features!
 

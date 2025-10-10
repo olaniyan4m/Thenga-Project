@@ -53,11 +53,11 @@ export const LoginScreen: React.FC = () => {
             <div className="logo">
               <img 
                 src={Logo2} 
-                alt="Pezela Logo" 
+                alt="Thenga Logo" 
                 className="login-logo" 
                 style={{ width: '120px', height: '120px', objectFit: 'contain', marginBottom: '20px' }}
               />
-              <h1>Pezela</h1>
+              <h1>Thenga</h1>
               <p>Digital Commerce for South Africa</p>
             </div>
           </motion.div>

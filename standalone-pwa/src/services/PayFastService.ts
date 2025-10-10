@@ -1,5 +1,5 @@
 // 💳 PayFast Payment Integration Service
-// Handles PayFast payment processing for Pezela subscriptions
+// Handles PayFast payment processing for Thenga subscriptions
 
 export interface PayFastConfig {
   merchantId: string;
@@ -125,7 +125,7 @@ class PayFastService {
     };
   }): Promise<PayFastResponse> {
     try {
-      const paymentId = `pezela_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+      const paymentId = `Thenga_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
       
       const payfastData: PayFastPaymentData = {
         merchant_id: this.config.merchantId,
@@ -144,7 +144,7 @@ class PayFastService {
         custom_int1: paymentData.customData?.userId ? parseInt(paymentData.customData.userId) : undefined,
         custom_str1: paymentData.customData?.planId || '',
         custom_str2: paymentData.customData?.subscriptionType || '',
-        custom_str3: 'Pezela Subscription',
+        custom_str3: 'Thenga Subscription',
         custom_str4: 'South Africa',
         custom_str5: 'Digital Commerce Platform',
       };

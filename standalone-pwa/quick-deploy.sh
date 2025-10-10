@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 🚀 Quick Deploy Script for Pezela Business Platform
+# 🚀 Quick Deploy Script for Thenga Business Platform
 # This script handles Firebase deployment with retry logic
 
 echo "🚀 Quick Deploy to Firebase..."
@@ -77,10 +77,10 @@ if [ $? -eq 0 ]; then
     print_status "🎉 Deployment completed successfully!"
     echo ""
     echo "🌐 Your Business App is now live at:"
-    echo "   https://pezela.web.app"
+    echo "   https://Thenga.web.app"
     echo ""
     echo "🔐 Demo Credentials:"
-    echo "   Email: demo@pezela.co.za"
+    echo "   Email: demo@Thenga.co.za"
     echo "   Password: DemoBusiness2024!"
     echo ""
     echo "📱 Features available:"

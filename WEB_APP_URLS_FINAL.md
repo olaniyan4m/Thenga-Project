@@ -1,14 +1,14 @@
-# 🌐 Pezela Business Platform - Web.app URLs
+# 🌐 Thenga Business Platform - Web.app URLs
 
 ## 🚀 **Your Firebase Web.app URLs**
 
 ### 📱 **Business Application (Admin Dashboard)**
-- **Primary URL**: `https://pezela.web.app`
-- **Alternative URL**: `https://pezela.firebaseapp.com`
+- **Primary URL**: `https://Thenga.web.app`
+- **Alternative URL**: `https://Thenga.firebaseapp.com`
 
 ### 🛒 **Customer Application (Storefront)**
-- **Primary URL**: `https://pezela-store.web.app` (when deployed)
-- **Alternative URL**: `https://pezela-store.firebaseapp.com` (when deployed)
+- **Primary URL**: `https://Thenga-store.web.app` (when deployed)
+- **Alternative URL**: `https://Thenga-store.firebaseapp.com` (when deployed)
 
 ---
 
@@ -34,7 +34,7 @@ firebase deploy --only hosting
 
 ### **Business Admin Account**
 ```
-Email: demo@pezela.co.za
+Email: demo@Thenga.co.za
 Password: DemoBusiness2024!
 Role: Business Owner
 ```
@@ -73,7 +73,7 @@ Role: Customer
 ## 🎯 **Investor Demo Flow**
 
 ### **1. Start with Business App**
-1. Go to `https://pezela.web.app`
+1. Go to `https://Thenga.web.app`
 2. Login with demo credentials
 3. Show dashboard analytics
 4. Demonstrate order management
@@ -82,7 +82,7 @@ Role: Customer
 7. Highlight advanced features
 
 ### **2. Switch to Customer App**
-1. Go to `https://pezela-store.web.app`
+1. Go to `https://Thenga-store.web.app`
 2. Browse product catalog
 3. Add items to cart
 4. Show checkout process
@@ -119,22 +119,22 @@ Role: Customer
 
 ### **Business App (Mobile)**
 ```
-https://pezela.web.app/mobile
+https://Thenga.web.app/mobile
 ```
 
 ### **Customer App (Mobile)**
 ```
-https://pezela-store.web.app/mobile
+https://Thenga-store.web.app/mobile
 ```
 
 ---
 
 ## 🎉 **Ready for Investor Demo!**
 
-Your Pezela Business Platform is now live on Firebase with professional web.app URLs:
+Your Thenga Business Platform is now live on Firebase with professional web.app URLs:
 
-- **Business App**: `https://pezela.web.app`
-- **Customer App**: `https://pezela-store.web.app`
+- **Business App**: `https://Thenga.web.app`
+- **Customer App**: `https://Thenga-store.web.app`
 
 Both applications are fully functional and ready for investor presentations!
 
@@ -143,6 +143,6 @@ Both applications are fully functional and ready for investor presentations!
 ## 📞 **Support**
 
 If you need help with deployment:
-- **Email**: tech@pezela.co.za
-- **Documentation**: https://docs.pezela.co.za
+- **Email**: tech@Thenga.co.za
+- **Documentation**: https://docs.Thenga.co.za
 - **Firebase Docs**: https://firebase.google.com/docs/hosting

@@ -1,5 +1,5 @@
 // 💳 PayFast Payment Processor Component
-// Handles payment processing for Pezela subscriptions
+// Handles payment processing for Thenga subscriptions
 
 import React, { useState, useEffect } from 'react';
 import PayFastService from '../services/PayFastService';
@@ -59,7 +59,7 @@ const PaymentProcessor: React.FC<PaymentProcessorProps> = ({
         email: userData.email,
         phone: userData.phone,
         amount: subscriptionPlan.price,
-        itemName: `Pezela ${subscriptionPlan.name}`,
+        itemName: `Thenga ${subscriptionPlan.name}`,
         itemDescription: subscriptionPlan.description,
         customData: {
           userId: userData.email, // Using email as user ID for now

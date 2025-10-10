@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pezela-redis
+  name: Thenga-redis
   labels:
-    app: pezela-redis
+    app: Thenga-redis
     tier: cache
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pezela-redis
+      app: Thenga-redis
   template:
     metadata:
       labels:
-        app: pezela-redis
+        app: Thenga-redis
         tier: cache
     spec:
       containers:
@@ -31,7 +31,7 @@ spec:
         - name: REDIS_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: pezela-secrets
+              name: Thenga-secrets
               key: redis-password
         volumeMounts:
         - name: redis-storage
@@ -65,12 +65,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pezela-redis
+  name: Thenga-redis
   labels:
-    app: pezela-redis
+    app: Thenga-redis
 spec:
   selector:
-    app: pezela-redis
+    app: Thenga-redis
   ports:
   - port: 6379
     targetPort: 6379

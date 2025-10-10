@@ -72,7 +72,7 @@ export const CustomerDashboardScreen: React.FC = () => {
               Welcome, {user?.name || 'Customer'}! 🛒
             </h1>
             <p className="welcome-subtitle">
-              Your shopping experience with Pezela
+              Your shopping experience with Thenga
             </p>
           </div>
           

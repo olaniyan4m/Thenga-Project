@@ -71,14 +71,14 @@
     "sizes": "375x812",
     "type": "image/png",
     "form_factor": "narrow",
-    "label": "Mobile view showing Pezela interface"
+    "label": "Mobile view showing Thenga interface"
   },
   {
     "src": "/screenshot-desktop.png",
     "sizes": "1280x720",
     "type": "image/png",
     "form_factor": "wide",
-    "label": "Desktop view showing Pezela interface"
+    "label": "Desktop view showing Thenga interface"
   }
 ]
 ```
@@ -108,9 +108,9 @@
 ```json
 "widgets": [
   {
-    "name": "Pezela Business Dashboard",
+    "name": "Thenga Business Dashboard",
     "description": "Quick access to business dashboard and key metrics",
-    "tag": "pezela-business-dashboard",
+    "tag": "Thenga-business-dashboard",
     "template": "business-dashboard-template",
     "ms_ac_template": "widgets/dashboard-template.json",
     "data": "widgets/dashboard-data.json",
@@ -205,7 +205,7 @@ apps/pwa/customer-deployment/
 
 ## **📱 Deployment URLs**
 
-- **Business App**: `https://pezela.mozdev.co.za`
-- **Customer App**: `https://customerpezela.mozdev.co.za`
+- **Business App**: `https://Thenga.mozdev.co.za`
+- **Customer App**: `https://customerThenga.mozdev.co.za`
 
 Both apps are now fully compliant with PWA Builder requirements and ready for app store submission! 🎉

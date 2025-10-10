@@ -13,7 +13,7 @@
 2. **Professional Header:**
    - **Store emoji** (🏪) next to "Customer Store URL"
    - **Larger, bolder text** (18px, font-weight: 600)
-   - **Better color contrast** with Pezela green (#2E7D32)
+   - **Better color contrast** with Thenga green (#2E7D32)
 
 3. **Improved URL Section:**
    - **Contained background** with subtle border
@@ -93,7 +93,7 @@
    - **Modern CSS Grid** for statistics
    - **Flexbox layouts** for responsive design
    - **CSS animations** for hover effects
-   - **Better color scheme** with Pezela branding
+   - **Better color scheme** with Thenga branding
 
 2. **JavaScript Improvements:**
    - **Copy confirmation** feedback

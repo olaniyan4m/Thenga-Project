@@ -9,8 +9,8 @@ npm install -g react-native-cli
 
 ### **Step 2: Create Project**
 ```bash
-npx react-native init PezelaApp
-cd PezelaApp
+npx react-native init ThengaApp
+cd ThengaApp
 ```
 
 ### **Step 3: Add WebView**

@@ -1,7 +1,7 @@
 {
-  "name": "@pezela/websocket-service",
+  "name": "@Thenga/websocket-service",
   "version": "1.0.0",
-  "description": "WebSocket service for real-time communication in Pezela",
+  "description": "WebSocket service for real-time communication in Thenga",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

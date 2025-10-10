@@ -1,8 +1,8 @@
-# 🌐 Pezela Business Platform - Web App URLs
+# 🌐 Thenga Business Platform - Web App URLs
 
 ## 📱 **Business Application (Admin Dashboard)**
-**Web App URL:** `https://business.pezela.web.app`
-**Alternative:** `https://pezela-business.web.app`
+**Web App URL:** `https://business.Thenga.web.app`
+**Alternative:** `https://Thenga-business.web.app`
 **Purpose:** Complete business management dashboard for merchants
 
 ### 🎯 **Features Available:**
@@ -17,8 +17,8 @@
 ---
 
 ## 🛒 **Customer Application (Storefront)**
-**Web App URL:** `https://store.pezela.web.app`
-**Alternative:** `https://pezela-store.web.app`
+**Web App URL:** `https://store.Thenga.web.app`
+**Alternative:** `https://Thenga-store.web.app`
 **Purpose:** Customer-facing e-commerce storefront
 
 ### 🎯 **Features Available:**
@@ -49,16 +49,16 @@ http://localhost:3002
 
 ### Business Application
 ```
-https://business.pezela.web.app
-https://admin.pezela.web.app
-https://dashboard.pezela.web.app
+https://business.Thenga.web.app
+https://admin.Thenga.web.app
+https://dashboard.Thenga.web.app
 ```
 
 ### Customer Application
 ```
-https://store.pezela.web.app
-https://shop.pezela.web.app
-https://customer.pezela.web.app
+https://store.Thenga.web.app
+https://shop.Thenga.web.app
+https://customer.Thenga.web.app
 ```
 
 ---
@@ -67,7 +67,7 @@ https://customer.pezela.web.app
 
 ### Business Admin Account
 ```
-Email: demo@pezela.co.za
+Email: demo@Thenga.co.za
 Password: DemoBusiness2024!
 Role: Business Owner
 ```
@@ -88,7 +88,7 @@ Role: Customer
 cd standalone-pwa
 npm run dev
 # Access at: http://localhost:3000
-# Deploy to: https://business.pezela.web.app
+# Deploy to: https://business.Thenga.web.app
 ```
 
 ### Start Customer App
@@ -96,7 +96,7 @@ npm run dev
 cd apps/pwa
 npm run dev
 # Access at: http://localhost:3002
-# Deploy to: https://store.pezela.web.app
+# Deploy to: https://store.Thenga.web.app
 ```
 
 ### Start Both Applications
@@ -147,12 +147,12 @@ firebase deploy
 
 ### Business App (Mobile)
 ```
-https://business.pezela.web.app/mobile
+https://business.Thenga.web.app/mobile
 ```
 
 ### Customer App (Mobile)
 ```
-https://store.pezela.web.app/mobile
+https://store.Thenga.web.app/mobile
 ```
 
 ---
@@ -219,20 +219,20 @@ https://store.pezela.web.app/mobile
 ## 📞 **Contact Information**
 
 ### Technical Support
-- **Email**: tech@pezela.co.za
+- **Email**: tech@Thenga.co.za
 - **Phone**: +27 11 123 4567
-- **Documentation**: https://docs.pezela.co.za
+- **Documentation**: https://docs.Thenga.co.za
 
 ### Business Inquiries
-- **Email**: business@pezela.co.za
+- **Email**: business@Thenga.co.za
 - **Phone**: +27 11 123 4568
-- **Website**: https://pezela.co.za
+- **Website**: https://Thenga.co.za
 
 ---
 
 ## 🎉 **Ready for Investor Demo!**
 
-Both applications are fully functional and ready for investor presentations. The web.app URLs provide complete access to all features and demonstrate the full potential of the Pezela Business Platform.
+Both applications are fully functional and ready for investor presentations. The web.app URLs provide complete access to all features and demonstrate the full potential of the Thenga Business Platform.
 
 **Demo Duration**: 30-45 minutes
 **Key Focus**: Business value, technology innovation, market opportunity

@@ -1,4 +1,4 @@
-# Pezela Business PWA - PWA Builder Optimization Guide
+# Thenga Business PWA - PWA Builder Optimization Guide
 
 ## 🚀 **PWA Builder Standards Implementation**
 
@@ -86,7 +86,7 @@ Your Business app includes:
 ## 📱 **PWA Builder Testing**
 
 ### **Test Your Business PWA:**
-1. **Visit**: https://pezela.mozdev.co.za
+1. **Visit**: https://Thenga.mozdev.co.za
 2. **Open DevTools**: F12 → Application → Manifest
 3. **Check**: All manifest properties are valid
 4. **Test Install**: "Add to Home Screen" should appear

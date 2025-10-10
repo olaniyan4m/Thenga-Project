@@ -20,7 +20,7 @@ export const LoadingScreen: React.FC = () => {
               >
                 🚀
               </motion.div>
-              <h1>Pezela</h1>
+              <h1>Thenga</h1>
               <p>Loading your digital commerce platform...</p>
             </div>
             

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Starting Complete Pezela Platform..."
+echo "🚀 Starting Complete Thenga Platform..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -56,10 +56,10 @@ fi
 # Start PostgreSQL with Docker
 print_status "Starting PostgreSQL database..."
 docker run -d \
-    --name pezela-postgres \
-    -e POSTGRES_DB=pezela \
-    -e POSTGRES_USER=pezela \
-    -e POSTGRES_PASSWORD=pezela123 \
+    --name Thenga-postgres \
+    -e POSTGRES_DB=Thenga \
+    -e POSTGRES_USER=Thenga \
+    -e POSTGRES_PASSWORD=Thenga123 \
     -p 5432:5432 \
     postgres:15-alpine
 
@@ -70,7 +70,7 @@ sleep 10
 # Start Redis with Docker
 print_status "Starting Redis cache..."
 docker run -d \
-    --name pezela-redis \
+    --name Thenga-redis \
     -p 6379:6379 \
     redis:7-alpine
 
@@ -176,27 +176,27 @@ else
 fi
 
 # Check PostgreSQL
-if docker exec pezela-postgres pg_isready -U pezela > /dev/null 2>&1; then
+if docker exec Thenga-postgres pg_isready -U Thenga > /dev/null 2>&1; then
     print_success "✅ PostgreSQL is running"
 else
     print_warning "⚠️  PostgreSQL may not be ready yet"
 fi
 
 # Check Redis
-if docker exec pezela-redis redis-cli ping > /dev/null 2>&1; then
+if docker exec Thenga-redis redis-cli ping > /dev/null 2>&1; then
     print_success "✅ Redis is running"
 else
     print_warning "⚠️  Redis may not be ready yet"
 fi
 
-print_success "🎉 Pezela Platform is starting up!"
+print_success "🎉 Thenga Platform is starting up!"
 echo ""
 echo "📱 PWA: http://localhost:3000"
 echo "🔌 API Gateway: http://localhost:3001"
 echo "📚 API Docs: http://localhost:3001/api/docs"
 echo "🏥 Health Check: http://localhost:3001/health"
 echo "📊 Prometheus: http://localhost:9090"
-echo "📈 Grafana: http://localhost:3001 (admin/pezela123)"
+echo "📈 Grafana: http://localhost:3001 (admin/Thenga123)"
 echo ""
 echo "🔧 Services running:"
 echo "  - API Gateway (PID: $API_PID)"

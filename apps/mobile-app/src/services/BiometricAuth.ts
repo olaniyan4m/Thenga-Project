@@ -1,4 +1,4 @@
-// 🔐 Pezela Biometric Authentication Service
+// 🔐 Thenga Biometric Authentication Service
 // Secure biometric authentication using device biometrics
 
 import { TouchID, FaceID } from 'react-native-touch-id';
@@ -10,7 +10,7 @@ import { Platform } from 'react-native';
 const BIOMETRIC_CONFIG = {
   FALLBACK_ENABLED: true,
   FALLBACK_TITLE: 'Use Passcode',
-  REASON: 'Authenticate to access Pezela',
+  REASON: 'Authenticate to access Thenga',
   SENSOR_ERROR_DESCRIPTION: 'Touch ID sensor error',
   SENSOR_NOT_AVAILABLE: 'Touch ID not available',
   SENSOR_NOT_ENROLLED: 'Touch ID not enrolled',
@@ -287,7 +287,7 @@ class BiometricAuthService {
   async storeBiometricCredentials(
     username: string,
     password: string,
-    service: string = 'Pezela'
+    service: string = 'Thenga'
   ): Promise<{ success: boolean; error?: string }> {
     try {
       const result = await Keychain.setInternetCredentials(
@@ -296,7 +296,7 @@ class BiometricAuthService {
         password,
         {
           accessControl: 'kSecAccessControlBiometryAny',
-          accessGroup: 'com.pezela.mobile',
+          accessGroup: 'com.Thenga.mobile',
           authenticationType: 'kSecAccessControlBiometryAny',
           service: service,
         }
@@ -314,7 +314,7 @@ class BiometricAuthService {
 
   // Retrieve biometric credentials
   async retrieveBiometricCredentials(
-    service: string = 'Pezela'
+    service: string = 'Thenga'
   ): Promise<{ success: boolean; username?: string; password?: string; error?: string }> {
     try {
       const result = await Keychain.getInternetCredentials(service);
@@ -335,7 +335,7 @@ class BiometricAuthService {
 
   // Delete biometric credentials
   async deleteBiometricCredentials(
-    service: string = 'Pezela'
+    service: string = 'Thenga'
   ): Promise<{ success: boolean; error?: string }> {
     try {
       const result = await Keychain.resetInternetCredentials(service);

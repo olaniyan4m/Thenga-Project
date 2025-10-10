@@ -1,6 +1,6 @@
-# Pezela Business App - Domain Deployment
+# Thenga Business App - Domain Deployment
 
-## 🌐 Domain: https://pezela.mozdev.co.za
+## 🌐 Domain: https://Thenga.mozdev.co.za
 
 ### 📁 Files to Upload:
 1. Upload all files from the `deployment/` folder to your domain's root directory
@@ -18,7 +18,7 @@
 3. Set up SSL certificate for HTTPS
 
 ### 🧪 Testing:
-- Visit https://pezela.mozdev.co.za
+- Visit https://Thenga.mozdev.co.za
 - Test all business features
 - Verify mobile responsiveness
 

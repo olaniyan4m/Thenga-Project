@@ -65,8 +65,8 @@ Make sure the service worker file is accessible at:
 ### **Current Scope Extensions**:
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "pezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "Thenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -81,7 +81,7 @@ The scope_extensions require a `.well-known/web-app-origin-association` file:
 {
   "web_apps": [
     {
-      "web_app_identity": "https://pezela.mozdev.co.za/"
+      "web_app_identity": "https://Thenga.mozdev.co.za/"
     }
   ]
 }
@@ -92,7 +92,7 @@ The scope_extensions require a `.well-known/web-app-origin-association` file:
 {
   "web_apps": [
     {
-      "web_app_identity": "https://customerpezela.mozdev.co.za/"
+      "web_app_identity": "https://customerThenga.mozdev.co.za/"
     }
   ]
 }
@@ -103,8 +103,8 @@ Ensure the scope_extensions are properly formatted:
 
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "pezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "Thenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -129,8 +129,8 @@ If PWA Builder is still not detecting the service worker, add this to both manif
 
 Ensure both `.well-known/web-app-origin-association` files exist and are accessible:
 
-- **Business**: `https://pezela.mozdev.co.za/.well-known/web-app-origin-association`
-- **Customer**: `https://customerpezela.mozdev.co.za/.well-known/web-app-origin-association`
+- **Business**: `https://Thenga.mozdev.co.za/.well-known/web-app-origin-association`
+- **Customer**: `https://customerThenga.mozdev.co.za/.well-known/web-app-origin-association`
 
 ### **Step 3: Test Service Worker Registration**
 
@@ -188,4 +188,4 @@ After implementing these fixes:
 - ✅ **Scope Extensions Issue**: Should be resolved
 - ✅ **PWA Builder Validation**: Should pass completely
 
-Your Pezela apps should now pass PWA Builder validation! 🚀
+Your Thenga apps should now pass PWA Builder validation! 🚀

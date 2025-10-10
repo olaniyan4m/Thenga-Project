@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# 🚀 Pezela Production Build Script
+# 🚀 Thenga Production Build Script
 # This script builds the mobile app for App Store submission
 
 set -e
 
-echo "🚀 Starting Pezela Production Build..."
+echo "🚀 Starting Thenga Production Build..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -79,11 +79,11 @@ print_success "Production builds completed!"
 print_status "Creating production artifacts..."
 
 # iOS App Store Archive
-if [ -d "ios/build/Build/Products/Release-iphoneos/Pezela.app" ]; then
+if [ -d "ios/build/Build/Products/Release-iphoneos/Thenga.app" ]; then
     print_status "Creating iOS App Store archive..."
     cd ios
-    xcodebuild -workspace Pezela.xcworkspace -scheme Pezela -configuration Release -destination generic/platform=iOS -archivePath Pezela.xcarchive archive
-    print_success "iOS archive created: ios/Pezela.xcarchive"
+    xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination generic/platform=iOS -archivePath Thenga.xcarchive archive
+    print_success "iOS archive created: ios/Thenga.xcarchive"
     cd ..
 else
     print_warning "iOS app not found. Make sure iOS build completed successfully."
@@ -106,7 +106,7 @@ print_success "🎉 Production build process completed!"
 
 echo ""
 echo "📱 Next steps for App Store submission:"
-echo "1. Open ios/Pezela.xcworkspace in Xcode"
+echo "1. Open ios/Thenga.xcworkspace in Xcode"
 echo "2. Select 'Any iOS Device' as destination"
 echo "3. Product → Archive"
 echo "4. Upload to App Store Connect"
@@ -120,4 +120,4 @@ echo ""
 echo "🔗 Useful links:"
 echo "- App Store Connect: https://appstoreconnect.apple.com"
 echo "- Google Play Console: https://play.google.com/console"
-echo "- Pezela Production API: https://api.pezela.co.za"
+echo "- Thenga Production API: https://api.Thenga.co.za"

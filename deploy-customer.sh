@@ -3,7 +3,7 @@
 # 🛒 Deploy Customer Application to Firebase Hosting
 # This script builds and deploys the Customer App to Firebase
 
-echo "🛒 Deploying Pezela Customer Application to Firebase..."
+echo "🛒 Deploying Thenga Customer Application to Firebase..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -72,8 +72,8 @@ if [ $? -eq 0 ]; then
     print_status "Customer Application deployed successfully!"
     echo ""
     echo "🌐 Your Customer App is now live at:"
-    echo "   https://pezela-store.web.app"
-    echo "   https://store.pezela.web.app"
+    echo "   https://Thenga-store.web.app"
+    echo "   https://store.Thenga.web.app"
     echo ""
     echo "🛒 Features available:"
     echo "   ✅ Product Catalog"

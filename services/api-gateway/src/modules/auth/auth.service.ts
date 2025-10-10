@@ -2,7 +2,7 @@ import { Injectable, UnauthorizedException, ConflictException } from '@nestjs/co
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import * as bcrypt from 'bcrypt';
-import { AuthPayload, RegisterInput, LoginInput } from '@pezela/shared-types';
+import { AuthPayload, RegisterInput, LoginInput } from '@Thenga/shared-types';
 
 @Injectable()
 export class AuthService {
@@ -137,7 +137,7 @@ export class AuthService {
         id: '1',
         name: 'Demo Merchant',
         phone: '+27821234567',
-        email: 'demo@pezela.co.za',
+        email: 'demo@Thenga.co.za',
         hashedPassword: await bcrypt.hash('password123', 12),
         role: 'merchant',
         kycStatus: 'verified',
@@ -156,7 +156,7 @@ export class AuthService {
         id: '1',
         name: 'Demo Merchant',
         phone: '+27821234567',
-        email: 'demo@pezela.co.za',
+        email: 'demo@Thenga.co.za',
         hashedPassword: await bcrypt.hash('password123', 12),
         role: 'merchant',
         kycStatus: 'verified',

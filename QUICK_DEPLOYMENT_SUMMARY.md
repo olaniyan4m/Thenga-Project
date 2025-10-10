@@ -3,7 +3,7 @@
 ## ✅ **Your App is Ready!**
 
 ### **Current Status:**
-- ✅ **Expo Project**: `PezelaAppStore` with WebView integration
+- ✅ **Expo Project**: `ThengaAppStore` with WebView integration
 - ✅ **Business App**: Green theme with business features
 - ✅ **Customer App**: Blue theme with customer features
 - ✅ **App Selector**: Choose between Business and Customer apps
@@ -25,7 +25,7 @@
 
 #### **Step 2: Import Your Project**
 1. **Select "Import existing project"**
-2. **Upload your project folder**: `PezelaAppStore`
+2. **Upload your project folder**: `ThengaAppStore`
 3. **Or connect to GitHub** if you have it there
 
 #### **Step 3: Build and Submit**
@@ -51,7 +51,7 @@
 
 ## 🚀 **Ready to Deploy?**
 
-**Your app is running and ready! Just go to https://expo.dev and import your `PezelaAppStore` project to get started!**
+**Your app is running and ready! Just go to https://expo.dev and import your `ThengaAppStore` project to get started!**
 
 **The web interface is the easiest way to deploy without any command line issues!** 🎉
 

@@ -1,5 +1,5 @@
 // js13kPWA Service Worker - Business App
-const cacheName = 'pezela-business-v1';
+const cacheName = 'Thenga-business-v1';
 const appShellFiles = [
     '/',
     '/index.html',

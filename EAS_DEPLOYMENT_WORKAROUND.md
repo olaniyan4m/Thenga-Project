@@ -3,7 +3,7 @@
 ## ✅ **Your App is Ready!**
 
 ### **What We Have:**
-- ✅ **Expo Project**: `PezelaAppStore` with WebView integration
+- ✅ **Expo Project**: `ThengaAppStore` with WebView integration
 - ✅ **Business App**: Green theme with business features
 - ✅ **Customer App**: Blue theme with customer features
 - ✅ **App Selector**: Choose between Business and Customer apps
@@ -18,7 +18,7 @@
 
 ### **Step 2: Import Your Project**
 1. **Select "Import existing project"**
-2. **Upload your project folder**: `PezelaAppStore`
+2. **Upload your project folder**: `ThengaAppStore`
 3. **Or connect to GitHub** if you have it there
 
 ### **Step 3: Build from Web**
@@ -89,7 +89,7 @@ eas submit --platform ios
 
 1. **Go to**: https://expo.dev
 2. **Login** with your `modev09` account
-3. **Import your project**: `PezelaAppStore`
+3. **Import your project**: `ThengaAppStore`
 4. **Build for iOS** from the web interface
 5. **Submit to App Store** from the web interface
 

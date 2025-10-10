@@ -3,10 +3,10 @@
 ## 📁 **Project Structure:**
 
 ```
-Pezela/
+Thenga/
 ├── standalone-pwa/          # Business Web App (Port 3004)
 ├── apps/pwa/               # Customer Web App (Broken - missing vite)
-├── PezelaAppStore/         # 🎯 EXPO MOBILE APP (This is what you want!)
+├── ThengaAppStore/         # 🎯 EXPO MOBILE APP (This is what you want!)
 └── apps/mobile-app/        # React Native App (Xcode)
 ```
 
@@ -14,19 +14,19 @@ Pezela/
 
 ### **✅ Correct Directory:**
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore
 npm start
 ```
 
 ### **❌ Wrong Directory:**
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/apps/pwa
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/apps/pwa
 npm start  # This will fail - no start script!
 ```
 
 ## 📱 **Your App is Now Running:**
 
-- **Location**: `PezelaAppStore/` directory
+- **Location**: `ThengaAppStore/` directory
 - **Command**: `npm start` (from the correct directory)
 - **Status**: Running in background
 - **Test**: Scan QR code with Expo Go app
@@ -41,14 +41,14 @@ npm start  # This will fail - no start script!
 ## 💡 **Why the Error Happened:**
 
 - You were in `apps/pwa/` (Customer Web App)
-- But the mobile app is in `PezelaAppStore/` (Expo App)
+- But the mobile app is in `ThengaAppStore/` (Expo App)
 - Different projects have different scripts!
 
 ## ✅ **Solution:**
 
 Always use the correct directory:
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore
 npm start
 ```
 

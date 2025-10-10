@@ -68,8 +68,8 @@ I've added advanced PWA features to both your Business and Customer app manifest
 ### **Customer App Manifest:**
 ```json
 {
-  "name": "Pezela Customer - Shop & Order Online",
-  "short_name": "Pezela Customer",
+  "name": "Thenga Customer - Shop & Order Online",
+  "short_name": "Thenga Customer",
   "launch_handler": {
     "client_mode": ["navigate-existing", "auto"]
   },
@@ -80,8 +80,8 @@ I've added advanced PWA features to both your Business and Customer app manifest
 ### **Business App Manifest:**
 ```json
 {
-  "name": "Pezela Business - Complete Business Management",
-  "short_name": "Pezela Business",
+  "name": "Thenga Business - Complete Business Management",
+  "short_name": "Thenga Business",
   "launch_handler": {
     "client_mode": ["navigate-existing", "auto"]
   },

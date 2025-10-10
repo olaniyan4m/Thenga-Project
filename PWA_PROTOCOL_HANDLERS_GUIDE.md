@@ -2,7 +2,7 @@
 
 ## ✅ **Complete Protocol Handlers Implementation**
 
-Both Pezela Business and Customer apps now support **protocol handlers** for deep linking and custom URL schemes.
+Both Thenga Business and Customer apps now support **protocol handlers** for deep linking and custom URL schemes.
 
 ### **🔧 Protocol Handlers Implementation**
 
@@ -10,19 +10,19 @@ Both Pezela Business and Customer apps now support **protocol handlers** for dee
 ```json
 "protocol_handlers": [
   {
-    "protocol": "web+pezela",
+    "protocol": "web+Thenga",
     "url": "/#business?action=%s"
   },
   {
-    "protocol": "web+pezela-business",
+    "protocol": "web+Thenga-business",
     "url": "/#business?action=%s"
   },
   {
-    "protocol": "web+pezela-orders",
+    "protocol": "web+Thenga-orders",
     "url": "/#business/orders?order=%s"
   },
   {
-    "protocol": "web+pezela-payments",
+    "protocol": "web+Thenga-payments",
     "url": "/#business/payments?payment=%s"
   }
 ]
@@ -32,19 +32,19 @@ Both Pezela Business and Customer apps now support **protocol handlers** for dee
 ```json
 "protocol_handlers": [
   {
-    "protocol": "web+pezela-customer",
+    "protocol": "web+Thenga-customer",
     "url": "/#customer?action=%s"
   },
   {
-    "protocol": "web+pezela-shop",
+    "protocol": "web+Thenga-shop",
     "url": "/#customer/shop?product=%s"
   },
   {
-    "protocol": "web+pezela-order",
+    "protocol": "web+Thenga-order",
     "url": "/#customer/orders?order=%s"
   },
   {
-    "protocol": "web+pezela-cart",
+    "protocol": "web+Thenga-cart",
     "url": "/#customer/shop?cart=%s"
   }
 ]
@@ -53,16 +53,16 @@ Both Pezela Business and Customer apps now support **protocol handlers** for dee
 ### **🎯 Protocol Handler Features**
 
 #### **Business App Protocols**
-- **`web+pezela`**: General business actions → `/#business?action=%s`
-- **`web+pezela-business`**: Business dashboard → `/#business?action=%s`
-- **`web+pezela-orders`**: Order management → `/#business/orders?order=%s`
-- **`web+pezela-payments`**: Payment tracking → `/#business/payments?payment=%s`
+- **`web+Thenga`**: General business actions → `/#business?action=%s`
+- **`web+Thenga-business`**: Business dashboard → `/#business?action=%s`
+- **`web+Thenga-orders`**: Order management → `/#business/orders?order=%s`
+- **`web+Thenga-payments`**: Payment tracking → `/#business/payments?payment=%s`
 
 #### **Customer App Protocols**
-- **`web+pezela-customer`**: General customer actions → `/#customer?action=%s`
-- **`web+pezela-shop`**: Product browsing → `/#customer/shop?product=%s`
-- **`web+pezela-order`**: Order tracking → `/#customer/orders?order=%s`
-- **`web+pezela-cart`**: Shopping cart → `/#customer/shop?cart=%s`
+- **`web+Thenga-customer`**: General customer actions → `/#customer?action=%s`
+- **`web+Thenga-shop`**: Product browsing → `/#customer/shop?product=%s`
+- **`web+Thenga-order`**: Order tracking → `/#customer/orders?order=%s`
+- **`web+Thenga-cart`**: Shopping cart → `/#customer/shop?cart=%s`
 
 ### **📋 PWA Builder Icon Validation**
 
@@ -166,31 +166,31 @@ Both Pezela Business and Customer apps now support **protocol handlers** for dee
 #### **Business App Deep Links**
 ```javascript
 // Open business dashboard
-window.open('web+pezela://dashboard');
+window.open('web+Thenga://dashboard');
 
 // Open specific order
-window.open('web+pezela-orders://order-12345');
+window.open('web+Thenga-orders://order-12345');
 
 // Open payment details
-window.open('web+pezela-payments://payment-67890');
+window.open('web+Thenga-payments://payment-67890');
 
 // General business action
-window.open('web+pezela-business://analytics');
+window.open('web+Thenga-business://analytics');
 ```
 
 #### **Customer App Deep Links**
 ```javascript
 // Open customer dashboard
-window.open('web+pezela-customer://dashboard');
+window.open('web+Thenga-customer://dashboard');
 
 // Open specific product
-window.open('web+pezela-shop://product-abc123');
+window.open('web+Thenga-shop://product-abc123');
 
 // Open order tracking
-window.open('web+pezela-order://order-xyz789');
+window.open('web+Thenga-order://order-xyz789');
 
 // Open shopping cart
-window.open('web+pezela-cart://add-item');
+window.open('web+Thenga-cart://add-item');
 ```
 
 ### **📱 Protocol Handler Benefits**
@@ -198,7 +198,7 @@ window.open('web+pezela-cart://add-item');
 #### **Deep Linking**
 - **✅ Custom URLs**: Apps can handle custom protocol schemes
 - **✅ Deep Navigation**: Direct links to specific app sections
-- **✅ Cross-App Integration**: Other apps can link to Pezela features
+- **✅ Cross-App Integration**: Other apps can link to Thenga features
 - **✅ Native Feel**: Protocol handlers work like native app deep links
 
 #### **Business Integration**
@@ -216,16 +216,16 @@ window.open('web+pezela-cart://add-item');
 ### **🎯 Testing Protocol Handlers**
 
 #### **Test Business App Protocols**
-1. **`web+pezela://dashboard`** → Should open business dashboard
-2. **`web+pezela-orders://order-123`** → Should open orders with order ID
-3. **`web+pezela-payments://payment-456`** → Should open payments with payment ID
-4. **`web+pezela-business://analytics`** → Should open business analytics
+1. **`web+Thenga://dashboard`** → Should open business dashboard
+2. **`web+Thenga-orders://order-123`** → Should open orders with order ID
+3. **`web+Thenga-payments://payment-456`** → Should open payments with payment ID
+4. **`web+Thenga-business://analytics`** → Should open business analytics
 
 #### **Test Customer App Protocols**
-1. **`web+pezela-customer://dashboard`** → Should open customer dashboard
-2. **`web+pezela-shop://product-abc`** → Should open shop with product ID
-3. **`web+pezela-order://order-xyz`** → Should open orders with order ID
-4. **`web+pezela-cart://add-item`** → Should open shop cart
+1. **`web+Thenga-customer://dashboard`** → Should open customer dashboard
+2. **`web+Thenga-shop://product-abc`** → Should open shop with product ID
+3. **`web+Thenga-order://order-xyz`** → Should open orders with order ID
+4. **`web+Thenga-cart://add-item`** → Should open shop cart
 
 ### **📁 Complete File Structure**
 
@@ -260,12 +260,12 @@ apps/pwa/customer-deployment/
 - **✅ Push Notifications**: Complete notification support
 
 #### **Deployment URLs**
-- **Business App**: `https://pezela.mozdev.co.za`
-- **Customer App**: `https://customerpezela.mozdev.co.za`
+- **Business App**: `https://Thenga.mozdev.co.za`
+- **Customer App**: `https://customerThenga.mozdev.co.za`
 
 ### **🎯 Final PWA Builder Validation**
 
-Your Pezela Business and Customer apps now have **100% PWA Builder compliance** with:
+Your Thenga Business and Customer apps now have **100% PWA Builder compliance** with:
 
 - ✅ **Complete Service Worker** (js13kPWA pattern)
 - ✅ **Background Sync** (regular and periodic)
@@ -286,4 +286,4 @@ Your Pezela Business and Customer apps now have **100% PWA Builder compliance** 
 
 ## **🎉 Ready for App Store Submission!**
 
-Your Pezela apps are now **100% PWA Builder compliant** and ready for app store submission! 🚀
+Your Thenga apps are now **100% PWA Builder compliant** and ready for app store submission! 🚀

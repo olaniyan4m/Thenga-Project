@@ -1,4 +1,4 @@
-// 🔐 Pezela Data Encryption Service
+// 🔐 Thenga Data Encryption Service
 // Comprehensive data encryption and secure storage
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -100,7 +100,7 @@ class DataEncryptionService {
   private async generateDeviceKey(): Promise<void> {
     try {
       // Check if device key exists in keychain
-      const existingKey = await Keychain.getInternetCredentials('pezela_device_key');
+      const existingKey = await Keychain.getInternetCredentials('Thenga_device_key');
       
       if (existingKey && existingKey.password) {
         this.deviceKey = existingKey.password;
@@ -110,7 +110,7 @@ class DataEncryptionService {
         
         // Store in keychain
         await Keychain.setInternetCredentials(
-          'pezela_device_key',
+          'Thenga_device_key',
           'device_key',
           deviceKey
         );
@@ -424,7 +424,7 @@ class DataEncryptionService {
     try {
       // Store in keychain
       await Keychain.setInternetCredentials(
-        `pezela_encryption_key_${key.id}`,
+        `Thenga_encryption_key_${key.id}`,
         'encryption_key',
         key.key
       );
@@ -455,7 +455,7 @@ class DataEncryptionService {
     try {
       // Update in keychain
       await Keychain.setInternetCredentials(
-        `pezela_encryption_key_${key.id}`,
+        `Thenga_encryption_key_${key.id}`,
         'encryption_key',
         key.key
       );
@@ -614,7 +614,7 @@ class DataEncryptionService {
           
           // Get key from keychain
           const keychainData = await Keychain.getInternetCredentials(
-            `pezela_encryption_key_${keyId}`
+            `Thenga_encryption_key_${keyId}`
           );
           
           if (keychainData && keychainData.password) {

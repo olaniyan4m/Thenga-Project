@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # 🔥 Firebase Projects Setup Script
-# This script helps you set up Firebase projects for Pezela Business Platform
+# This script helps you set up Firebase projects for Thenga Business Platform
 
-echo "🔥 Setting up Firebase Projects for Pezela Business Platform..."
+echo "🔥 Setting up Firebase Projects for Thenga Business Platform..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -49,8 +49,8 @@ print_info "Firebase CLI is installed and you're logged in!"
 print_info "Creating Firebase projects..."
 
 # Create Business App project
-print_info "Creating pezela-business project..."
-firebase projects:create pezela-business --display-name "Pezela Business App"
+print_info "Creating Thenga-business project..."
+firebase projects:create Thenga-business --display-name "Thenga Business App"
 
 if [ $? -eq 0 ]; then
     print_status "Business project created successfully!"
@@ -59,8 +59,8 @@ else
 fi
 
 # Create Customer App project
-print_info "Creating pezela-store project..."
-firebase projects:create pezela-store --display-name "Pezela Customer Store"
+print_info "Creating Thenga-store project..."
+firebase projects:create Thenga-store --display-name "Thenga Customer Store"
 
 if [ $? -eq 0 ]; then
     print_status "Customer project created successfully!"
@@ -75,7 +75,7 @@ cd standalone-pwa
 # Check if firebase.json exists
 if [ ! -f "firebase.json" ]; then
     print_info "Initializing Firebase hosting for Business App..."
-    firebase init hosting --project pezela-business
+    firebase init hosting --project Thenga-business
 else
     print_info "Firebase already initialized for Business App"
 fi
@@ -87,7 +87,7 @@ cd ../apps/pwa
 # Check if firebase.json exists
 if [ ! -f "firebase.json" ]; then
     print_info "Initializing Firebase hosting for Customer App..."
-    firebase init hosting --project pezela-store
+    firebase init hosting --project Thenga-store
 else
     print_info "Firebase already initialized for Customer App"
 fi
@@ -96,18 +96,18 @@ print_status "Firebase projects setup complete!"
 echo ""
 echo "🎉 Your Firebase projects are ready!"
 echo ""
-echo "📱 Business App Project: pezela-business"
-echo "🛒 Customer App Project: pezela-store"
+echo "📱 Business App Project: Thenga-business"
+echo "🛒 Customer App Project: Thenga-store"
 echo ""
 echo "🚀 Next steps:"
 echo "1. Build and deploy your apps:"
 echo "   ./deploy-both.sh"
 echo ""
 echo "2. Your web.app URLs will be:"
-echo "   Business: https://pezela-business.web.app"
-echo "   Customer: https://pezela-store.web.app"
+echo "   Business: https://Thenga-business.web.app"
+echo "   Customer: https://Thenga-store.web.app"
 echo ""
 echo "🔐 Demo Credentials:"
-echo "   Business: demo@pezela.co.za / DemoBusiness2024!"
+echo "   Business: demo@Thenga.co.za / DemoBusiness2024!"
 echo "   Customer: customer@test.com / TestCustomer2024!"
 echo ""

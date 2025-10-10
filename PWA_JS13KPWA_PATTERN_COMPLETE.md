@@ -24,7 +24,7 @@ if ('serviceWorker' in navigator) {
 #### **✅ 2. Cache Name with Version (js13kPWA Pattern)**
 ```javascript
 // PWA Builder Service Worker - Business App (js13kPWA Pattern)
-const cacheName = 'pezela-business-v1';
+const cacheName = 'Thenga-business-v1';
 const SW_VERSION = '1.0.0';
 ```
 
@@ -218,7 +218,7 @@ self.addEventListener('fetch', event => {
 | js13kPWA Element | Our Implementation | Status |
 |------------------|-------------------|---------|
 | **Service Worker Registration** | ✅ `navigator.serviceWorker.register('./sw.js')` | ✅ Complete |
-| **Cache Name with Version** | ✅ `const cacheName = 'pezela-business-v1'` | ✅ Complete |
+| **Cache Name with Version** | ✅ `const cacheName = 'Thenga-business-v1'` | ✅ Complete |
 | **App Shell Files Array** | ✅ `const appShellFiles = [...]` | ✅ Complete |
 | **Data Array** | ✅ `const businessData = [...]` | ✅ Complete |
 | **Dynamic Images Array** | ✅ `const businessImages = []` | ✅ Complete |
@@ -233,14 +233,14 @@ self.addEventListener('fetch', event => {
 ### **🎯 js13kPWA Pattern Features**
 
 #### **✅ Business App (standalone-pwa/deployment/sw.js)**
-- **Cache Name**: `pezela-business-v1`
+- **Cache Name**: `Thenga-business-v1`
 - **Data Array**: 8 business modules (dashboard, orders, payments, products, analytics, settings, tax, customers)
 - **Images**: 16 dynamic images (2 per module)
 - **App Shell**: 15 core files
 - **Total Cached**: 31 resources
 
 #### **✅ Customer App (apps/pwa/customer-deployment/sw.js)**
-- **Cache Name**: `pezela-customer-v1`
+- **Cache Name**: `Thenga-customer-v1`
 - **Data Array**: 8 customer modules (shop, orders, cart, favorites, profile, notifications, support, rewards)
 - **Images**: 16 dynamic images (2 per module)
 - **App Shell**: 15 core files
@@ -272,7 +272,7 @@ self.addEventListener('fetch', event => {
 |-------------|---------------|---------|
 | **Service Worker File** | ✅ Present at `/sw.js` | ✅ Complete |
 | **Service Worker Registration** | ✅ Properly registered | ✅ Complete |
-| **Cache Name with Version** | ✅ `pezela-business-v1` | ✅ Complete |
+| **Cache Name with Version** | ✅ `Thenga-business-v1` | ✅ Complete |
 | **App Shell Files** | ✅ Complete array | ✅ Complete |
 | **Data Array** | ✅ Business/Customer data | ✅ Complete |
 | **Dynamic Images** | ✅ Generated from data | ✅ Complete |
@@ -284,7 +284,7 @@ self.addEventListener('fetch', event => {
 
 ### **🎉 js13kPWA Pattern Complete!**
 
-Your Pezela apps now implement the **complete js13kPWA pattern** as described in the [MDN js13kGames tutorial](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers):
+Your Thenga apps now implement the **complete js13kPWA pattern** as described in the [MDN js13kGames tutorial](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers):
 
 - ✅ **Service Worker Registration**: Properly registered
 - ✅ **Cache Management**: Version-controlled caching
@@ -312,4 +312,4 @@ With this information, I can:
 
 ## **🎉 js13kPWA Pattern Implementation Complete!**
 
-Your Pezela apps now have **complete js13kPWA pattern implementation** following the [MDN js13kGames tutorial](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers) exactly! 🚀
+Your Thenga apps now have **complete js13kPWA pattern implementation** following the [MDN js13kGames tutorial](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers) exactly! 🚀

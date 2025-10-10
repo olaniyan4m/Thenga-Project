@@ -14,14 +14,14 @@ I've added the final advanced PWA features to both your Business and Customer ap
     "sizes": "375x812",
     "type": "image/png",
     "form_factor": "narrow",
-    "label": "Mobile view showing Pezela Customer shopping interface with product catalog and cart"
+    "label": "Mobile view showing Thenga Customer shopping interface with product catalog and cart"
   },
   {
     "src": "/screenshot-desktop.png",
     "sizes": "1280x720",
     "type": "image/png",
     "form_factor": "wide",
-    "label": "Desktop view showing Pezela Customer full shopping experience with menu and checkout"
+    "label": "Desktop view showing Thenga Customer full shopping experience with menu and checkout"
   }
 ]
 ```
@@ -34,14 +34,14 @@ I've added the final advanced PWA features to both your Business and Customer ap
     "sizes": "375x812",
     "type": "image/png",
     "form_factor": "narrow",
-    "label": "Mobile view showing Pezela Business dashboard with orders, payments, and analytics"
+    "label": "Mobile view showing Thenga Business dashboard with orders, payments, and analytics"
   },
   {
     "src": "/screenshot-desktop.png",
     "sizes": "1280x720",
     "type": "image/png",
     "form_factor": "wide",
-    "label": "Desktop view showing Pezela Business complete management interface with all features"
+    "label": "Desktop view showing Thenga Business complete management interface with all features"
   }
 ]
 ```
@@ -107,9 +107,9 @@ I've added the final advanced PWA features to both your Business and Customer ap
 ### **Customer App Features:**
 ```json
 {
-  "name": "Pezela Customer - Shop & Order Online",
-  "short_name": "Pezela Customer",
-  "description": "Shop and order delicious food online with Pezela...",
+  "name": "Thenga Customer - Shop & Order Online",
+  "short_name": "Thenga Customer",
+  "description": "Shop and order delicious food online with Thenga...",
   "id": "/?homescreen=1",
   "start_url": "/",
   "display": "standalone",
@@ -130,8 +130,8 @@ I've added the final advanced PWA features to both your Business and Customer ap
 ### **Business App Features:**
 ```json
 {
-  "name": "Pezela Business - Complete Business Management",
-  "short_name": "Pezela Business",
+  "name": "Thenga Business - Complete Business Management",
+  "short_name": "Thenga Business",
   "description": "Complete business management solution for South African entrepreneurs...",
   "id": "/?homescreen=1",
   "start_url": "/",

@@ -26,7 +26,7 @@ SQLite.enablePromise(true);
 
 const getDBConnection = async () => {
   return SQLite.openDatabase({
-    name: 'PezelaDB.db',
+    name: 'ThengaDB.db',
     location: 'default',
   });
 };
@@ -165,7 +165,7 @@ export const useOfflineSync = (): OfflineSyncHook => {
     const { type, data } = item;
     const token = await AsyncStorage.getItem('accessToken');
 
-    const baseUrl = await AsyncStorage.getItem('apiBaseUrl') || 'https://api.pezela.co.za';
+    const baseUrl = await AsyncStorage.getItem('apiBaseUrl') || 'https://api.Thenga.co.za';
 
     switch (type) {
       case 'order':

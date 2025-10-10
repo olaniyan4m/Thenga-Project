@@ -1,17 +1,17 @@
 # Customer App Solution
 
 ## Current Issue
-The customer app at https://pezela-customer-new.web.app is still redirecting to the business app.
+The customer app at https://Thenga-customer-new.web.app is still redirecting to the business app.
 
 ## Possible Solutions
 
 ### Option 1: Create New Firebase Account (Recommended)
 Yes, creating a separate Firebase account for the customer app would be the cleanest solution:
 
-1. **Create new Google account** (e.g., pezela-customer@gmail.com)
+1. **Create new Google account** (e.g., Thenga-customer@gmail.com)
 2. **Create new Firebase project** with that account
 3. **Deploy customer app** to the new project
-4. **Get new web.app URL** (e.g., https://pezela-customer-2024.web.app)
+4. **Get new web.app URL** (e.g., https://Thenga-customer-2024.web.app)
 
 ### Option 2: Use Different Hosting Platform
 - **Netlify** (free tier available)
@@ -20,8 +20,8 @@ Yes, creating a separate Firebase account for the customer app would be the clea
 - **Surge.sh** (free)
 
 ### Option 3: Use Different Domain
-- **Custom domain** (e.g., customer.pezela.com)
-- **Different subdomain** (e.g., shop.pezela.com)
+- **Custom domain** (e.g., customer.Thenga.com)
+- **Different subdomain** (e.g., shop.Thenga.com)
 
 ## Quick Fix - Netlify Deployment
 

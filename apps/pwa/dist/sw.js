@@ -1,5 +1,5 @@
 // js13kPWA Service Worker - Customer App
-const cacheName = 'pezela-customer-v1';
+const cacheName = 'Thenga-customer-v1';
 const appShellFiles = [
     '/',
     '/index.html',

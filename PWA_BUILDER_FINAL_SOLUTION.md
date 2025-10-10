@@ -105,7 +105,7 @@ After these fixes:
 - **Scope Extensions**: Simple path format that PWA Builder recognizes
 - **No Conflicts**: Removed any conflicting manifest fields
 
-Your Pezela apps should now pass PWA Builder validation! 🚀
+Your Thenga apps should now pass PWA Builder validation! 🚀
 
 The key was:
 1. **Don't fix what's working**: Service worker was fine

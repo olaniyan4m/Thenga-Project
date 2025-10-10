@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pezela-api-gateway
+  name: Thenga-api-gateway
   labels:
-    app: pezela-api-gateway
+    app: Thenga-api-gateway
     tier: backend
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: pezela-api-gateway
+      app: Thenga-api-gateway
   template:
     metadata:
       labels:
-        app: pezela-api-gateway
+        app: Thenga-api-gateway
         tier: backend
     spec:
       containers:
       - name: api-gateway
-        image: pezela/api-gateway:latest
+        image: Thenga/api-gateway:latest
         ports:
         - containerPort: 3001
         env:
@@ -29,20 +29,20 @@ spec:
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
-              name: pezela-secrets
+              name: Thenga-secrets
               key: database-url
         - name: JWT_SECRET
           valueFrom:
             secretKeyRef:
-              name: pezela-secrets
+              name: Thenga-secrets
               key: jwt-secret
         - name: JWT_REFRESH_SECRET
           valueFrom:
             secretKeyRef:
-              name: pezela-secrets
+              name: Thenga-secrets
               key: jwt-refresh-secret
         - name: REDIS_HOST
-          value: "pezela-redis"
+          value: "Thenga-redis"
         - name: REDIS_PORT
           value: "6379"
         resources:
@@ -68,12 +68,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pezela-api-gateway
+  name: Thenga-api-gateway
   labels:
-    app: pezela-api-gateway
+    app: Thenga-api-gateway
 spec:
   selector:
-    app: pezela-api-gateway
+    app: Thenga-api-gateway
   ports:
   - port: 3001
     targetPort: 3001
@@ -83,7 +83,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pezela-api-ingress
+  name: Thenga-api-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
@@ -91,16 +91,16 @@ metadata:
 spec:
   tls:
   - hosts:
-    - api.pezela.co.za
-    secretName: pezela-api-tls
+    - api.Thenga.co.za
+    secretName: Thenga-api-tls
   rules:
-  - host: api.pezela.co.za
+  - host: api.Thenga.co.za
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: pezela-api-gateway
+            name: Thenga-api-gateway
             port:
               number: 3001

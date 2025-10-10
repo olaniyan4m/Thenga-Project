@@ -1,7 +1,7 @@
 {
-  "name": "@pezela/analytics-service",
+  "name": "@Thenga/analytics-service",
   "version": "1.0.0",
-  "description": "Analytics service for Pezela platform",
+  "description": "Analytics service for Thenga platform",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

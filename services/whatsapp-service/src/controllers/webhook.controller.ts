@@ -202,7 +202,7 @@ export class WebhookController {
 
   // Message sending methods
   private async sendWelcomeMessage(to: string): Promise<void> {
-    const message = `👋 *Welcome to Pezela!*
+    const message = `👋 *Welcome to Thenga!*
 
 I'm your digital assistant. How can I help you today?
 
@@ -212,7 +212,7 @@ Choose an option below:`;
       to,
       'Welcome!',
       message,
-      'Pezela Digital Commerce',
+      'Thenga Digital Commerce',
       [
         { id: 'view_menu', title: '📋 View Menu' },
         { id: 'place_order', title: '🛒 Place Order' },

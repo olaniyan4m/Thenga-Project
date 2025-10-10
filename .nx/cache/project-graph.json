@@ -1,7 +1,7 @@
 {
   "nodes": {
-    "@pezela/notifications-service": {
-      "name": "@pezela/notifications-service",
+    "@Thenga/notifications-service": {
+      "name": "@Thenga/notifications-service",
       "type": "lib",
       "data": {
         "root": "services/notifications-service",
@@ -124,14 +124,14 @@
           }
         },
         "sourceRoot": "services/notifications-service",
-        "name": "@pezela/notifications-service",
+        "name": "@Thenga/notifications-service",
         "projectType": "library",
         "implicitDependencies": [],
         "tags": []
       }
     },
-    "@pezela/analytics-service": {
-      "name": "@pezela/analytics-service",
+    "@Thenga/analytics-service": {
+      "name": "@Thenga/analytics-service",
       "type": "lib",
       "data": {
         "root": "services/analytics-service",
@@ -186,14 +186,14 @@
           }
         },
         "sourceRoot": "services/analytics-service",
-        "name": "@pezela/analytics-service",
+        "name": "@Thenga/analytics-service",
         "projectType": "library",
         "implicitDependencies": [],
         "tags": []
       }
     },
-    "@pezela/inventory-service": {
-      "name": "@pezela/inventory-service",
+    "@Thenga/inventory-service": {
+      "name": "@Thenga/inventory-service",
       "type": "lib",
       "data": {
         "root": "services/inventory-service",
@@ -262,14 +262,14 @@
           }
         },
         "sourceRoot": "services/inventory-service",
-        "name": "@pezela/inventory-service",
+        "name": "@Thenga/inventory-service",
         "projectType": "library",
         "implicitDependencies": [],
         "tags": []
       }
     },
-    "@pezela/websocket-service": {
-      "name": "@pezela/websocket-service",
+    "@Thenga/websocket-service": {
+      "name": "@Thenga/websocket-service",
       "type": "lib",
       "data": {
         "root": "services/websocket-service",
@@ -324,14 +324,14 @@
           }
         },
         "sourceRoot": "services/websocket-service",
-        "name": "@pezela/websocket-service",
+        "name": "@Thenga/websocket-service",
         "projectType": "library",
         "implicitDependencies": [],
         "tags": []
       }
     },
-    "@pezela/whatsapp-service": {
-      "name": "@pezela/whatsapp-service",
+    "@Thenga/whatsapp-service": {
+      "name": "@Thenga/whatsapp-service",
       "type": "lib",
       "data": {
         "root": "services/whatsapp-service",
@@ -386,14 +386,14 @@
           }
         },
         "sourceRoot": "services/whatsapp-service",
-        "name": "@pezela/whatsapp-service",
+        "name": "@Thenga/whatsapp-service",
         "projectType": "library",
         "implicitDependencies": [],
         "tags": []
       }
     },
-    "@pezela/api-gateway": {
-      "name": "@pezela/api-gateway",
+    "@Thenga/api-gateway": {
+      "name": "@Thenga/api-gateway",
       "type": "lib",
       "data": {
         "root": "services/api-gateway",
@@ -509,14 +509,14 @@
           }
         },
         "sourceRoot": "services/api-gateway",
-        "name": "@pezela/api-gateway",
+        "name": "@Thenga/api-gateway",
         "projectType": "library",
         "implicitDependencies": [],
         "tags": []
       }
     },
-    "@pezela/db-migrations": {
-      "name": "@pezela/db-migrations",
+    "@Thenga/db-migrations": {
+      "name": "@Thenga/db-migrations",
       "type": "lib",
       "data": {
         "root": "libs/db-migrations",
@@ -601,7 +601,7 @@
           }
         },
         "sourceRoot": "libs/db-migrations",
-        "name": "@pezela/db-migrations",
+        "name": "@Thenga/db-migrations",
         "projectType": "library",
         "implicitDependencies": [],
         "tags": []
@@ -830,21 +830,21 @@
   },
   "externalNodes": {},
   "dependencies": {
-    "@pezela/notifications-service": [
+    "@Thenga/notifications-service": [
       {
-        "source": "@pezela/notifications-service",
+        "source": "@Thenga/notifications-service",
         "target": "@thenga/shared-types",
         "type": "static"
       }
     ],
-    "@pezela/analytics-service": [],
-    "@pezela/inventory-service": [],
-    "@pezela/websocket-service": [],
-    "@pezela/whatsapp-service": [],
-    "@pezela/api-gateway": [],
-    "@pezela/db-migrations": [
+    "@Thenga/analytics-service": [],
+    "@Thenga/inventory-service": [],
+    "@Thenga/websocket-service": [],
+    "@Thenga/whatsapp-service": [],
+    "@Thenga/api-gateway": [],
+    "@Thenga/db-migrations": [
       {
-        "source": "@pezela/db-migrations",
+        "source": "@Thenga/db-migrations",
         "target": "@thenga/shared-types",
         "type": "static"
       }

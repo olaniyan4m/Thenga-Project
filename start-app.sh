@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Pezela App Startup Script
-# This script starts the fully functioning Pezela app
+# Thenga App Startup Script
+# This script starts the fully functioning Thenga app
 
-echo "🚀 Starting Pezela - Digital Commerce Platform for South Africa"
+echo "🚀 Starting Thenga - Digital Commerce Platform for South Africa"
 echo "================================================================"
 
 # Check if we're in the right directory
 if [ ! -f "package.json" ]; then
-    echo "❌ Error: Please run this script from the Pezela project root directory"
+    echo "❌ Error: Please run this script from the Thenga project root directory"
     exit 1
 fi
 

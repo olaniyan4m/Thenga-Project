@@ -2,7 +2,7 @@
 
 ## ✅ **Complete Windows Widgets Board Implementation**
 
-Both Pezela Business and Customer apps now support **Windows Widgets Board** with proper Adaptive Cards templates and data binding.
+Both Thenga Business and Customer apps now support **Windows Widgets Board** with proper Adaptive Cards templates and data binding.
 
 ### **🔧 Widget Implementation**
 
@@ -10,9 +10,9 @@ Both Pezela Business and Customer apps now support **Windows Widgets Board** wit
 ```json
 "widgets": [
   {
-    "name": "Pezela Business Dashboard",
+    "name": "Thenga Business Dashboard",
     "description": "Quick access to business dashboard and key metrics",
-    "tag": "pezela-business-dashboard",
+    "tag": "Thenga-business-dashboard",
     "template": "business-dashboard-template",
     "ms_ac_template": "widgets/dashboard-template.json",
     "data": "widgets/dashboard-data.json",
@@ -21,7 +21,7 @@ Both Pezela Business and Customer apps now support **Windows Widgets Board** wit
       {
         "src": "./screenshot-widget-business.png",
         "sizes": "600x400",
-        "label": "Pezela Business dashboard widget"
+        "label": "Thenga Business dashboard widget"
       }
     ],
     "icons": [
@@ -40,9 +40,9 @@ Both Pezela Business and Customer apps now support **Windows Widgets Board** wit
 ```json
 "widgets": [
   {
-    "name": "Pezela Customer Quick Order",
+    "name": "Thenga Customer Quick Order",
     "description": "Quick access to order food and track deliveries",
-    "tag": "pezela-customer-quick-order",
+    "tag": "Thenga-customer-quick-order",
     "template": "customer-quick-order-template",
     "ms_ac_template": "widgets/quick-order-template.json",
     "data": "widgets/quick-order-data.json",
@@ -51,7 +51,7 @@ Both Pezela Business and Customer apps now support **Windows Widgets Board** wit
       {
         "src": "./screenshot-widget-customer.png",
         "sizes": "600x400",
-        "label": "Pezela Customer quick order widget"
+        "label": "Thenga Customer quick order widget"
       }
     ],
     "icons": [
@@ -77,7 +77,7 @@ Both Pezela Business and Customer apps now support **Windows Widgets Board** wit
     {
       "type": "TextBlock",
       "size": "Medium",
-      "text": "Pezela Business Dashboard",
+      "text": "Thenga Business Dashboard",
       "horizontalAlignment": "Center",
       "weight": "Bolder"
     },
@@ -121,7 +121,7 @@ Both Pezela Business and Customer apps now support **Windows Widgets Board** wit
     {
       "type": "TextBlock",
       "size": "Medium",
-      "text": "Pezela Customer",
+      "text": "Thenga Customer",
       "horizontalAlignment": "Center",
       "weight": "Bolder"
     },
@@ -259,16 +259,16 @@ apps/pwa/customer-deployment/
 ### **🎯 Widget Testing**
 
 #### **Test Business Widget**
-1. **Install App**: Install Pezela Business PWA
+1. **Install App**: Install Thenga Business PWA
 2. **Open Widgets**: Open Windows Widgets Board
-3. **Add Widget**: Add "Pezela Business Dashboard" widget
+3. **Add Widget**: Add "Thenga Business Dashboard" widget
 4. **Verify Display**: Check revenue, orders, and payments display
 5. **Test Actions**: Click "View Dashboard" and "Manage Orders"
 
 #### **Test Customer Widget**
-1. **Install App**: Install Pezela Customer PWA
+1. **Install App**: Install Thenga Customer PWA
 2. **Open Widgets**: Open Windows Widgets Board
-3. **Add Widget**: Add "Pezela Customer Quick Order" widget
+3. **Add Widget**: Add "Thenga Customer Quick Order" widget
 4. **Verify Display**: Check cart items and total display
 5. **Test Actions**: Click "Order Now" and "Track Order"
 
@@ -306,7 +306,7 @@ To change update frequency, modify the `update` field in manifest:
 
 ### **🎉 Windows Widgets Board Ready!**
 
-Your Pezela Business and Customer apps now support **Windows Widgets Board** with:
+Your Thenga Business and Customer apps now support **Windows Widgets Board** with:
 
 - ✅ **Adaptive Cards Templates**: Proper Windows 11 format
 - ✅ **Data Binding**: Dynamic content with variable substitution
@@ -317,4 +317,4 @@ Your Pezela Business and Customer apps now support **Windows Widgets Board** wit
 
 ## **🚀 Ready for Windows Widgets Board!**
 
-Your Pezela apps are now **100% compatible** with Windows Widgets Board and ready for Windows 11 users! 🎉
+Your Thenga apps are now **100% compatible** with Windows Widgets Board and ready for Windows 11 users! 🎉

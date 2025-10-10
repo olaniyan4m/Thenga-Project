@@ -2,17 +2,17 @@
 
 ## ✅ **Secret Admin Access Feature Implemented**
 
-The admin login is now hidden and can only be accessed through a secret 5-click activation on the Pezela logo.
+The admin login is now hidden and can only be accessed through a secret 5-click activation on the Thenga logo.
 
 ### **🔧 How It Works**
 
 #### **1. Hidden Admin Login**
 - **✅ Admin Button Hidden**: The "Admin Login" button is no longer visible on the login screen
-- **✅ Secret Activation**: Admin login only appears after 5 clicks on the Pezela logo
+- **✅ Secret Activation**: Admin login only appears after 5 clicks on the Thenga logo
 - **✅ Private Access**: Only you know the secret to access admin features
 
 #### **2. Secret Activation Process**
-1. **Click the Pezela Logo**: Click the logo 5 times in succession
+1. **Click the Thenga Logo**: Click the logo 5 times in succession
 2. **No Visual Clues**: No progress indicators or visual feedback
 3. **Admin Button Appears**: After 5 clicks, the admin login button slides in
 4. **Auto-Hide**: Admin button disappears after 30 seconds if not used
@@ -111,7 +111,7 @@ const handleLogoClick = () => {
 
 #### **To Access Admin (Secret Method)**
 1. **Go to Login Screen**: Navigate to the login page
-2. **Click Logo 5 Times**: Click the Pezela logo 5 times quickly
+2. **Click Logo 5 Times**: Click the Thenga logo 5 times quickly
 3. **No Visual Feedback**: No progress indicators or visual clues
 4. **Admin Button Appears**: Red "Admin Login" button slides in
 5. **Click Admin Login**: Click the admin button to access admin panel
@@ -183,7 +183,7 @@ const handleLogoClick = () => {
 
 ### **🎉 Complete Secret Admin Access Implementation!**
 
-Your Pezela app now has **complete secret admin access** with:
+Your Thenga app now has **complete secret admin access** with:
 
 - ✅ **Hidden Admin Login**: Completely hidden from regular users
 - ✅ **Secret 5-Click Activation**: Click logo 5 times to reveal admin

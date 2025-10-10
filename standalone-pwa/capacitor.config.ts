@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.pezela.business',
-  appName: 'Pezela Business',
+  appId: 'com.Thenga.business',
+  appName: 'Thenga Business',
   webDir: 'dist'
 };
 

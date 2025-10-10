@@ -1,7 +1,7 @@
 # Emergency Customer App Solution
 
 ## Current Issue
-The customer app at https://pezela-customer-68704.web.app is showing a different webpage due to browser caching issues.
+The customer app at https://Thenga-customer-68704.web.app is showing a different webpage due to browser caching issues.
 
 ## Immediate Solutions
 

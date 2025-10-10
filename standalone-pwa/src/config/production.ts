@@ -51,20 +51,20 @@ export interface ProductionConfig {
 // Production configuration
 export const productionConfig: ProductionConfig = {
   api: {
-    baseUrl: process.env.REACT_APP_API_URL || 'https://api.pezela.com',
+    baseUrl: process.env.REACT_APP_API_URL || 'https://api.Thenga.com',
     apiKey: process.env.REACT_APP_API_KEY || '',
     businessId: process.env.REACT_APP_BUSINESS_ID || 'store_123'
   },
   websocket: {
-    url: process.env.REACT_APP_WEBSOCKET_URL || 'wss://api.pezela.com/ws',
+    url: process.env.REACT_APP_WEBSOCKET_URL || 'wss://api.Thenga.com/ws',
     enabled: process.env.REACT_APP_ENABLE_WEBSOCKET === 'true'
   },
   storefront: {
-    url: process.env.REACT_APP_STOREFRONT_URL || 'https://store.pezela.com',
-    domain: process.env.REACT_APP_CUSTOMER_DOMAIN || 'store.pezela.com'
+    url: process.env.REACT_APP_STOREFRONT_URL || 'https://store.Thenga.com',
+    domain: process.env.REACT_APP_CUSTOMER_DOMAIN || 'store.Thenga.com'
   },
   whatsapp: {
-    apiUrl: process.env.REACT_APP_WHATSAPP_API_URL || 'https://api.pezela.com/whatsapp',
+    apiUrl: process.env.REACT_APP_WHATSAPP_API_URL || 'https://api.Thenga.com/whatsapp',
     apiKey: process.env.REACT_APP_WHATSAPP_API_KEY || '',
     enabled: process.env.REACT_APP_ENABLE_WHATSAPP === 'true'
   },

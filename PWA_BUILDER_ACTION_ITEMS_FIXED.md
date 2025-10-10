@@ -41,8 +41,8 @@ Based on the [PWA Builder documentation](https://docs.pwabuilder.com/#/home/sw-i
 #### **Business App Scope Extensions**:
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "pezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "Thenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -50,8 +50,8 @@ Based on the [PWA Builder documentation](https://docs.pwabuilder.com/#/home/sw-i
 #### **Customer App Scope Extensions**:
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "customerpezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "customerThenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -158,7 +158,7 @@ After implementing these fixes:
 - ✅ **PWA Builder Validation**: Should pass completely
 - ✅ **App Store Readiness**: Both apps ready for submission
 
-Your Pezela apps should now pass PWA Builder validation completely! 🚀
+Your Thenga apps should now pass PWA Builder validation completely! 🚀
 
 ## 🎉 **PWA Builder Action Items - FIXED!**
 
@@ -167,4 +167,4 @@ The two recurring PWA Builder issues have been resolved:
 1. **✅ Service Worker Issue**: Fixed by adding service worker declaration to manifests
 2. **✅ Scope Extensions Issue**: Fixed by ensuring proper scope extensions and web app origin association files
 
-Your Pezela apps are now fully PWA Builder compliant! 🚀
+Your Thenga apps are now fully PWA Builder compliant! 🚀

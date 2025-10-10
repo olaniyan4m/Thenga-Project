@@ -1,4 +1,4 @@
-// 💰 Pezela Business Subscription Pricing Model (Simplified)
+// 💰 Thenga Business Subscription Pricing Model (Simplified)
 // Pricing configuration for merchant subscriptions
 
 export interface PricingTier {

@@ -1,6 +1,6 @@
-# Pezela Business App - Live Production Deployment Guide
+# Thenga Business App - Live Production Deployment Guide
 
-This guide explains how to deploy the Pezela Business App with live data integration between the customer storefront and business dashboard.
+This guide explains how to deploy the Thenga Business App with live data integration between the customer storefront and business dashboard.
 
 ## 🚀 Quick Start
 

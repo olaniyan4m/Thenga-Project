@@ -67,7 +67,7 @@ Based on the [PWA Builder documentation](https://docs.pwabuilder.com/#/builder/m
 #### **Business App Manifest**
 ```json
 {
-  "name": "Pezela Business - Complete Business Management",
+  "name": "Thenga Business - Complete Business Management",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "tabbed", "standalone", "minimal-ui", "browser"],
   "tab_strip": {
@@ -87,7 +87,7 @@ Based on the [PWA Builder documentation](https://docs.pwabuilder.com/#/builder/m
 #### **Customer App Manifest**
 ```json
 {
-  "name": "Pezela Customer - Shop & Order Online",
+  "name": "Thenga Customer - Shop & Order Online",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "tabbed", "standalone", "minimal-ui", "browser"],
   "tab_strip": {
@@ -203,7 +203,7 @@ console.log('Current display mode:', displayMode);
 
 ### **🎉 Complete PWA Builder display_override Compliance!**
 
-Your Pezela Business and Customer apps now have **complete display_override implementation** with:
+Your Thenga Business and Customer apps now have **complete display_override implementation** with:
 
 - ✅ **Window Controls Overlay**: Primary modern PWA experience
 - ✅ **Tabbed Mode**: Modern tabbed experience
@@ -215,4 +215,4 @@ Your Pezela Business and Customer apps now have **complete display_override impl
 
 ## **🚀 Ready for PWA Builder Validation!**
 
-Your Pezela apps now have **complete PWA Builder display_override compliance** with the required `window-controls-overlay` mode and should pass PWA Builder validation! 🎉
+Your Thenga apps now have **complete PWA Builder display_override compliance** with the required `window-controls-overlay` mode and should pass PWA Builder validation! 🎉

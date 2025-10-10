@@ -13,7 +13,7 @@ if (typeof navigator.serviceWorker !== 'undefined') {
 
 #### **Business App** (`standalone-pwa/deployment/sw.js`):
 ```javascript
-const CACHE_NAME = 'pezela-business-v1';
+const CACHE_NAME = 'Thenga-business-v1';
 
 // Add whichever assets you want to pre-cache here:
 const PRECACHE_ASSETS = [
@@ -69,7 +69,7 @@ self.addEventListener('fetch', event => {
 
 #### **Customer App** (`apps/pwa/customer-deployment/sw.js`):
 ```javascript
-const CACHE_NAME = 'pezela-customer-v1';
+const CACHE_NAME = 'Thenga-customer-v1';
 
 // Add whichever assets you want to pre-cache here:
 const PRECACHE_ASSETS = [
@@ -128,8 +128,8 @@ self.addEventListener('fetch', event => {
 ### **✅ Business App Manifest** (`standalone-pwa/deployment/manifest.json`):
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "pezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "Thenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -137,8 +137,8 @@ self.addEventListener('fetch', event => {
 ### **✅ Customer App Manifest** (`apps/pwa/customer-deployment/manifest.json`):
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "customerpezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "customerThenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -151,7 +151,7 @@ self.addEventListener('fetch', event => {
 | **Service Worker File** | ✅ `sw.js` | ✅ `sw.js` | ✅ Exact |
 | **Service Worker Registration** | ✅ `typeof navigator.serviceWorker !== 'undefined'` | ✅ `typeof navigator.serviceWorker !== 'undefined'` | ✅ Exact |
 | **Registration Path** | ✅ `'sw.js'` | ✅ `'sw.js'` | ✅ Exact |
-| **CACHE_NAME** | ✅ `'pezela-business-v1'` | ✅ `'pezela-customer-v1'` | ✅ Exact |
+| **CACHE_NAME** | ✅ `'Thenga-business-v1'` | ✅ `'Thenga-customer-v1'` | ✅ Exact |
 | **PRECACHE_ASSETS** | ✅ Array of assets | ✅ Array of assets | ✅ Exact |
 | **Install Event** | ✅ `caches.open(CACHE_NAME)` | ✅ `caches.open(CACHE_NAME)` | ✅ Exact |
 | **Activate Event** | ✅ `self.clients.claim()` | ✅ `self.clients.claim()` | ✅ Exact |
@@ -161,7 +161,7 @@ self.addEventListener('fetch', event => {
 | Requirement | Business App | Customer App | Status |
 |-------------|-------------|-------------|---------|
 | **Format** | ✅ `{"origin": "*.domain.com"}` | ✅ `{"origin": "*.domain.com"}` | ✅ Exact |
-| **Business Origins** | ✅ `*.pezela.co.za`, `pezela.mozdev.co.za`, `*.mozdev.co.za` | ✅ `*.pezela.co.za`, `customerpezela.mozdev.co.za`, `*.mozdev.co.za` | ✅ Exact |
+| **Business Origins** | ✅ `*.Thenga.co.za`, `Thenga.mozdev.co.za`, `*.mozdev.co.za` | ✅ `*.Thenga.co.za`, `customerThenga.mozdev.co.za`, `*.mozdev.co.za` | ✅ Exact |
 | **Structure** | ✅ Array of origin objects | ✅ Array of origin objects | ✅ Exact |
 | **Web App Origin Association** | ✅ Present and correct | ✅ Present and correct | ✅ Exact |
 

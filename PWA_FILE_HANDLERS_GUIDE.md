@@ -2,7 +2,7 @@
 
 ## ✅ **Complete File Handlers & Scope Extensions Implementation**
 
-Both Pezela Business and Customer apps now support **file handling** and **scope extensions** for enhanced PWA functionality.
+Both Thenga Business and Customer apps now support **file handling** and **scope extensions** for enhanced PWA functionality.
 
 ### **🔧 File Handlers Implementation**
 
@@ -90,8 +90,8 @@ Both Pezela Business and Customer apps now support **file handling** and **scope
 #### **Business App Scope Extensions**
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "pezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "Thenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -99,8 +99,8 @@ Both Pezela Business and Customer apps now support **file handling** and **scope
 #### **Customer App Scope Extensions**
 ```json
 "scope_extensions": [
-  {"origin": "*.pezela.co.za"},
-  {"origin": "customerpezela.mozdev.co.za"},
+  {"origin": "*.Thenga.co.za"},
+  {"origin": "customerThenga.mozdev.co.za"},
   {"origin": "*.mozdev.co.za"}
 ]
 ```
@@ -113,7 +113,7 @@ Both Pezela Business and Customer apps now support **file handling** and **scope
 {
   "web_apps": [
     {
-      "web_app_identity": "https://pezela.mozdev.co.za/"
+      "web_app_identity": "https://Thenga.mozdev.co.za/"
     }
   ]
 }
@@ -125,7 +125,7 @@ Both Pezela Business and Customer apps now support **file handling** and **scope
 {
   "web_apps": [
     {
-      "web_app_identity": "https://customerpezela.mozdev.co.za/"
+      "web_app_identity": "https://customerThenga.mozdev.co.za/"
     }
   ]
 }
@@ -146,7 +146,7 @@ Both Pezela Business and Customer apps now support **file handling** and **scope
 ### **🌐 Scope Extension Benefits**
 
 #### **Multi-Domain Support**
-- **✅ Pezela Domains**: `*.pezela.co.za` support
+- **✅ Thenga Domains**: `*.Thenga.co.za` support
 - **✅ MozDev Domains**: `*.mozdev.co.za` support
 - **✅ Current Domains**: Direct domain support
 - **✅ Cross-Domain**: Unified app experience across domains
@@ -230,8 +230,8 @@ apps/pwa/customer-deployment/
 
 ### **📱 Deployment URLs**
 
-- **Business App**: `https://pezela.mozdev.co.za`
-- **Customer App**: `https://customerpezela.mozdev.co.za`
+- **Business App**: `https://Thenga.mozdev.co.za`
+- **Customer App**: `https://customerThenga.mozdev.co.za`
 
 Both apps now have **complete PWA Builder compliance** with file handling and scope extensions! 🎉
 
@@ -249,4 +249,4 @@ Both apps now have **complete PWA Builder compliance** with file handling and sc
 3. **CSV Files**: Upload .csv → Should open to `/#customer/orders`
 4. **Images**: Upload .jpg/.png → Should open to `/#customer/shop`
 
-Your Pezela apps are now **100% PWA Builder compliant** with complete file handling and scope extension support! 🚀
+Your Thenga apps are now **100% PWA Builder compliant** with complete file handling and scope extension support! 🚀

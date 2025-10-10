@@ -100,7 +100,7 @@ const OrdersScreen: React.FC<OrdersScreenProps> = ({
     <div className="screen">
       <div className="screen-header">
         <div className="header-left">
-          <img src="/assets/Logo2.PNG" alt="Pezela Logo" className="header-logo" />
+          <img src="/assets/Logo2.PNG" alt="Thenga Logo" className="header-logo" />
           <h1>Orders ({orders.length})</h1>
         </div>
         <div className="header-actions">

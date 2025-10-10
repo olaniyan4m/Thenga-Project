@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Upload Pezela Business App to https://pezela.mozdev.co.za
+# Upload Thenga Business App to https://Thenga.mozdev.co.za
 # This script helps you upload your app files to your domain
 
-echo "🚀 Uploading Pezela Business App to https://pezela.mozdev.co.za"
+echo "🚀 Uploading Thenga Business App to https://Thenga.mozdev.co.za"
 
 # Check if deployment folder exists
 if [ ! -d "deployment" ]; then
@@ -30,7 +30,7 @@ echo "- Configure proper MIME types"
 
 echo ""
 echo "🌐 After upload, your app will be available at:"
-echo "https://pezela.mozdev.co.za"
+echo "https://Thenga.mozdev.co.za"
 
 echo ""
 echo "✅ Upload complete! Test your app at the domain above."

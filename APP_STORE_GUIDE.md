@@ -1,4 +1,4 @@
-# Pezela Business App - Apple App Store Deployment Guide
+# Thenga Business App - Apple App Store Deployment Guide
 
 ## 🚀 Quick Deployment Options
 
@@ -12,7 +12,7 @@ npm install @capacitor/core @capacitor/cli
 npm install @capacitor/ios
 
 # Initialize Capacitor
-npx cap init "Pezela Business" "com.pezela.business"
+npx cap init "Thenga Business" "com.Thenga.business"
 
 # Add iOS platform
 npx cap add ios
@@ -36,7 +36,7 @@ Convert your web app to React Native:
 
 ```bash
 # Install React Native
-npx react-native init PezelaBusiness
+npx react-native init ThengaBusiness
 # Copy your components and logic
 # Build for iOS
 npx react-native run-ios
@@ -46,8 +46,8 @@ npx react-native run-ios
 ```bash
 # Install Cordova
 npm install -g cordova
-cordova create PezelaBusiness com.pezela.business "Pezela Business"
-cd PezelaBusiness
+cordova create ThengaBusiness com.Thenga.business "Thenga Business"
+cd ThengaBusiness
 cordova platform add ios
 cordova build ios
 ```
@@ -56,13 +56,13 @@ cordova build ios
 
 ### 1. Install Dependencies
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/standalone-pwa
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/standalone-pwa
 npm install @capacitor/core @capacitor/cli @capacitor/ios
 ```
 
 ### 2. Initialize Capacitor
 ```bash
-npx cap init "Pezela Business" "com.pezela.business"
+npx cap init "Thenga Business" "com.Thenga.business"
 ```
 
 ### 3. Add iOS Platform
@@ -86,7 +86,7 @@ npx cap open ios
 ```
 
 ### 7. Configure App Store
-- Set bundle identifier: `com.pezela.business`
+- Set bundle identifier: `com.Thenga.business`
 - Add app icons and splash screens
 - Configure signing certificates
 - Build and archive for App Store
@@ -94,8 +94,8 @@ npx cap open ios
 ## 🎯 **App Store Requirements**
 
 ### **App Information**
-- **Name**: Pezela Business
-- **Bundle ID**: com.pezela.business
+- **Name**: Thenga Business
+- **Bundle ID**: com.Thenga.business
 - **Category**: Business
 - **Description**: Complete business management solution for South African entrepreneurs
 
@@ -118,13 +118,13 @@ Let's use Capacitor to convert your PWA to a native iOS app:
 
 ```bash
 # Navigate to your app
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/standalone-pwa
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/standalone-pwa
 
 # Install Capacitor
 npm install @capacitor/core @capacitor/cli @capacitor/ios
 
 # Initialize
-npx cap init "Pezela Business" "com.pezela.business"
+npx cap init "Thenga Business" "com.Thenga.business"
 
 # Add iOS platform
 npx cap add ios

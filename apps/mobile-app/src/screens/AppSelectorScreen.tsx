@@ -40,7 +40,7 @@ export const AppSelectorScreen: React.FC<AppSelectorScreenProps> = ({ onAppSelec
           style={styles.logo}
           resizeMode="contain"
         />
-        <Text style={styles.title}>Pezela</Text>
+        <Text style={styles.title}>Thenga</Text>
         <Text style={styles.subtitle}>Choose Your App</Text>
       </View>
 
@@ -91,7 +91,7 @@ export const AppSelectorScreen: React.FC<AppSelectorScreenProps> = ({ onAppSelec
       </View>
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>Pezela - Complete Business Solution</Text>
+        <Text style={styles.footerText}>Thenga - Complete Business Solution</Text>
         <Text style={styles.versionText}>Version 2.0</Text>
       </View>
     </SafeAreaView>

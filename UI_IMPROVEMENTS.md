@@ -77,6 +77,6 @@
 - **💰 View Payments**: Financial analytics
 - **⚙️ Settings**: Business configuration
 
-**Your Pezela app now has perfect UI alignment and complete navigation! 🎉📱**
+**Your Thenga app now has perfect UI alignment and complete navigation! 🎉📱**
 
 All buttons work, all data is properly aligned, and every feature is accessible through intuitive navigation.

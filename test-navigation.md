@@ -85,4 +85,4 @@ const handleNavigation = (screen: string) => {
 **Navigation**: Use bottom navigation to switch screens  
 **Scrolling**: Scroll through content in each screen  
 
-Your Pezela app now has fully functional navigation and scrolling! 🎉
+Your Thenga app now has fully functional navigation and scrolling! 🎉

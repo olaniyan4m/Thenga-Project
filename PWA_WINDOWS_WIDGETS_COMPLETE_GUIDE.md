@@ -2,7 +2,7 @@
 
 ## ✅ **Complete Windows Widgets Board Implementation**
 
-Both Pezela Business and Customer apps now have **full Windows Widgets Board support** with proper event handling, periodic sync, and action management.
+Both Thenga Business and Customer apps now have **full Windows Widgets Board support** with proper event handling, periodic sync, and action management.
 
 ### **🔧 Service Worker Widget Implementation**
 
@@ -170,9 +170,9 @@ self.addEventListener('widgetclick', (event) => {
 #### **Business App Widget**
 ```json
 {
-  "name": "Pezela Business Dashboard",
+  "name": "Thenga Business Dashboard",
   "description": "Quick access to business dashboard and key metrics",
-  "tag": "pezela-business-dashboard",
+  "tag": "Thenga-business-dashboard",
   "template": "business-dashboard-template",
   "ms_ac_template": "widgets/dashboard-template.json",
   "data": "widgets/dashboard-data.json",
@@ -181,7 +181,7 @@ self.addEventListener('widgetclick', (event) => {
     {
       "src": "./screenshot-widget-business.png",
       "sizes": "600x400",
-      "label": "Pezela Business dashboard widget"
+      "label": "Thenga Business dashboard widget"
     }
   ],
   "icons": [
@@ -198,9 +198,9 @@ self.addEventListener('widgetclick', (event) => {
 #### **Customer App Widget**
 ```json
 {
-  "name": "Pezela Customer Quick Order",
+  "name": "Thenga Customer Quick Order",
   "description": "Quick access to order food and track deliveries",
-  "tag": "pezela-customer-quick-order",
+  "tag": "Thenga-customer-quick-order",
   "template": "customer-quick-order-template",
   "ms_ac_template": "widgets/quick-order-template.json",
   "data": "widgets/quick-order-data.json",
@@ -209,7 +209,7 @@ self.addEventListener('widgetclick', (event) => {
     {
       "src": "./screenshot-widget-customer.png",
       "sizes": "600x400",
-      "label": "Pezela Customer quick order widget"
+      "label": "Thenga Customer quick order widget"
     }
   ],
   "icons": [
@@ -303,17 +303,17 @@ apps/pwa/customer-deployment/
 ### **🎯 Widget Testing**
 
 #### **Test Business Widget**
-1. **Install PWA**: Install Pezela Business PWA on Windows 11
+1. **Install PWA**: Install Thenga Business PWA on Windows 11
 2. **Open Widgets Board**: Open Windows Widgets Board
-3. **Add Widget**: Add "Pezela Business Dashboard" widget
+3. **Add Widget**: Add "Thenga Business Dashboard" widget
 4. **Verify Display**: Check revenue, orders, and payments display
 5. **Test Actions**: Click "View Dashboard" and "Manage Orders"
 6. **Test Updates**: Verify widget updates every 24 hours
 
 #### **Test Customer Widget**
-1. **Install PWA**: Install Pezela Customer PWA on Windows 11
+1. **Install PWA**: Install Thenga Customer PWA on Windows 11
 2. **Open Widgets Board**: Open Windows Widgets Board
-3. **Add Widget**: Add "Pezela Customer Quick Order" widget
+3. **Add Widget**: Add "Thenga Customer Quick Order" widget
 4. **Verify Display**: Check cart items and total display
 5. **Test Actions**: Click "Order Now" and "Track Order"
 6. **Test Updates**: Verify widget updates every 24 hours
@@ -353,7 +353,7 @@ To change update frequency, modify the `update` field in manifest:
 
 ### **🎉 Windows Widgets Board Complete!**
 
-Your Pezela Business and Customer apps now have **complete Windows Widgets Board support** with:
+Your Thenga Business and Customer apps now have **complete Windows Widgets Board support** with:
 
 - ✅ **Widget Event Handling**: Install, uninstall, and update events
 - ✅ **Periodic Sync Integration**: Automatic widget updates
@@ -365,4 +365,4 @@ Your Pezela Business and Customer apps now have **complete Windows Widgets Board
 
 ## **🚀 Ready for Windows Widgets Board!**
 
-Your Pezela apps are now **100% compatible** with Windows Widgets Board and ready for Windows 11 users with full widget functionality! 🎉
+Your Thenga apps are now **100% compatible** with Windows Widgets Board and ready for Windows 11 users with full widget functionality! 🎉

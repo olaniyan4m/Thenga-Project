@@ -36,7 +36,7 @@
 
 ### **Step 1: Restart Expo Server**
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore
 npx expo start --tunnel --clear
 ```
 

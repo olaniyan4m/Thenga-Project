@@ -3,7 +3,7 @@
 # 🚀 Deploy Both Applications to Firebase Hosting
 # This script builds and deploys both Business and Customer Apps to Firebase
 
-echo "🚀 Deploying Both Pezela Applications to Firebase..."
+echo "🚀 Deploying Both Thenga Applications to Firebase..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -110,18 +110,18 @@ fi
 print_status "Customer Application deployed successfully!"
 
 echo ""
-echo "🎉 Both Pezela Applications are now live!"
+echo "🎉 Both Thenga Applications are now live!"
 echo ""
 echo "📱 Business Application (Admin Dashboard):"
-echo "   https://pezela-business.web.app"
-echo "   https://business.pezela.web.app"
+echo "   https://Thenga-business.web.app"
+echo "   https://business.Thenga.web.app"
 echo ""
 echo "🛒 Customer Application (Storefront):"
-echo "   https://pezela-store.web.app"
-echo "   https://store.pezela.web.app"
+echo "   https://Thenga-store.web.app"
+echo "   https://store.Thenga.web.app"
 echo ""
 echo "🔐 Demo Credentials:"
-echo "   Business Admin: demo@pezela.co.za / DemoBusiness2024!"
+echo "   Business Admin: demo@Thenga.co.za / DemoBusiness2024!"
 echo "   Customer: customer@test.com / TestCustomer2024!"
 echo ""
 echo "📊 Key Features:"

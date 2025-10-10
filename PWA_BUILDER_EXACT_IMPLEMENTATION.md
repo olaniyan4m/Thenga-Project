@@ -18,7 +18,7 @@ if (typeof navigator.serviceWorker !== 'undefined') {
 #### **Business App** (`standalone-pwa/deployment/sw.js`):
 ```javascript
 // PWA Builder Service Worker - Business App
-const CACHE_NAME = 'pezela-business-v1';
+const CACHE_NAME = 'Thenga-business-v1';
 
 // Add whichever assets you want to pre-cache here:
 const PRECACHE_ASSETS = [
@@ -75,7 +75,7 @@ self.addEventListener('fetch', event => {
 #### **Customer App** (`apps/pwa/customer-deployment/sw.js`):
 ```javascript
 // PWA Builder Service Worker - Customer App
-const CACHE_NAME = 'pezela-customer-v1';
+const CACHE_NAME = 'Thenga-customer-v1';
 
 // Add whichever assets you want to pre-cache here:
 const PRECACHE_ASSETS = [
@@ -138,7 +138,7 @@ self.addEventListener('fetch', event => {
 | **File Location** | ✅ Root level | ✅ Root level | ✅ Exact |
 | **Registration Check** | ✅ `typeof navigator.serviceWorker !== 'undefined'` | ✅ `typeof navigator.serviceWorker !== 'undefined'` | ✅ Exact |
 | **Registration Path** | ✅ `'sw.js'` | ✅ `'sw.js'` | ✅ Exact |
-| **CACHE_NAME** | ✅ `'pezela-business-v1'` | ✅ `'pezela-customer-v1'` | ✅ Exact |
+| **CACHE_NAME** | ✅ `'Thenga-business-v1'` | ✅ `'Thenga-customer-v1'` | ✅ Exact |
 | **PRECACHE_ASSETS** | ✅ Array of assets | ✅ Array of assets | ✅ Exact |
 | **Install Event** | ✅ `caches.open(CACHE_NAME)` | ✅ `caches.open(CACHE_NAME)` | ✅ Exact |
 | **Activate Event** | ✅ `self.clients.claim()` | ✅ `self.clients.claim()` | ✅ Exact |
@@ -184,7 +184,7 @@ After implementing the **exact PWA Builder documentation format**:
 
 ## 🎉 **PWA Builder Compliance - EXACT IMPLEMENTATION**
 
-Your Pezela apps now follow the **exact PWA Builder documentation**:
+Your Thenga apps now follow the **exact PWA Builder documentation**:
 
 1. **✅ Service Worker**: Exact format from PWA Builder documentation
 2. **✅ Scope Extensions**: Simple format that PWA Builder recognizes
@@ -200,7 +200,7 @@ Your Pezela apps now follow the **exact PWA Builder documentation**:
 - **File Structure**: Correct `sw.js` placement and registration
 - **Event Handlers**: Exact install, activate, fetch pattern from documentation
 
-Your Pezela apps should now pass PWA Builder validation! 🚀
+Your Thenga apps should now pass PWA Builder validation! 🚀
 
 The key was implementing the **exact service worker pattern** from the PWA Builder documentation you provided:
 - `typeof navigator.serviceWorker !== 'undefined'`

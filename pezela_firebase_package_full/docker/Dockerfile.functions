@@ -1,8 +1,0 @@
-# Dockerfile for Firebase Functions local development
-FROM node:18
-WORKDIR /usr/src/app
-COPY functions/package.json ./functions/package.json
-RUN cd functions && npm install
-COPY . .
-WORKDIR /usr/src/app/functions
-CMD [ "npm", "run", "serve" ]

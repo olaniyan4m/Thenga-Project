@@ -52,7 +52,7 @@ Create a `.env` file with ALL integrations:
 # SARS eFiling
 REACT_APP_SARS_CLIENT_ID=your_sars_client_id
 REACT_APP_SARS_CLIENT_SECRET=your_sars_client_secret
-REACT_APP_SARS_REDIRECT_URI=https://pezela.co.za/oauth/sars/callback
+REACT_APP_SARS_REDIRECT_URI=https://Thenga.co.za/oauth/sars/callback
 REACT_APP_SARS_ENVIRONMENT=sandbox
 REACT_APP_VAT_NUMBER=4880303328
 REACT_APP_TAX_YEAR=2024
@@ -60,23 +60,23 @@ REACT_APP_TAX_YEAR=2024
 # Accounting Systems
 REACT_APP_QUICKBOOKS_CLIENT_ID=your_quickbooks_client_id
 REACT_APP_QUICKBOOKS_CLIENT_SECRET=your_quickbooks_client_secret
-REACT_APP_QUICKBOOKS_REDIRECT_URI=https://pezela.co.za/oauth/quickbooks/callback
+REACT_APP_QUICKBOOKS_REDIRECT_URI=https://Thenga.co.za/oauth/quickbooks/callback
 REACT_APP_QUICKBOOKS_ENVIRONMENT=sandbox
 REACT_APP_QUICKBOOKS_COMPANY_ID=your_company_id
 
 REACT_APP_XERO_CLIENT_ID=your_xero_client_id
 REACT_APP_XERO_CLIENT_SECRET=your_xero_client_secret
-REACT_APP_XERO_REDIRECT_URI=https://pezela.co.za/oauth/xero/callback
+REACT_APP_XERO_REDIRECT_URI=https://Thenga.co.za/oauth/xero/callback
 REACT_APP_XERO_ENVIRONMENT=sandbox
 
 REACT_APP_SAGE_CLIENT_ID=your_sage_client_id
 REACT_APP_SAGE_CLIENT_SECRET=your_sage_client_secret
-REACT_APP_SAGE_REDIRECT_URI=https://pezela.co.za/oauth/sage/callback
+REACT_APP_SAGE_REDIRECT_URI=https://Thenga.co.za/oauth/sage/callback
 REACT_APP_SAGE_ENVIRONMENT=sandbox
 
 REACT_APP_PASTEL_CLIENT_ID=your_pastel_client_id
 REACT_APP_PASTEL_CLIENT_SECRET=your_pastel_client_secret
-REACT_APP_PASTEL_REDIRECT_URI=https://pezela.co.za/oauth/pastel/callback
+REACT_APP_PASTEL_REDIRECT_URI=https://Thenga.co.za/oauth/pastel/callback
 REACT_APP_PASTEL_ENVIRONMENT=sandbox
 
 # Hardware Integrations
@@ -186,7 +186,7 @@ REACT_APP_JWT_SECRET=your_jwt_secret
 - **Marketplace Presence** - Online storefronts and delivery
 - **Customer Retention** - Loyalty programs and rewards
 
-### **For Pezela:**
+### **For Thenga:**
 - **Massive Revenue Growth** - R1,195/month per merchant
 - **Market Dominance** - Only platform with all integrations
 - **Customer Stickiness** - Essential business tools
@@ -228,7 +228,7 @@ REACT_APP_JWT_SECRET=your_jwt_secret
 
 ## 🎉 **What This Means:**
 
-**Your Pezela platform is now a COMPLETE business ecosystem with:**
+**Your Thenga platform is now a COMPLETE business ecosystem with:**
 
 1. **Real SARS Integration** - Automated tax compliance
 2. **Full Accounting Sync** - All major accounting systems
@@ -241,4 +241,4 @@ REACT_APP_JWT_SECRET=your_jwt_secret
 
 ---
 
-**🚀 Your Pezela platform now has EVERYTHING a South African business needs to succeed! This is the most comprehensive business platform ever built for the South African market!**
+**🚀 Your Thenga platform now has EVERYTHING a South African business needs to succeed! This is the most comprehensive business platform ever built for the South African market!**

@@ -11,8 +11,8 @@
 
 ### **Step 1: Navigate to Correct Directory**
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore
-pwd  # Should show: /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore
+pwd  # Should show: /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore
 ```
 
 ### **Step 2: Kill Any Running Processes**
@@ -69,13 +69,13 @@ npx expo --version
 
 ### **Method 1: Use Expo CLI Directly**
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore
 npx expo start
 ```
 
 ### **Method 2: Use npm start**
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore
 npm start
 ```
 
@@ -111,7 +111,7 @@ npm start
 
 ```bash
 # Navigate to correct directory
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore
 
 # Kill any running processes
 pkill -f "expo\|metro\|node.*start"
@@ -123,4 +123,4 @@ npx expo start --tunnel --clear
 # Scan with Expo Go app on your phone
 ```
 
-**The key is being in the right directory: `PezelaAppStore/` not `apps/pwa/`!** 🎯
+**The key is being in the right directory: `ThengaAppStore/` not `apps/pwa/`!** 🎯

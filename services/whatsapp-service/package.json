@@ -1,7 +1,7 @@
 {
-  "name": "@pezela/whatsapp-service",
+  "name": "@Thenga/whatsapp-service",
   "version": "1.0.0",
-  "description": "WhatsApp Business Cloud API service for Pezela",
+  "description": "WhatsApp Business Cloud API service for Thenga",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

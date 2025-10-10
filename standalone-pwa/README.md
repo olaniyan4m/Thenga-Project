@@ -1,4 +1,4 @@
-# Pezela PWA - Digital Commerce Platform for South Africa
+# Thenga PWA - Digital Commerce Platform for South Africa
 
 A comprehensive Progressive Web Application (PWA) for digital commerce, designed specifically for South African businesses. Features include merchant dashboard, customer storefront, payment processing, WhatsApp integration, and real-time order management.
 
@@ -161,10 +161,10 @@ src/
 ### Docker Deployment
 ```bash
 # Build Docker image
-docker build -t pezela-pwa .
+docker build -t Thenga-pwa .
 
 # Run container
-docker run -p 3000:3000 pezela-pwa
+docker run -p 3000:3000 Thenga-pwa
 ```
 
 ### Production Deployment
@@ -209,8 +209,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🆘 Support
 
 For support and questions:
-- Email: support@pezela.co.za
-- Documentation: [docs.pezela.co.za](https://docs.pezela.co.za)
+- Email: support@Thenga.co.za
+- Documentation: [docs.Thenga.co.za](https://docs.Thenga.co.za)
 - Issues: GitHub Issues
 
 ## 🗺️ Roadmap

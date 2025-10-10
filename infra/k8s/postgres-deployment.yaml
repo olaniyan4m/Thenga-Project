@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pezela-postgres
+  name: Thenga-postgres
   labels:
-    app: pezela-postgres
+    app: Thenga-postgres
     tier: database
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pezela-postgres
+      app: Thenga-postgres
   template:
     metadata:
       labels:
-        app: pezela-postgres
+        app: Thenga-postgres
         tier: database
     spec:
       containers:
@@ -23,13 +23,13 @@ spec:
         - containerPort: 5432
         env:
         - name: POSTGRES_DB
-          value: "pezela"
+          value: "Thenga"
         - name: POSTGRES_USER
-          value: "pezela"
+          value: "Thenga"
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: pezela-secrets
+              name: Thenga-secrets
               key: postgres-password
         volumeMounts:
         - name: postgres-storage
@@ -46,7 +46,7 @@ spec:
             command:
             - pg_isready
             - -U
-            - pezela
+            - Thenga
           initialDelaySeconds: 30
           periodSeconds: 10
         readinessProbe:
@@ -54,7 +54,7 @@ spec:
             command:
             - pg_isready
             - -U
-            - pezela
+            - Thenga
           initialDelaySeconds: 5
           periodSeconds: 5
       volumes:
@@ -65,12 +65,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pezela-postgres
+  name: Thenga-postgres
   labels:
-    app: pezela-postgres
+    app: Thenga-postgres
 spec:
   selector:
-    app: pezela-postgres
+    app: Thenga-postgres
   ports:
   - port: 5432
     targetPort: 5432

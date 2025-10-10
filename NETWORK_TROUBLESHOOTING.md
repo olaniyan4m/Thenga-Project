@@ -11,7 +11,7 @@
 
 ### **Solution 1: Use Tunnel Mode (Recommended)**
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore
 npm start --tunnel
 ```
 - This creates a secure tunnel through Expo's servers
@@ -44,7 +44,7 @@ npm start --localhost
 
 ### **Step 2: Start with Tunnel**
 ```bash
-cd /Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore
+cd /Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore
 npm start --tunnel
 ```
 

@@ -29,8 +29,8 @@ eas build:configure
 
 **When prompted:**
 - **Create EAS project?** → Yes
-- **Project name** → `pezela-app` (or keep default)
-- **Bundle identifier** → `com.pezela.app` (or keep default)
+- **Project name** → `Thenga-app` (or keep default)
+- **Bundle identifier** → `com.Thenga.app` (or keep default)
 
 ### **Step 3: Build for App Store**
 ```bash
@@ -49,7 +49,7 @@ eas submit --platform ios
 ### **Step 1: Go to Expo Dashboard**
 1. **Visit**: https://expo.dev
 2. **Login** with your `modev09` account
-3. **Find your project**: `pezela-app`
+3. **Find your project**: `Thenga-app`
 
 ### **Step 2: Build from Web**
 1. **Click "Build"** in your project

@@ -1,7 +1,7 @@
-# 🚀 Pezela Platform - Integrated Services
+# 🚀 Thenga Platform - Integrated Services
 
 ## Overview
-This document outlines the comprehensive integration of multiple services and technologies into your Pezela platform, based on the GitHub repositories you provided.
+This document outlines the comprehensive integration of multiple services and technologies into your Thenga platform, based on the GitHub repositories you provided.
 
 ## 🎯 Implemented Services
 
@@ -64,7 +64,7 @@ This document outlines the comprehensive integration of multiple services and te
 - ✅ Sentry error tracking
 - ✅ Alertmanager for notifications
 - ✅ Node, Redis, and PostgreSQL exporters
-- ✅ Custom Pezela metrics
+- ✅ Custom Thenga metrics
 
 **Service**: `monitoring/`
 **Ports**: 
@@ -155,7 +155,7 @@ cd monitoring && docker-compose up -d
 
 ### Monitoring & Observability
 - **Prometheus**: http://localhost:9090
-- **Grafana**: http://localhost:3001 (admin/pezela123)
+- **Grafana**: http://localhost:3001 (admin/Thenga123)
 - **Sentry**: http://localhost:9000
 
 ## 🔧 Configuration
@@ -178,7 +178,7 @@ MIXPANEL_TOKEN=your_mixpanel_token
 
 #### Database
 ```env
-DATABASE_URL=postgresql://username:password@localhost:5432/pezela
+DATABASE_URL=postgresql://username:password@localhost:5432/Thenga
 ```
 
 ## 📊 Monitoring & Analytics
@@ -189,7 +189,7 @@ DATABASE_URL=postgresql://username:password@localhost:5432/pezela
 - Business metrics (orders, revenue, users)
 
 ### Grafana Dashboards
-- **Pezela Overview**: System health and performance
+- **Thenga Overview**: System health and performance
 - **Business Metrics**: Orders, revenue, user activity
 - **Technical Metrics**: API performance, database health
 
@@ -292,6 +292,6 @@ For questions or issues:
 
 ---
 
-**🎉 Your Pezela platform is now fully integrated with enterprise-grade services!**
+**🎉 Your Thenga platform is now fully integrated with enterprise-grade services!**
 
 Start exploring at: **http://localhost:3000**

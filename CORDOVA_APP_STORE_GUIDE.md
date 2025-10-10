@@ -9,8 +9,8 @@ npm install -g cordova
 
 ### **Step 2: Create Project**
 ```bash
-cordova create PezelaApp com.pezela.app PezelaApp
-cd PezelaApp
+cordova create ThengaApp com.Thenga.app ThengaApp
+cd ThengaApp
 ```
 
 ### **Step 3: Add iOS Platform**
@@ -69,7 +69,7 @@ cordova build ios --release
 ### **Step 6: Open in Xcode (Minimal)**
 ```bash
 # Open the project in Xcode
-open platforms/ios/PezelaApp.xcworkspace
+open platforms/ios/ThengaApp.xcworkspace
 ```
 
 ## 🎯 **What This Gives You:**

@@ -1,4 +1,4 @@
-// 🔐 Pezela PCI DSS Compliance Service
+// 🔐 Thenga PCI DSS Compliance Service
 // Payment Card Industry Data Security Standard (PCI DSS) compliance
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -164,7 +164,7 @@ class PCIDSSComplianceService {
         cardholderName,
         maskedPAN: this.maskPAN(cardNumber),
         encryptedData: await this.encryptCardData(cardNumber, expiryMonth, expiryYear, cardholderName),
-        tokenizationProvider: 'Pezela_Tokenization_Service',
+        tokenizationProvider: 'Thenga_Tokenization_Service',
         createdAt: new Date(),
         expiresAt: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000), // 1 year
       };
@@ -223,7 +223,7 @@ class PCIDSSComplianceService {
         status: 'pending',
         authorizationCode: this.generateAuthorizationCode(),
         transactionId: this.generateTransactionId(),
-        merchantId: 'PEZELA_MERCHANT_ID',
+        merchantId: 'Thenga_MERCHANT_ID',
         terminalId: await DeviceInfo.getUniqueId(),
         encryptedData: await this.encryptTransactionData(amount, currency, cardToken),
         createdAt: new Date(),
@@ -616,7 +616,7 @@ class PCIDSSComplianceService {
       },
       totalVulnerabilities: Math.floor(Math.random() * 30),
       remediated: Math.floor(Math.random() * 15),
-      reportUrl: `https://security-reports.pezela.co.za/scan-${Date.now()}.pdf`,
+      reportUrl: `https://security-reports.Thenga.co.za/scan-${Date.now()}.pdf`,
     };
   }
 

@@ -28,7 +28,7 @@
 
 ### **Step 1: Build and Run**
 1. **Select Simulator**: Choose iPhone 15 Pro or iPhone 14 Pro
-2. **Select Target**: Pezela (iOS)
+2. **Select Target**: Thenga (iOS)
 3. **Click "Build and Run"** (▶️ button)
 4. **Wait for Build**: First build may take 5-10 minutes
 
@@ -37,7 +37,7 @@
 #### **App Selector Screen:**
 ```
 ┌─────────────────────────┐
-│        Pezela           │
+│        Thenga           │
 │     Choose Your App     │
 │                         │
 │  ┌─────────────────┐   │
@@ -88,7 +88,7 @@
 ┌─────────────────────────┐
 │  ← Customer App    🛒   │
 │                         │
-│  Welcome to Pezela!     │
+│  Welcome to Thenga!     │
 │  Your shopping companion │
 │                         │
 │  Your Activity          │
@@ -114,7 +114,7 @@
 ## 📱 **Expected Results in Xcode Simulator**
 
 ### **First Screen - App Selector:**
-- **Pezela Logo**: App icon and title
+- **Thenga Logo**: App icon and title
 - **Business App Card**: Green theme, business features
 - **Customer App Card**: Blue theme, customer features
 - **Tap to Launch**: Each card launches respective app

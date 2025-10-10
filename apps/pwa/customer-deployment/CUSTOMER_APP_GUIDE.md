@@ -1,4 +1,4 @@
-# Pezela Customer App - Complete Deployment Guide
+# Thenga Customer App - Complete Deployment Guide
 
 ## 🛒 **Customer App with Real Design**
 
@@ -65,7 +65,7 @@ Your Customer app now uses the **actual CustomerStorefront component** with the 
 ## 🎯 **Customer App Experience**
 
 ### **For Customers:**
-1. **Visit** https://customerpezela.mozdev.co.za
+1. **Visit** https://customerThenga.mozdev.co.za
 2. **Browse Menu** - See all available products with images
 3. **Add to Cart** - Select items and quantities
 4. **Checkout** - Complete order with customer details
@@ -84,7 +84,7 @@ Your Customer app now uses the **actual CustomerStorefront component** with the 
 ## 🔧 **Next Steps**
 
 1. **Generate Icons**: Open `generate-customer-icons.html` to create all required PWA icons
-2. **Upload Files**: Deploy all files to https://customerpezela.mozdev.co.za
+2. **Upload Files**: Deploy all files to https://customerThenga.mozdev.co.za
 3. **Test Customer App**: Verify all shopping features work
 4. **Test PWA**: Use browser dev tools to verify PWA features
 

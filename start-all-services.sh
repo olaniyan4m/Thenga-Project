@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Starting Pezela Platform Services..."
+echo "🚀 Starting Thenga Platform Services..."
 echo "========================================"
 
 # Colors for output
@@ -71,10 +71,10 @@ fi
 echo -e "${GREEN}Node.js and npm are available${NC}"
 
 # Start services in order
-echo -e "\n${YELLOW}Starting Pezela Services...${NC}"
+echo -e "\n${YELLOW}Starting Thenga Services...${NC}"
 
 # 1. Start the standalone PWA (main app)
-echo -e "\n${BLUE}Starting Pezela PWA...${NC}"
+echo -e "\n${BLUE}Starting Thenga PWA...${NC}"
 if check_port 3000; then
     cd standalone-pwa
     echo "Installing PWA dependencies..."
@@ -137,7 +137,7 @@ for service in "${services[@]}"; do
     fi
 done
 
-echo -e "\n${GREEN}🎉 Pezela Platform Services Started!${NC}"
+echo -e "\n${GREEN}🎉 Thenga Platform Services Started!${NC}"
 echo -e "\n${BLUE}Available Services:${NC}"
 echo -e "📱 PWA: ${GREEN}http://localhost:3000${NC}"
 echo -e "💬 WhatsApp Service: ${GREEN}http://localhost:3001${NC}"

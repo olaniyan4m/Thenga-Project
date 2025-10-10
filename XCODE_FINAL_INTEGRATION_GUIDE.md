@@ -23,7 +23,7 @@
 
 ### **Step 1: Build and Run**
 1. **Select Simulator**: Choose iPhone 15 Pro or iPhone 14 Pro
-2. **Select Target**: Pezela (iOS)
+2. **Select Target**: Thenga (iOS)
 3. **Click "Build and Run"** (▶️ button)
 4. **Wait for Build**: First build may take 5-10 minutes
 
@@ -52,7 +52,7 @@
 ### **First Screen - App Selector:**
 ```
 ┌─────────────────────────┐
-│        Pezela           │
+│        Thenga           │
 │     Choose Your App     │
 │                         │
 │  ┌─────────────────┐   │

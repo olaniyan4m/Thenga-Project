@@ -1,4 +1,4 @@
-// 💰 Pezela Business Dashboard Component
+// 💰 Thenga Business Dashboard Component
 // Business metrics and revenue projections dashboard
 
 import React, { useState, useEffect } from 'react';
@@ -36,7 +36,7 @@ const BusinessDashboard: React.FC<BusinessDashboardProps> = ({ onNavigate }) => 
     <div className="business-dashboard">
       <div className="dashboard-header">
         <h2>💰 Business Dashboard</h2>
-        <p>Revenue projections and pricing model for Pezela</p>
+        <p>Revenue projections and pricing model for Thenga</p>
       </div>
 
       {/* Pricing Summary */}

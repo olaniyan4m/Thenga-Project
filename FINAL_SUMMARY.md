@@ -3,8 +3,8 @@
 ## ✅ **What We've Accomplished:**
 
 ### **1. Created Expo App Store Project**
-- ✅ **Project Name**: `PezelaAppStore`
-- ✅ **Location**: `/Users/macbook/Documents/MoWebProjects/Pezela_Project/Pezela/PezelaAppStore`
+- ✅ **Project Name**: `ThengaAppStore`
+- ✅ **Location**: `/Users/macbook/Documents/MoWebProjects/Thenga_Project/Thenga/ThengaAppStore`
 - ✅ **Status**: Running with `npm start`
 
 ### **2. Built Complete App**
@@ -23,7 +23,7 @@
 
 ### **4. Ready for App Store**
 - ✅ **Expo Configuration**: `app.json` configured for iOS
-- ✅ **Bundle ID**: `com.pezela.app`
+- ✅ **Bundle ID**: `com.Thenga.app`
 - ✅ **Version**: `2.0.0`
 - ✅ **Logged into Expo**: As `modev09`
 - ✅ **EAS CLI**: Installed and ready
@@ -39,7 +39,7 @@
 ### **Step 2: Deploy to App Store**
 1. **Go to**: https://expo.dev
 2. **Login** with your `modev09` account
-3. **Import your project**: `PezelaAppStore` folder
+3. **Import your project**: `ThengaAppStore` folder
 4. **Click "Build"** → Select iOS → Production
 5. **Wait for build** (10-15 minutes)
 6. **Click "Submit"** → Follow prompts to App Store
@@ -61,7 +61,7 @@
 
 ## 🎯 **Ready to Deploy!**
 
-**Your app is running and ready! Just go to https://expo.dev and import your `PezelaAppStore` project to get started!**
+**Your app is running and ready! Just go to https://expo.dev and import your `ThengaAppStore` project to get started!**
 
 **The web interface is the easiest way to deploy without any command line issues!** 🎉
 

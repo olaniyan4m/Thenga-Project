@@ -1,4 +1,4 @@
-// 🚀 Pezela Production Monitoring Configuration
+// 🚀 Thenga Production Monitoring Configuration
 // Sentry configuration for error tracking and performance monitoring
 
 import * as Sentry from '@sentry/react-native';
@@ -70,7 +70,7 @@ Sentry.init({
   initialScope: {
     tags: {
       platform: 'mobile',
-      app: 'pezela',
+      app: 'Thenga',
       country: 'ZA',
     },
   },

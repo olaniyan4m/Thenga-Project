@@ -1,5 +1,5 @@
 // Simple PWA Builder Service Worker
-const CACHE_NAME = 'pezela-customer-v1';
+const CACHE_NAME = 'Thenga-customer-v1';
 const urlsToCache = [
   '/',
   '/index.html',

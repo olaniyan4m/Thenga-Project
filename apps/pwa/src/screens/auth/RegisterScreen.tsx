@@ -68,11 +68,11 @@ export const RegisterScreen: React.FC = () => {
             <div className="logo">
               <img 
                 src={Logo2} 
-                alt="Pezela Logo" 
+                alt="Thenga Logo" 
                 className="login-logo" 
                 style={{ width: '120px', height: '120px', objectFit: 'contain', marginBottom: '20px' }}
               />
-              <h1>Pezela</h1>
+              <h1>Thenga</h1>
               <p>Join South Africa's Digital Commerce Revolution</p>
             </div>
           </motion.div>

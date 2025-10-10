@@ -1,8 +1,8 @@
-# 💳 PayFast Integration for Pezela
+# 💳 PayFast Integration for Thenga
 
 ## 🎯 **Complete PayFast Payment Integration**
 
-This document outlines the comprehensive PayFast payment integration implemented for Pezela's subscription system.
+This document outlines the comprehensive PayFast payment integration implemented for Thenga's subscription system.
 
 ---
 
@@ -148,7 +148,7 @@ const paymentData = {
   email: 'john@example.com',
   phone: '+27821234567',
   amount: 199, // R199 for Basic plan
-  itemName: 'Pezela Basic Monthly',
+  itemName: 'Thenga Basic Monthly',
   itemDescription: '30-day free trial, then R199/month',
   customData: {
     userId: 'user123',
@@ -162,7 +162,7 @@ const paymentData = {
 ```typescript
 // PayFast sends webhook with payment status
 const webhookData = {
-  m_payment_id: 'pezela_1234567890_abc123',
+  m_payment_id: 'Thenga_1234567890_abc123',
   pf_payment_id: 'pf_1234567890',
   payment_status: 'COMPLETE',
   amount_gross: '199.00',
@@ -279,6 +279,6 @@ const config = {
 
 ---
 
-**🎯 Pezela is now ready to accept payments through PayFast!** 
+**🎯 Thenga is now ready to accept payments through PayFast!** 
 
 Merchants can subscribe to plans, complete payments securely, and start their 30-day free trial with automatic renewal after the trial period.

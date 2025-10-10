@@ -19,7 +19,7 @@ if ("serviceWorker" in navigator) {
 
 ### **✅ Cache Management (js13kPWA Pattern)**
 ```javascript
-const cacheName = "pezela-business-v1";
+const cacheName = "Thenga-business-v1";
 const appShellFiles = [
   "/",
   "/index.html",

@@ -1,12 +1,12 @@
-# 🚀 Pezela Production Kubernetes Deployment
-# This configuration deploys Pezela to production AWS EKS cluster
+# 🚀 Thenga Production Kubernetes Deployment
+# This configuration deploys Thenga to production AWS EKS cluster
 
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: pezela-production
+  name: Thenga-production
   labels:
-    name: pezela-production
+    name: Thenga-production
     environment: production
 
 ---
@@ -15,29 +15,29 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: postgres-secret
-  namespace: pezela-production
+  namespace: Thenga-production
 type: Opaque
 data:
   # Base64 encoded values - replace with actual values
-  postgres-password: cGV6ZWxhX3Byb2R1Y3Rpb25fcGFzc3dvcmQ=  # pezela_production_password
-  postgres-user: cGV6ZWxhX3VzZXI=  # pezela_user
+  postgres-password: cGV6ZWxhX3Byb2R1Y3Rpb25fcGFzc3dvcmQ=  # Thenga_production_password
+  postgres-user: cGV6ZWxhX3VzZXI=  # Thenga_user
 
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-config
-  namespace: pezela-production
+  namespace: Thenga-production
 data:
-  POSTGRES_DB: pezela_production
-  POSTGRES_USER: pezela_user
+  POSTGRES_DB: Thenga_production
+  POSTGRES_USER: Thenga_user
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   replicas: 1
   selector:
@@ -78,7 +78,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: postgres-service
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   selector:
     app: postgres
@@ -92,7 +92,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: postgres-pvc
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   accessModes:
     - ReadWriteOnce
@@ -106,7 +106,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   replicas: 1
   selector:
@@ -135,7 +135,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redis-service
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   selector:
     app: redis
@@ -150,7 +150,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: api-gateway-secret
-  namespace: pezela-production
+  namespace: Thenga-production
 type: Opaque
 data:
   # Base64 encoded values - replace with actual values
@@ -164,7 +164,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api-gateway
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   replicas: 3
   selector:
@@ -177,14 +177,14 @@ spec:
     spec:
       containers:
       - name: api-gateway
-        image: pezela/api-gateway:latest
+        image: Thenga/api-gateway:latest
         ports:
         - containerPort: 3001
         env:
         - name: NODE_ENV
           value: "production"
         - name: DATABASE_URL
-          value: "postgresql://pezela_user:password@postgres-service:5432/pezela_production"
+          value: "postgresql://Thenga_user:password@postgres-service:5432/Thenga_production"
         - name: REDIS_URL
           value: "redis://redis-service:6379"
         - name: PORT
@@ -217,7 +217,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: api-gateway-service
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   selector:
     app: api-gateway
@@ -232,7 +232,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pwa
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   replicas: 2
   selector:
@@ -245,14 +245,14 @@ spec:
     spec:
       containers:
       - name: pwa
-        image: pezela/pwa:latest
+        image: Thenga/pwa:latest
         ports:
         - containerPort: 3000
         env:
         - name: NODE_ENV
           value: "production"
         - name: API_BASE_URL
-          value: "https://api.pezela.co.za"
+          value: "https://api.Thenga.co.za"
         resources:
           requests:
             memory: "256Mi"
@@ -278,7 +278,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: pwa-service
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   selector:
     app: pwa
@@ -292,8 +292,8 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pezela-ingress
-  namespace: pezela-production
+  name: Thenga-ingress
+  namespace: Thenga-production
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -302,11 +302,11 @@ metadata:
 spec:
   tls:
   - hosts:
-    - api.pezela.co.za
-    - app.pezela.co.za
-    secretName: pezela-tls
+    - api.Thenga.co.za
+    - app.Thenga.co.za
+    secretName: Thenga-tls
   rules:
-  - host: api.pezela.co.za
+  - host: api.Thenga.co.za
     http:
       paths:
       - path: /
@@ -316,7 +316,7 @@ spec:
             name: api-gateway-service
             port:
               number: 80
-  - host: app.pezela.co.za
+  - host: app.Thenga.co.za
     http:
       paths:
       - path: /
@@ -333,7 +333,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: api-gateway-hpa
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -361,7 +361,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: prometheus-config
-  namespace: pezela-production
+  namespace: Thenga-production
 data:
   prometheus.yml: |
     global:
@@ -380,7 +380,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grafana
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   replicas: 1
   selector:
@@ -409,7 +409,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: grafana-service
-  namespace: pezela-production
+  namespace: Thenga-production
 spec:
   selector:
     app: grafana

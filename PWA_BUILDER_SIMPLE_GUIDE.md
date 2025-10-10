@@ -21,7 +21,7 @@ Based on the PWA Builder documentation, I've created simple service workers that
 ### **1. Service Worker File (`sw.js`)**
 ```javascript
 // PWA Builder Service Worker
-const CACHE_NAME = 'pezela-customer-cache'; // or 'pezela-business-cache'
+const CACHE_NAME = 'Thenga-customer-cache'; // or 'Thenga-business-cache'
 
 // Pre-cache essential assets
 const PRECACHE_ASSETS = [

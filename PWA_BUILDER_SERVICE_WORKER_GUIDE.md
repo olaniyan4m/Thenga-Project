@@ -29,8 +29,8 @@ Based on the [PWA Builder service worker documentation](https://docs.pwabuilder.
 ### **Customer App Service Worker:**
 ```javascript
 // PWA Builder Optimized for Speed & Reliability
-const STATIC_CACHE = 'pezela-customer-static-v2';    // Core files
-const DYNAMIC_CACHE = 'pezela-customer-dynamic-v2';   // On-demand files
+const STATIC_CACHE = 'Thenga-customer-static-v2';    // Core files
+const DYNAMIC_CACHE = 'Thenga-customer-dynamic-v2';   // On-demand files
 
 // ✅ Faster Loading
 - Core app files cached immediately on install
@@ -46,8 +46,8 @@ const DYNAMIC_CACHE = 'pezela-customer-dynamic-v2';   // On-demand files
 ### **Business App Service Worker:**
 ```javascript
 // PWA Builder Optimized for Speed & Reliability
-const STATIC_CACHE = 'pezela-business-static-v2';     // Core files
-const DYNAMIC_CACHE = 'pezela-business-dynamic-v2';   // On-demand files
+const STATIC_CACHE = 'Thenga-business-static-v2';     // Core files
+const DYNAMIC_CACHE = 'Thenga-business-dynamic-v2';   // On-demand files
 
 // ✅ Faster Loading
 - Core app files cached immediately on install

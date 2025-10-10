@@ -2,7 +2,7 @@
 
 ## ✅ **Complete js13kPWA Pattern Implementation**
 
-Both Pezela Business and Customer apps now have **complete js13kPWA pattern implementation** with all missing elements from the [MDN js13kPWA tutorial](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers).
+Both Thenga Business and Customer apps now have **complete js13kPWA pattern implementation** with all missing elements from the [MDN js13kPWA tutorial](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers).
 
 ### **🔧 What Was Implemented**
 
@@ -318,7 +318,7 @@ apps/pwa/customer-deployment/
 
 ### **🎉 Complete js13kPWA Pattern Implementation!**
 
-Your Pezela Business and Customer apps now have **complete js13kPWA pattern implementation** with:
+Your Thenga Business and Customer apps now have **complete js13kPWA pattern implementation** with:
 
 - ✅ **Data Files**: Modular data structure like games.js
 - ✅ **Offline Pages**: Beautiful offline fallback pages
@@ -329,4 +329,4 @@ Your Pezela Business and Customer apps now have **complete js13kPWA pattern impl
 
 ## **🚀 Ready for Global Deployment!**
 
-Your Pezela apps now have **complete js13kPWA pattern implementation** and are ready for global app store submission! 🎉
+Your Thenga apps now have **complete js13kPWA pattern implementation** and are ready for global app store submission! 🎉

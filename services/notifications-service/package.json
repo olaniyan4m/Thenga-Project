@@ -1,7 +1,7 @@
 {
-  "name": "@pezela/notifications-service",
+  "name": "@Thenga/notifications-service",
   "version": "1.0.0",
-  "description": "Pezela Notifications Service - WhatsApp, SMS, Email notifications",
+  "description": "Thenga Notifications Service - WhatsApp, SMS, Email notifications",
   "main": "dist/main.js",
   "scripts": {
     "build": "nest build",

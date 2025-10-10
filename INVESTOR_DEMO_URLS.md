@@ -1,7 +1,7 @@
-# 🚀 Pezela Business Platform - Investor Demo URLs
+# 🚀 Thenga Business Platform - Investor Demo URLs
 
 ## 📱 **Business Application (Admin Dashboard)**
-**URL:** `https://business.pezela.co.za`
+**URL:** `https://business.Thenga.co.za`
 **Port:** 3000 (Development)
 **Purpose:** Complete business management dashboard for merchants
 
@@ -17,7 +17,7 @@
 ---
 
 ## 🛒 **Customer Application (Storefront)**
-**URL:** `https://store.pezela.co.za`
+**URL:** `https://store.Thenga.co.za`
 **Port:** 3002 (Development)
 **Purpose:** Customer-facing e-commerce storefront
 
@@ -49,16 +49,16 @@ http://localhost:3002
 
 ### Business Application
 ```
-https://business.pezela.co.za
-https://admin.pezela.co.za
-https://dashboard.pezela.co.za
+https://business.Thenga.co.za
+https://admin.Thenga.co.za
+https://dashboard.Thenga.co.za
 ```
 
 ### Customer Application
 ```
-https://store.pezela.co.za
-https://shop.pezela.co.za
-https://customer.pezela.co.za
+https://store.Thenga.co.za
+https://shop.Thenga.co.za
+https://customer.Thenga.co.za
 ```
 
 ---
@@ -67,7 +67,7 @@ https://customer.pezela.co.za
 
 ### Business Admin Account
 ```
-Email: demo@pezela.co.za
+Email: demo@Thenga.co.za
 Password: DemoBusiness2024!
 Role: Business Owner
 ```
@@ -84,7 +84,7 @@ Role: Customer
 ## 🎯 **Investor Demo Scenarios**
 
 ### 1. **Business Owner Journey**
-1. **Login** → `https://business.pezela.co.za`
+1. **Login** → `https://business.Thenga.co.za`
 2. **Dashboard** → View real-time analytics and KPIs
 3. **Orders** → Process and manage customer orders
 4. **Payments** → Monitor payment transactions
@@ -93,7 +93,7 @@ Role: Customer
 7. **Advanced Features** → Tax compliance, lending, marketplace
 
 ### 2. **Customer Journey**
-1. **Browse** → `https://store.pezela.co.za`
+1. **Browse** → `https://store.Thenga.co.za`
 2. **Products** → Search and view product catalog
 3. **Cart** → Add products to shopping cart
 4. **Checkout** → Complete purchase with payment
@@ -139,12 +139,12 @@ npm run dev
 
 ### Business App (Mobile)
 ```
-https://business.pezela.co.za/mobile
+https://business.Thenga.co.za/mobile
 ```
 
 ### Customer App (Mobile)
 ```
-https://store.pezela.co.za/mobile
+https://store.Thenga.co.za/mobile
 ```
 
 ---
@@ -211,20 +211,20 @@ https://store.pezela.co.za/mobile
 ## 📞 **Contact Information**
 
 ### Technical Support
-- **Email**: tech@pezela.co.za
+- **Email**: tech@Thenga.co.za
 - **Phone**: +27 11 123 4567
-- **Documentation**: https://docs.pezela.co.za
+- **Documentation**: https://docs.Thenga.co.za
 
 ### Business Inquiries
-- **Email**: business@pezela.co.za
+- **Email**: business@Thenga.co.za
 - **Phone**: +27 11 123 4568
-- **Website**: https://pezela.co.za
+- **Website**: https://Thenga.co.za
 
 ---
 
 ## 🎉 **Ready for Investor Demo!**
 
-Both applications are fully functional and ready for investor presentations. The URLs provide complete access to all features and demonstrate the full potential of the Pezela Business Platform.
+Both applications are fully functional and ready for investor presentations. The URLs provide complete access to all features and demonstrate the full potential of the Thenga Business Platform.
 
 **Demo Duration**: 30-45 minutes
 **Key Focus**: Business value, technology innovation, market opportunity

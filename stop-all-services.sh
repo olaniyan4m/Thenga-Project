@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🛑 Stopping all Pezela services..."
+echo "🛑 Stopping all Thenga services..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -36,8 +36,8 @@ fi
 
 # Stop Docker containers
 print_status "Stopping Docker containers..."
-docker stop pezela-postgres pezela-redis 2>/dev/null || true
-docker rm pezela-postgres pezela-redis 2>/dev/null || true
+docker stop Thenga-postgres Thenga-redis 2>/dev/null || true
+docker rm Thenga-postgres Thenga-redis 2>/dev/null || true
 
 # Stop monitoring stack
 print_status "Stopping monitoring stack..."
