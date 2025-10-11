@@ -71,8 +71,11 @@ workflows:
           PODFILE="Podfile"
           if grep -q "pod 'RCT-Folly'" "$PODFILE"; then
             echo "⚙️ Cleaning duplicate RCT-Folly entries..."
-            # Remove any plain RCT-Folly declaration (keep only the one with podspec path)
-            sed -i '' "/^[[:space:]]*pod 'RCT-Folly'[[:space:]]*$/d" "$PODFILE"
+            # Remove all RCT-Folly lines first
+            sed -i '' "/pod 'RCT-Folly'/d" "$PODFILE"
+            # Add the correct one back
+            echo "  Adding correct RCT-Folly reference..."
+            echo "  pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'" >> "$PODFILE"
           fi
           
           #############################################
