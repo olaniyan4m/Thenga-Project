@@ -69,8 +69,17 @@ workflows:
           echo "🔧 Fixing Xcode PIF transfer session issues..."
           rm -rf ~/Library/Developer/Xcode/DerivedData
           rm -rf ~/Library/Caches/com.apple.dt.Xcode
+          rm -rf ~/Library/Developer/Xcode/UserData
           killall Xcode 2>/dev/null || true
           killall xcodebuild 2>/dev/null || true
+          killall Simulator 2>/dev/null || true
+          killall com.apple.CoreSimulator.CoreSimulatorService 2>/dev/null || true
+          
+          # Wait for processes to fully terminate
+          sleep 3
+          
+          # Reset Xcode command line tools
+          sudo xcode-select --reset 2>/dev/null || true
           
           #############################################
           # 4️⃣ Fix duplicate RCT-Folly source issue
@@ -113,6 +122,11 @@ workflows:
           # Clean project-specific DerivedData after pod install
           echo "🧹 Cleaning project DerivedData..."
           rm -rf ~/Library/Developer/Xcode/DerivedData/Thenga-*
+          
+          # Force regenerate workspace to fix PIF issues
+          echo "🔄 Regenerating workspace to fix PIF transfer issues..."
+          rm -rf *.xcworkspace
+          pod install --repo-update --verbose
           
           #############################################
           # 7️⃣ Verify workspace exists
