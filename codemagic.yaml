@@ -84,9 +84,18 @@ workflows:
           BOOST_PODSPEC="../node_modules/react-native/third-party-podspecs/boost.podspec"
           if [ -f "$BOOST_PODSPEC" ]; then
             echo "🛠  Patching boost.podspec..."
+            
+            # 1️⃣ Replace broken GitHub URL with valid Boost mirror
             sed -i '' "s|https://github.com/react-native-community/boost-for-react-native/releases/download/v1.76.0/boost_1_76_0.tar.bz2|https://archives.boost.io/release/1.76.0/source/boost_1_76_0.tar.bz2|g" "$BOOST_PODSPEC" || true
-            # Remove old sha256 if exists
-            sed -i '' '/:sha256/d' "$BOOST_PODSPEC" || true
+
+            # 2️⃣ Ensure checksum line is safely removed
+            tmpfile=$(mktemp)
+            grep -v ":sha256" "$BOOST_PODSPEC" > "$tmpfile" && mv "$tmpfile" "$BOOST_PODSPEC"
+
+            # 3️⃣ Double-check file syntax
+            if ! grep -q "spec.platforms" "$BOOST_PODSPEC"; then
+              echo '  spec.platforms = { :ios => "12.0" }' >> "$BOOST_PODSPEC"
+            fi
           fi
           
           #############################################
