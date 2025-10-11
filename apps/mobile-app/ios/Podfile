@@ -17,13 +17,16 @@ target 'Thenga' do
   pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec', :inhibit_warnings => true
 
 
-  use_react_native!(
-    :path => config[:reactNativePath],
-    :hermes_enabled => flags[:hermes_enabled],
-    :fabric_enabled => flags[:fabric_enabled],
-    :flipper_configuration => FlipperConfiguration.disabled,
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
-  )
+         use_react_native!(
+           :path => config[:reactNativePath],
+           :hermes_enabled => flags[:hermes_enabled],
+           :fabric_enabled => flags[:fabric_enabled],
+           :flipper_configuration => FlipperConfiguration.disabled,
+           :app_path => "#{Pod::Config.instance.installation_root}/.."
+         )
+         
+         # Disable RCT-Folly to avoid compilation issues
+         pod 'RCT-Folly', :inhibit_warnings => true
 
          post_install do |installer|
            react_native_post_install(
@@ -41,6 +44,39 @@ target 'Thenga' do
                if target.name == 'RCT-Folly'
                  config.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = 'YES'
                  config.build_settings['CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER'] = 'NO'
+                 config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+                 config.build_settings['GCC_WARN_64_TO_32_BIT_CONVERSION'] = 'NO'
+                 config.build_settings['GCC_WARN_ABOUT_RETURN_TYPE'] = 'NO'
+                 config.build_settings['GCC_WARN_UNINITIALIZED_AUTOS'] = 'NO'
+                 config.build_settings['GCC_WARN_UNUSED_FUNCTION'] = 'NO'
+                 config.build_settings['GCC_WARN_UNUSED_VARIABLE'] = 'NO'
+                 config.build_settings['GCC_WARN_UNUSED_VALUE'] = 'NO'
+                 config.build_settings['GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS'] = 'NO'
+                 config.build_settings['GCC_WARN_ABOUT_MISSING_PROTOTYPES'] = 'NO'
+                 config.build_settings['GCC_WARN_SHADOW'] = 'NO'
+                 config.build_settings['GCC_WARN_STRICT_SELECTOR_MATCH'] = 'NO'
+                 config.build_settings['GCC_WARN_UNDECLARED_SELECTOR'] = 'NO'
+                 config.build_settings['GCC_WARN_UNINITIALIZED_AUTOS'] = 'NO'
+                 config.build_settings['GCC_WARN_UNUSED_FUNCTION'] = 'NO'
+                 config.build_settings['GCC_WARN_UNUSED_VARIABLE'] = 'NO'
+                 config.build_settings['GCC_WARN_UNUSED_VALUE'] = 'NO'
+                 config.build_settings['GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS'] = 'NO'
+                 config.build_settings['GCC_WARN_ABOUT_MISSING_PROTOTYPES'] = 'NO'
+                 config.build_settings['GCC_WARN_SHADOW'] = 'NO'
+                 config.build_settings['GCC_WARN_STRICT_SELECTOR_MATCH'] = 'NO'
+                 config.build_settings['GCC_WARN_UNDECLARED_SELECTOR'] = 'NO'
+                 config.build_settings['CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS'] = 'NO'
+                 config.build_settings['CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF'] = 'NO'
+                 config.build_settings['CLANG_WARN_OBJC_LITERAL_CONVERSION'] = 'NO'
+                 config.build_settings['CLANG_WARN_OBJC_ROOT_CLASS'] = 'NO'
+                 config.build_settings['CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER'] = 'NO'
+                 config.build_settings['CLANG_WARN_RANGE_LOOP_ANALYSIS'] = 'NO'
+                 config.build_settings['CLANG_WARN_STRICT_PROTOTYPES'] = 'NO'
+                 config.build_settings['CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION'] = 'NO'
+                 config.build_settings['CLANG_WARN_SUSPICIOUS_MOVE'] = 'NO'
+                 config.build_settings['CLANG_WARN_UNGUARDED_AVAILABILITY'] = 'NO'
+                 config.build_settings['CLANG_WARN_UNREACHABLE_CODE'] = 'NO'
+                 config.build_settings['CLANG_WARN__DUPLICATE_METHOD_MATCH'] = 'NO'
                end
              end
            end
