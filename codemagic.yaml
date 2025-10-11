@@ -161,27 +161,43 @@ workflows:
           killall xcodebuild 2>/dev/null || true
           sleep 2
           
-          # Try building with different approaches
+          # Try building with different approaches to bypass PIF issues
           echo "🔨 Attempting build with clean environment..."
+          
+          # Method 1: Try with workspace and custom DerivedData
           if ! xcodebuild \
             -workspace "$WORKSPACE_PATH" \
             -scheme Thenga \
             -configuration Release \
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
             -derivedDataPath /tmp/Thenga-DerivedData \
-            build; then
+            -disableAutomaticPackageResolution \
+            build 2>/dev/null; then
             
-            echo "❌ First build attempt failed, trying alternative approach..."
+            echo "❌ Workspace build failed, trying project file..."
             
-            # Alternative: Build using project file instead of workspace
-            echo "🔄 Trying build with project file..."
-            xcodebuild \
+            # Method 2: Try with project file
+            if ! xcodebuild \
               -project Thenga.xcodeproj \
               -scheme Thenga \
               -configuration Release \
               -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
               -derivedDataPath /tmp/Thenga-DerivedData \
-              build
+              -disableAutomaticPackageResolution \
+              build 2>/dev/null; then
+              
+              echo "❌ Project build failed, trying legacy build system..."
+              
+              # Method 3: Use legacy build system to bypass PIF entirely
+              xcodebuild \
+                -workspace "$WORKSPACE_PATH" \
+                -scheme Thenga \
+                -configuration Release \
+                -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
+                -derivedDataPath /tmp/Thenga-DerivedData \
+                -UseModernBuildSystem=NO \
+                build
+            fi
           fi
           
           #############################################
