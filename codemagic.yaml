@@ -158,64 +158,21 @@ workflows:
           # Final cleanup before build to prevent PIF issues
           echo "🧹 Final cleanup before build..."
           rm -rf ~/Library/Developer/Xcode/DerivedData/Thenga-*
-          rm -rf /tmp/Thenga-DerivedData
           killall xcodebuild 2>/dev/null || true
           killall Xcode 2>/dev/null || true
           killall Simulator 2>/dev/null || true
-          sleep 5
+          sleep 3
           
-          # Create completely isolated build environment
-          echo "🏗️ Creating isolated build environment..."
-          mkdir -p /tmp/Thenga-Build
-          cd /tmp/Thenga-Build
-          
-          # Copy only essential files
-          cp -r /Users/builder/clone/apps/mobile-app/ios/Thenga.xcworkspace .
-          cp -r /Users/builder/clone/apps/mobile-app/ios/Thenga.xcodeproj .
-          cp -r /Users/builder/clone/apps/mobile-app/ios/Pods .
-          cp /Users/builder/clone/apps/mobile-app/ios/Podfile .
-          cp /Users/builder/clone/apps/mobile-app/ios/Podfile.lock .
-          
-          echo "📂 Isolated build directory: $(pwd)"
-          ls -la
-          
-          # Try building with different approaches to bypass PIF issues
-          echo "🔨 Attempting build with clean environment..."
-          
-          # Method 1: Try with workspace in isolated environment
-          if ! xcodebuild \
-            -workspace Thenga.xcworkspace \
+          # Try building with legacy build system to bypass PIF issues
+          echo "🔨 Attempting build with legacy build system..."
+          xcodebuild \
+            -workspace "$WORKSPACE_PATH" \
             -scheme Thenga \
             -configuration Release \
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
-            -derivedDataPath /tmp/Thenga-Isolated-DerivedData \
+            -derivedDataPath /tmp/Thenga-DerivedData \
             -UseModernBuildSystem=NO \
-            build 2>/dev/null; then
-            
-            echo "❌ Legacy workspace build failed, trying project file..."
-            
-            # Method 2: Try with project file in isolated environment
-            if ! xcodebuild \
-              -project Thenga.xcodeproj \
-              -scheme Thenga \
-              -configuration Release \
-              -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
-              -derivedDataPath /tmp/Thenga-Isolated-DerivedData \
-              -UseModernBuildSystem=NO \
-              build 2>/dev/null; then
-              
-              echo "❌ Project build failed, trying with modern build system..."
-              
-              # Method 3: Try modern build system in isolated environment
-              xcodebuild \
-                -workspace Thenga.xcworkspace \
-                -scheme Thenga \
-                -configuration Release \
-                -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
-                -derivedDataPath /tmp/Thenga-Isolated-DerivedData \
-                build
-            fi
-          fi
+            build
           
           #############################################
           # ✅ Done
