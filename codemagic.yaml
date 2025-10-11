@@ -165,40 +165,55 @@ workflows:
           
           # Try building with legacy build system to bypass PIF issues
           echo "🔨 Attempting build with legacy build system..."
-          xcodebuild \
+          
+          # First try with just the legacy build system
+          if ! xcodebuild \
             -workspace "$WORKSPACE_PATH" \
             -scheme Thenga \
             -configuration Release \
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
             -derivedDataPath /tmp/Thenga-DerivedData \
             -UseModernBuildSystem=NO \
-            GCC_WARN_INHIBIT_ALL_WARNINGS=YES \
-            CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER=NO \
-            CLANG_WARN_DOCUMENTATION_COMMENTS=NO \
-            GCC_WARN_64_TO_32_BIT_CONVERSION=NO \
-            GCC_WARN_ABOUT_RETURN_TYPE=NO \
-            GCC_WARN_UNINITIALIZED_AUTOS=NO \
-            GCC_WARN_UNUSED_FUNCTION=NO \
-            GCC_WARN_UNUSED_VARIABLE=NO \
-            GCC_WARN_UNUSED_VALUE=NO \
-            GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS=NO \
-            GCC_WARN_ABOUT_MISSING_PROTOTYPES=NO \
-            GCC_WARN_SHADOW=NO \
-            GCC_WARN_STRICT_SELECTOR_MATCH=NO \
-            GCC_WARN_UNDECLARED_SELECTOR=NO \
-            CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS=NO \
-            CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF=NO \
-            CLANG_WARN_OBJC_LITERAL_CONVERSION=NO \
-            CLANG_WARN_OBJC_ROOT_CLASS=NO \
-            CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER=NO \
-            CLANG_WARN_RANGE_LOOP_ANALYSIS=NO \
-            CLANG_WARN_STRICT_PROTOTYPES=NO \
-            CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION=NO \
-            CLANG_WARN_SUSPICIOUS_MOVE=NO \
-            CLANG_WARN_UNGUARDED_AVAILABILITY=NO \
-            CLANG_WARN_UNREACHABLE_CODE=NO \
-            CLANG_WARN__DUPLICATE_METHOD_MATCH=NO \
-            build
+            build 2>/dev/null; then
+            
+            echo "❌ Legacy build failed, trying with additional compiler flags..."
+            
+            # Try with additional compiler flags
+            xcodebuild \
+              -workspace "$WORKSPACE_PATH" \
+              -scheme Thenga \
+              -configuration Release \
+              -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
+              -derivedDataPath /tmp/Thenga-DerivedData \
+              -UseModernBuildSystem=NO \
+              GCC_WARN_INHIBIT_ALL_WARNINGS=YES \
+              CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER=NO \
+              CLANG_WARN_DOCUMENTATION_COMMENTS=NO \
+              GCC_WARN_64_TO_32_BIT_CONVERSION=NO \
+              GCC_WARN_ABOUT_RETURN_TYPE=NO \
+              GCC_WARN_UNINITIALIZED_AUTOS=NO \
+              GCC_WARN_UNUSED_FUNCTION=NO \
+              GCC_WARN_UNUSED_VARIABLE=NO \
+              GCC_WARN_UNUSED_VALUE=NO \
+              GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS=NO \
+              GCC_WARN_ABOUT_MISSING_PROTOTYPES=NO \
+              GCC_WARN_SHADOW=NO \
+              GCC_WARN_STRICT_SELECTOR_MATCH=NO \
+              GCC_WARN_UNDECLARED_SELECTOR=NO \
+              CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS=NO \
+              CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF=NO \
+              CLANG_WARN_OBJC_LITERAL_CONVERSION=NO \
+              CLANG_WARN_OBJC_ROOT_CLASS=NO \
+              CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER=NO \
+              CLANG_WARN_RANGE_LOOP_ANALYSIS=NO \
+              CLANG_WARN_STRICT_PROTOTYPES=NO \
+              CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION=NO \
+              CLANG_WARN_SUSPICIOUS_MOVE=NO \
+              CLANG_WARN_UNGUARDED_AVAILABILITY=NO \
+              CLANG_WARN_UNREACHABLE_CODE=NO \
+              CLANG_WARN__DUPLICATE_METHOD_MATCH=NO \
+              build
+          fi
           
           #############################################
           # ✅ Done
