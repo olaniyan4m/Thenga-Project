@@ -77,8 +77,20 @@ workflows:
         script: | 
           cd apps/mobile-app/ios
           
+          # Verify Pods are installed and workspace exists
+          echo "Checking for Pods installation..."
+          if [ ! -d "Pods" ]; then
+            echo "Pods directory missing, running pod install..."
+            pod install --repo-update
+          fi
+          
+          if [ ! -f "Thenga.xcworkspace" ]; then
+            echo "Workspace file missing, running pod install..."
+            pod install --repo-update
+          fi
+          
           # Build using the workspace file created by CocoaPods
-          xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 16' build
+          xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' build
     artifacts:
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       - apps/mobile-app/ios/build/**/*.app
