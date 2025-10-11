@@ -65,6 +65,13 @@ workflows:
           rm -rf Pods Podfile.lock ~/Library/Caches/CocoaPods DerivedData
           pod cache clean --all
           
+          # Fix Xcode PIF transfer session issues
+          echo "🔧 Fixing Xcode PIF transfer session issues..."
+          rm -rf ~/Library/Developer/Xcode/DerivedData
+          rm -rf ~/Library/Caches/com.apple.dt.Xcode
+          killall Xcode 2>/dev/null || true
+          killall xcodebuild 2>/dev/null || true
+          
           #############################################
           # 4️⃣ Fix duplicate RCT-Folly source issue
           #############################################
@@ -102,6 +109,10 @@ workflows:
             pod deintegrate
             pod install --repo-update --verbose
           fi
+          
+          # Clean project-specific DerivedData after pod install
+          echo "🧹 Cleaning project DerivedData..."
+          rm -rf ~/Library/Developer/Xcode/DerivedData/Thenga-*
           
           #############################################
           # 7️⃣ Verify workspace exists
