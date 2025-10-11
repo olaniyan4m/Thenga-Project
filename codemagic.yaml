@@ -38,7 +38,7 @@ workflows:
       - name: Skip code signing setup
         script: |
           echo "Building without code signing for simulator"
-      - name: Fix boost checksum and setup CocoaPods
+      - name: Install CocoaPods and Build iOS App
         script: | 
           cd apps/mobile-app/ios
           
@@ -56,40 +56,20 @@ workflows:
           # Clear all CocoaPods caches
           pod cache clean --all
           
-          # Try installing with existing Podfile first
-          echo "Attempting pod install with existing Podfile..."
-          pod install --repo-update --verbose || {
-            echo "Standard install failed, trying with CDN..."
-            pod install --repo-update --verbose --use-modular-headers || {
-              echo "CDN install failed, trying with clean install..."
-              pod install --clean-install --repo-update --verbose
-            }
-          }
+          # Install pods with verbose output
+          echo "Installing CocoaPods dependencies..."
+          pod install --repo-update --verbose
           
           # Verify workspace was created
           echo "Checking for workspace file:"
           ls -la *.xcworkspace
-      - name: Set build number
-        script: | 
-          cd apps/mobile-app/ios
+          
+          # Set build number
+          echo "Setting build number..."
           agvtool new-version -all $BUILD_NUMBER
-      - name: Build for iOS Simulator
-        script: | 
-          cd apps/mobile-app/ios
           
-          # Verify Pods are installed and workspace exists
-          echo "Checking for Pods installation..."
-          if [ ! -d "Pods" ]; then
-            echo "Pods directory missing, running pod install..."
-            pod install --repo-update
-          fi
-          
-          if [ ! -f "Thenga.xcworkspace" ]; then
-            echo "Workspace file missing, running pod install..."
-            pod install --repo-update
-          fi
-          
-          # Build using the workspace file created by CocoaPods
+          # Build the app
+          echo "Building iOS app..."
           xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' build
     artifacts:
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
