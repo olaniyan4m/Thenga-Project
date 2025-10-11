@@ -154,12 +154,35 @@ workflows:
           # 9️⃣ Build app
           #############################################
           echo "🏗  Building iOS app..."
-          xcodebuild \
+          
+          # Final cleanup before build to prevent PIF issues
+          echo "🧹 Final cleanup before build..."
+          rm -rf ~/Library/Developer/Xcode/DerivedData/Thenga-*
+          killall xcodebuild 2>/dev/null || true
+          sleep 2
+          
+          # Try building with different approaches
+          echo "🔨 Attempting build with clean environment..."
+          if ! xcodebuild \
             -workspace "$WORKSPACE_PATH" \
             -scheme Thenga \
             -configuration Release \
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
-            build
+            -derivedDataPath /tmp/Thenga-DerivedData \
+            build; then
+            
+            echo "❌ First build attempt failed, trying alternative approach..."
+            
+            # Alternative: Build using project file instead of workspace
+            echo "🔄 Trying build with project file..."
+            xcodebuild \
+              -project Thenga.xcodeproj \
+              -scheme Thenga \
+              -configuration Release \
+              -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
+              -derivedDataPath /tmp/Thenga-DerivedData \
+              build
+          fi
           
           #############################################
           # ✅ Done
