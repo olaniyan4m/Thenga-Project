@@ -106,11 +106,15 @@ workflows:
           #############################################
           # 7️⃣ Verify workspace exists
           #############################################
-          if [ ! -f "Thenga.xcworkspace" ]; then
-            echo "❌ Thenga.xcworkspace not found. Pod install likely failed."
+          WORKSPACE_PATH=$(find . -type f -name "*.xcworkspace" | head -n 1)
+
+          if [ -z "$WORKSPACE_PATH" ]; then
+            echo "❌ No .xcworkspace file found in $(pwd)"
+            echo "Contents:"
+            ls -la
             exit 1
           else
-            echo "✅ Thenga.xcworkspace found."
+            echo "✅ Found workspace: $WORKSPACE_PATH"
           fi
           
           #############################################
@@ -126,7 +130,7 @@ workflows:
           #############################################
           echo "🏗  Building iOS app..."
           xcodebuild \
-            -workspace Thenga.xcworkspace \
+            -workspace "$WORKSPACE_PATH" \
             -scheme Thenga \
             -configuration Release \
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
