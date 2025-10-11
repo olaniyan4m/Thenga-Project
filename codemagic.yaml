@@ -38,7 +38,7 @@ workflows:
       - name: Skip code signing setup
         script: |
           echo "Building without code signing for simulator"
-      - name: Install CocoaPods and Build iOS App
+      - name: Build iOS App (No CocoaPods)
         script: | 
           cd apps/mobile-app/ios
           
@@ -47,27 +47,13 @@ workflows:
           echo "Files in directory:"
           ls -la
           
-          # Install CocoaPods
-          gem install cocoapods --no-document
-          
-          # Clear all CocoaPods caches
-          pod cache clean --all
-          
-          # Install pods with verbose output
-          echo "Installing CocoaPods dependencies..."
-          pod install --repo-update --verbose
-          
-          # Verify workspace was created
-          echo "Checking for workspace file:"
-          ls -la *.xcworkspace
-          
           # Set build number
           echo "Setting build number..."
           agvtool new-version -all $BUILD_NUMBER
           
-          # Build the app using workspace (which includes Pods)
-          echo "Building iOS app..."
-          xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' build
+          # Build the app using project file directly (bypass CocoaPods)
+          echo "Building iOS app using project file..."
+          xcodebuild -project Thenga.xcodeproj -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' build
     artifacts:
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       - apps/mobile-app/ios/build/**/*.app
