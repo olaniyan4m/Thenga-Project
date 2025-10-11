@@ -38,34 +38,87 @@ workflows:
       - name: Skip code signing setup
         script: |
           echo "Building without code signing for simulator"
-      - name: Install CocoaPods and Build iOS App
+      - name: Fix + Build iOS App
         script: | 
-          cd apps/mobile-app/ios
+          set -e  # stop if any command fails
           
-          # Debug: Show current directory and files
-          echo "Current directory: $(pwd)"
-          echo "Files in directory:"
+          echo "🚀 Starting iOS build setup..."
+          
+          #############################################
+          # 1️⃣ Go to iOS folder
+          #############################################
+          cd apps/mobile-app/ios || { echo "❌ iOS folder not found!"; exit 1; }
+          echo "📂 Current directory: $(pwd)"
           ls -la
           
-          # Install CocoaPods
-          gem install cocoapods --no-document
+          #############################################
+          # 2️⃣ Ensure CocoaPods is installed
+          #############################################
+          echo "💎 Installing CocoaPods..."
+          gem install cocoapods --no-document || sudo gem install cocoapods --no-document
+          pod --version
           
-          # Install pods - this is CRITICAL for React Native
-          echo "Installing CocoaPods dependencies (REQUIRED for React Native)..."
-          echo "FORCE UPDATE: Ensuring CocoaPods is properly installed..."
-          pod install --repo-update --verbose
+          #############################################
+          # 3️⃣ Fix any stale caches and clean environment
+          #############################################
+          echo "🧹 Cleaning old Pods and cache..."
+          rm -rf Pods Podfile.lock ~/Library/Caches/CocoaPods DerivedData
+          pod cache clean --all
           
-          # Verify workspace was created
-          echo "Checking for workspace file:"
-          ls -la *.xcworkspace
+          #############################################
+          # 4️⃣ Fix known Boost 1.76.0 issues
+          #############################################
+          BOOST_PODSPEC="../node_modules/react-native/third-party-podspecs/boost.podspec"
+          if [ -f "$BOOST_PODSPEC" ]; then
+            echo "🛠  Patching boost.podspec..."
+            sed -i '' "s|https://github.com/react-native-community/boost-for-react-native/releases/download/v1.76.0/boost_1_76_0.tar.bz2|https://archives.boost.io/release/1.76.0/source/boost_1_76_0.tar.bz2|g" "$BOOST_PODSPEC" || true
+            # Remove old sha256 if exists
+            sed -i '' '/:sha256/d' "$BOOST_PODSPEC" || true
+          fi
           
-          # Set build number
-          echo "Setting build number..."
-          agvtool new-version -all $BUILD_NUMBER
+          #############################################
+          # 5️⃣ Install pods safely
+          #############################################
+          echo "📦 Installing Pods..."
+          if ! pod install --repo-update --verbose; then
+            echo "❌ pod install failed, retrying..."
+            pod deintegrate
+            pod install --repo-update --verbose
+          fi
           
-          # Build using workspace (which includes all CocoaPods dependencies)
-          echo "Building iOS app with CocoaPods..."
-          xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' build
+          #############################################
+          # 6️⃣ Verify workspace exists
+          #############################################
+          if [ ! -f "Thenga.xcworkspace" ]; then
+            echo "❌ Thenga.xcworkspace not found. Pod install likely failed."
+            exit 1
+          else
+            echo "✅ Thenga.xcworkspace found."
+          fi
+          
+          #############################################
+          # 7️⃣ Set build number if provided
+          #############################################
+          if [ -n "$BUILD_NUMBER" ]; then
+            echo "🔢 Setting build number to $BUILD_NUMBER..."
+            agvtool new-version -all "$BUILD_NUMBER" || echo "⚠️ Skipping build number update."
+          fi
+          
+          #############################################
+          # 8️⃣ Build app
+          #############################################
+          echo "🏗  Building iOS app..."
+          xcodebuild \
+            -workspace Thenga.xcworkspace \
+            -scheme Thenga \
+            -configuration Release \
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
+            build
+          
+          #############################################
+          # ✅ Done
+          #############################################
+          echo "🎉 Build completed successfully!"
     artifacts:
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       - apps/mobile-app/ios/build/**/*.app
