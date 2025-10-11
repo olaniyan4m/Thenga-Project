@@ -66,7 +66,17 @@ workflows:
           pod cache clean --all
           
           #############################################
-          # 4️⃣ Fix known Boost 1.76.0 issues
+          # 4️⃣ Fix duplicate RCT-Folly source issue
+          #############################################
+          PODFILE="Podfile"
+          if grep -q "pod 'RCT-Folly'" "$PODFILE"; then
+            echo "⚙️ Cleaning duplicate RCT-Folly entries..."
+            # Remove any plain RCT-Folly declaration (keep only the one with podspec path)
+            sed -i '' "/^[[:space:]]*pod 'RCT-Folly'[[:space:]]*$/d" "$PODFILE"
+          fi
+          
+          #############################################
+          # 5️⃣ Fix known Boost 1.76.0 issues
           #############################################
           BOOST_PODSPEC="../node_modules/react-native/third-party-podspecs/boost.podspec"
           if [ -f "$BOOST_PODSPEC" ]; then
@@ -77,7 +87,7 @@ workflows:
           fi
           
           #############################################
-          # 5️⃣ Install pods safely
+          # 6️⃣ Install pods safely
           #############################################
           echo "📦 Installing Pods..."
           if ! pod install --repo-update --verbose; then
@@ -87,7 +97,7 @@ workflows:
           fi
           
           #############################################
-          # 6️⃣ Verify workspace exists
+          # 7️⃣ Verify workspace exists
           #############################################
           if [ ! -f "Thenga.xcworkspace" ]; then
             echo "❌ Thenga.xcworkspace not found. Pod install likely failed."
@@ -97,7 +107,7 @@ workflows:
           fi
           
           #############################################
-          # 7️⃣ Set build number if provided
+          # 8️⃣ Set build number if provided
           #############################################
           if [ -n "$BUILD_NUMBER" ]; then
             echo "🔢 Setting build number to $BUILD_NUMBER..."
@@ -105,7 +115,7 @@ workflows:
           fi
           
           #############################################
-          # 8️⃣ Build app
+          # 9️⃣ Build app
           #############################################
           echo "🏗  Building iOS app..."
           xcodebuild \
