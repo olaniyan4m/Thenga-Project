@@ -78,7 +78,7 @@ workflows:
           cd apps/mobile-app/ios
           
           # Build using the workspace file created by CocoaPods
-          xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 15' build
+          xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 16' build
     artifacts:
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       - apps/mobile-app/ios/build/**/*.app
