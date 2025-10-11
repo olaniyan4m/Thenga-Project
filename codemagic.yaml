@@ -52,6 +52,7 @@ workflows:
           
           # Install pods - this is CRITICAL for React Native
           echo "Installing CocoaPods dependencies (REQUIRED for React Native)..."
+          echo "FORCE UPDATE: Ensuring CocoaPods is properly installed..."
           pod install --repo-update --verbose
           
           # Verify workspace was created
