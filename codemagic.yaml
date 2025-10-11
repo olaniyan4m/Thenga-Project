@@ -47,9 +47,6 @@ workflows:
           echo "Files in directory:"
           ls -la
           
-          # Remove existing Pods to start fresh
-          rm -rf Pods/ Podfile.lock
-          
           # Install CocoaPods
           gem install cocoapods --no-document
           
@@ -68,7 +65,7 @@ workflows:
           echo "Setting build number..."
           agvtool new-version -all $BUILD_NUMBER
           
-          # Build the app
+          # Build the app using workspace (which includes Pods)
           echo "Building iOS app..."
           xcodebuild -workspace Thenga.xcworkspace -scheme Thenga -configuration Release -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' build
     artifacts:
